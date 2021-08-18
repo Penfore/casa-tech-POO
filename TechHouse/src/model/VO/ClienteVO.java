@@ -1,10 +1,13 @@
 package model.VO;
-public class FuncionarioVO {
+
+public class ClienteVO {
 	public String nome;
 	public String endereco;
+	public String bairro;
 	public String email;
 	public String telefone;
-	public String cargo;
+	public String cep;
+	public String cpf;
 	
 	
 	public String getNome() {
@@ -54,18 +57,43 @@ public class FuncionarioVO {
 		}
 		
 	}
-	
-	public String getCargo() {
-		return cargo;
+	public String getBairro() {
+		return bairro;
 	}
-	public void setCargo(String cargo) {
-		if(cargo!=null && !cargo.equals(" ")) {
-			this.cargo = cargo;
+	public void setBairro(String bairro) {
+		if(bairro!=null && !bairro.equals(" ")) {
+			this.bairro = bairro;
+		}else{
+			//RETURN ERROR?
+		}
+	
+	}
+	
+	
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		if(cep!=null && !cep.equals(" ")) {
+			this.cep = cep;
 		}else{
 			//RETURN ERROR?
 		}
 		
 	}
 	
-
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		if(cpf!=null && !cpf.equals(" ")) {
+			this.cpf = cpf;
+		}else{
+			//RETURN ERROR?
+		}
+	
+	}
+	
+	
 }

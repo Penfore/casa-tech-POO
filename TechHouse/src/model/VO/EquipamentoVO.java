@@ -1,8 +1,8 @@
 package model.VO;
 public class EquipamentoVO {
 	public String nome;
-	public Double peso;
-	public Integer cod;
+	public double peso;
+	public int cod;
 	public int quantidade;
 	public LocalVO local;
 	public FuncionarioVO responsavel;
@@ -13,7 +13,7 @@ public class EquipamentoVO {
 	}
 	
 	public void setNome(String nome) {
-		if(nome!=null && nome.equals(" ")) {
+		if(nome!=null && !nome.equals(" ")) {
 			this.nome = nome;
 		}else{
 			//RETURN ERROR?
@@ -24,8 +24,8 @@ public class EquipamentoVO {
 		return peso;
 	}
 	
-	public void setPeso(Double peso) {
-		if(peso!=null && peso.equals(" ")) {
+	public void setPeso(double peso) {
+		if(peso>0) {
 			this.peso = peso;
 		}else{
 			//RETURN ERROR?
@@ -36,8 +36,8 @@ public class EquipamentoVO {
 		return cod;
 	}
 	
-	public void setCod(Integer cod) {
-		if(cod!=null ) {
+	public void setCod(int cod) {
+		if(cod>=0) {
 			this.cod = cod;
 		}else{
 			//RETURN ERROR?
@@ -49,7 +49,7 @@ public class EquipamentoVO {
 	}
 	
 	public void setQuantidade(int quantidade) {
-		if(nome!=null && nome.equals(" ")) {
+		if(quantidade>=0) {
 			this.quantidade = quantidade;
 		}else{
 			//RETURN ERROR?
@@ -62,12 +62,11 @@ public class EquipamentoVO {
 	}
 	
 	public void setLocal(LocalVO local) {
-		if(nome!=null && nome.equals(" ")) {
+		if(local!=null) {
 			this.local = local;
 		}else{
 			//RETURN ERROR?
 		}
-		
 	}
 	
 	public FuncionarioVO getResponsavel() {
@@ -75,7 +74,7 @@ public class EquipamentoVO {
 	}
 	
 	public void setResponsavel(FuncionarioVO responsavel) {
-		if(nome!=null && nome.equals(" ")) {
+		if(responsavel!=null) {
 			this.responsavel = responsavel;
 		}else{
 			//RETURN ERROR?
@@ -88,7 +87,7 @@ public class EquipamentoVO {
 	}
 	
 	public void setDescricao(String descricao) {
-		if(nome!=null && nome.equals(" ")) {
+		if(descricao!=null && !descricao.equals(" ")) {
 			this.descricao = descricao;
 		}else{
 			//RETURN ERROR?
