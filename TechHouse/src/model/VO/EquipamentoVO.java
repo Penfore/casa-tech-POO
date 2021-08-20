@@ -1,4 +1,5 @@
 package model.VO;
+
 public class EquipamentoVO {
 	private String nome;
 	private double peso;
