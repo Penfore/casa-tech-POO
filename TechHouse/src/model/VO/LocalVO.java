@@ -1,31 +1,37 @@
 package model.VO;
 
 public class LocalVO {
-	private long id;
+	private String id;
 	private String casa;
 	private String compartimento;
 	
-	public long getId() {
+
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
-		if(id>=0) {
-		  this.id = id;
+	public void setId(String id) {
+		if(id != null && !id.equals("")) {
+			this.id = id;
+		}else {
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa ID não pode estar vazia!");
 		}	
 	}
 	
+
 	public String getCasa() {
 		return casa;
 	}
-	
 	public void setCasa(String casa) {
 		if(casa!=null && !casa.equals("")) {
 			this.casa = casa;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa casa não pode estar vazia!");
 		}
 	}
 	
+
 	public String getCompartimento() {
 		return compartimento;
 	}
@@ -33,8 +39,8 @@ public class LocalVO {
 		if(compartimento!=null && !compartimento.equals("")) {
 			this.compartimento = compartimento;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa compartimento não pode estar vazia!");
 		}
 	}
-
 }

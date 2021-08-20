@@ -17,9 +17,12 @@ public class ClienteVO {
 		if(nome!=null && !nome.equals("")) {
 			this.nome = nome;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("O nome não pode ser vazio!");
+
 		}
 	}
+	
 	
 	public String getEndereco() {
 		return endereco;
@@ -28,24 +31,27 @@ public class ClienteVO {
 		if(endereco!=null && !endereco.equals("")) {
 			this.endereco = endereco;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa endereço não pode estar vazia!");
 		}
 		
 	}
 	
+
 	public String getEmail() {
 		return email;
 	}
-	
 	public void setEmail(String email) {
 		if(email!=null && !email.equals("")) {
 			this.email = email;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa email não pode estar vazia!");
 		}
 		
 	}
 	
+
 	public String getTelefone() {
 		return telefone;
 	}
@@ -53,10 +59,13 @@ public class ClienteVO {
 		if(telefone!=null && !telefone.equals("")) {
 			this.telefone = telefone;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa número de telefone não pode estar vazia!");
 		}
 		
 	}
+
+
 	public String getBairro() {
 		return bairro;
 	}
@@ -64,12 +73,13 @@ public class ClienteVO {
 		if(bairro!=null && !bairro.equals("")) {
 			this.bairro = bairro;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa do baixo não pode estar vazia!");
 		}
 	
 	}
 	
-	
+
 	public String getCep() {
 		return cep;
 	}
@@ -77,12 +87,13 @@ public class ClienteVO {
 		if(cep!=null && !cep.equals("")) {
 			this.cep = cep;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa do CEP não pode estar vazia!");
 		}
 		
-	}
+	}	
 	
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -90,10 +101,8 @@ public class ClienteVO {
 		if(cpf!=null && !cpf.equals("")) {
 			this.cpf = cpf;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa do CPF não pode estar vazia!");
 		}
-	
-	}
-	
-	
+	}	
 }

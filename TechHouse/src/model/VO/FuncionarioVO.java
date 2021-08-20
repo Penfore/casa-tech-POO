@@ -6,55 +6,59 @@ public class FuncionarioVO {
 	private String email;
 	private String telefone;
 	private int cargo;
-	
+
 	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		if(nome!=null && !nome.equals(" ")) {
+		if(nome!=null && !nome.equals("")) {
 			this.nome = nome;
 		}else{
-			//RETURN ERROR?
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa nome não pode estar vazia!");
 		}
 	}
 	
+
 	public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		if(endereco!=null && !endereco.equals(" ")) {
+		if(endereco!=null && !endereco.equals("")) {
 			this.endereco = endereco;
 		}else{
-			//RETURN ERROR?
-		}
-		
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa endereço não pode estar vazia!");
+		}	
 	}
 	
+
 	public String getEmail() {
 		return email;
 	}
-	
 	public void setEmail(String email) {
-		if(email!=null && !email.equals(" ")) {
+		if(email!=null && !email.equals("")) {
 			this.email = email;
 		}else{
-			//RETURN ERROR?
-		}
-		
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa email não pode estar vazia!");
+		}	
 	}
 	
+
 	public String getTelefone() {
 		return telefone;
 	}
 	public void setTelefone(String telefone) {
-		if(telefone!=null && !telefone.equals(" ")) {
+		if(telefone!=null && !telefone.equals("")) {
 			this.telefone = telefone;
 		}else{
-			//RETURN ERROR?
-		}
-		
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("A caixa de número de telefone não pode estar vazia!");
+		}	
 	}
+
 
 	public int getCargo() {
 		return cargo;
@@ -63,10 +67,8 @@ public class FuncionarioVO {
 		if(cargo >= 0) {
 			this.cargo = cargo;
 		}else{
-			//RETURN ERROR?
-		}
-		
+			// No futuro, essa mensagem será trocada por um throw exception;
+			System.out.println("Cargo inválido!");
+		}	
 	}
-	
-
 }
