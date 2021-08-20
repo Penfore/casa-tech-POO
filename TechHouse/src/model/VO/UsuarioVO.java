@@ -3,8 +3,17 @@ package model.VO;
 public class UsuarioVO {
 	private String email;
 	private String senha;
-	
-	
+	private String nome; 
+
+	public String getNome(){
+		return nome;
+	}
+
+	public void setNome(String nome){
+		if(nome!=null && !nome.equals("")){
+			this.nome=nome;
+		}
+	}
 	
 	public String getEmail() {
 		return email;

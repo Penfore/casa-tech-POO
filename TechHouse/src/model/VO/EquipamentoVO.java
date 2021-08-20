@@ -1,12 +1,12 @@
 package model.VO;
 public class EquipamentoVO {
-	public String nome;
-	public double peso;
-	public int cod;
-	public int quantidade;
-	public LocalVO local;
-	public FuncionarioVO responsavel;
-	public String descricao;
+	private String nome;
+	private double peso;
+	private int cod;
+	private int quantidade;
+	private LocalVO local;
+	private FuncionarioVO responsavel;
+	private String descricao;
 	
 	public String getNome() {
 		return nome;
@@ -63,7 +63,9 @@ public class EquipamentoVO {
 	
 	public void setLocal(LocalVO local) {
 		if(local!=null) {
-			this.local = local;
+			if(!local.getCasa().equals("") && !local.getCompartimento().equals("")){
+				this.local = local;	
+			}			
 		}else{
 			//RETURN ERROR?
 		}
@@ -75,8 +77,13 @@ public class EquipamentoVO {
 	
 	public void setResponsavel(FuncionarioVO responsavel) {
 		if(responsavel!=null) {
-			this.responsavel = responsavel;
-		}else{
+			if(!responsavel.getNome().equals("")){
+				if(!responsavel.getEmail().equals("") || !responsavel.getTelefone().equals("")){
+					this.responsavel = responsavel;
+				}
+			}			
+		}
+		else{
 			//RETURN ERROR?
 		}
 		

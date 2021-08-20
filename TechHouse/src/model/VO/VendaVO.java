@@ -2,14 +2,14 @@ package model.VO;
 import java.util.Calendar;
 
 public class VendaVO {
-     public float precoTotal;
-     public int id;
-     public String dataDecompra;//HOW TO MAKE THIS WHIT CALENDAR 
-     public String status;
-     public ClienteVO comprador;
-     public EquipamentoVO produto[];
-     public int quantidadeProduto[];
-     public float precoProduto[];
+     private float precoTotal;
+     private int id;
+     private String dataDecompra;//HOW TO MAKE THIS WHIT CALENDAR 
+     private String status;
+     private ClienteVO comprador;
+     private EquipamentoVO produto[];
+     private int quantidadeProduto[];
+     private float precoProduto[];
      
      
      
@@ -59,8 +59,11 @@ public class VendaVO {
 	}
 	public void setComprador(ClienteVO comprador) {
 		if(comprador!=null) {
-			this.comprador = comprador;
-		}else{
+			if(!comprador.getNome().equals("")){
+				if(!comprador.getEmail().equals("") || !comprador.getTelefone().equals("")){
+					this.comprador = comprador;
+				}
+			}	else{
 			//RETURN ERROR?
 		}
 	}

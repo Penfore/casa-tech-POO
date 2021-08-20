@@ -1,13 +1,13 @@
 package model.VO;
 
 public class ClienteVO {
-	public String nome;
-	public String endereco;
-	public String bairro;
-	public String email;
-	public String telefone;
-	public String cep;
-	public String cpf;
+	private String nome;
+	private String endereco;
+	private String bairro;
+	private String email;
+	private String telefone;
+	private String cep;
+	private String cpf;
 	
 	
 	public String getNome() {
