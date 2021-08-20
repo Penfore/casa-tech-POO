@@ -2,6 +2,7 @@ package model.VO;
 public class EquipamentoVO {
 	private String nome;
 	private double peso;
+	private double preco;
 	private int cod;
 	private int quantidade;
 	private LocalVO local;
@@ -13,7 +14,7 @@ public class EquipamentoVO {
 	}
 	
 	public void setNome(String nome) {
-		if(nome!=null && !nome.equals(" ")) {
+		if(nome!=null && !nome.equals("")) {
 			this.nome = nome;
 		}else{
 			//RETURN ERROR?
@@ -101,4 +102,18 @@ public class EquipamentoVO {
 		}
 		
 	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		if(preco>0) {
+			this.preco = preco;
+		}else {
+			//RETURN ERRO
+		}
+	}
+	
+	
 }

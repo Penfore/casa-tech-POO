@@ -4,7 +4,7 @@ import java.util.Calendar;
 public class VendaVO {
      private float precoTotal;
      private int id;
-     private String dataDecompra;//HOW TO MAKE THIS WHIT CALENDAR 
+     private Calendar dataDecompra;//HOW TO MAKE THIS WHIT CALENDAR 
      private String status;
      private ClienteVO comprador;
      private EquipamentoVO produto[];
@@ -32,11 +32,11 @@ public class VendaVO {
 		}	
 	}
 	
-	public String getDataDecompra() {
+	public Calendar getDataDecompra() {
 		return dataDecompra;
 	}
-	public void setDataDecompra(String dataDecompra) {
-		if(dataDecompra!=null && !dataDecompra.equals(" ")) {
+	public void setDataDecompra(Calendar dataDecompra) {
+		if(dataDecompra!=null && !dataDecompra.equals("")) {
 			this.dataDecompra = dataDecompra;
 		}else{
 			//RETURN ERROR?
@@ -47,7 +47,7 @@ public class VendaVO {
 		return status;
 	}
 	public void setStatus(String status) {
-		if(status!=null && !status.equals(" ")) {
+		if(status!=null && !status.equals("")) {
 			this.status = status;
 		}else{
 			//RETURN ERROR?
@@ -63,18 +63,23 @@ public class VendaVO {
 				if(!comprador.getEmail().equals("") || !comprador.getTelefone().equals("")){
 					this.comprador = comprador;
 				}
-			}	else{
-			//RETURN ERROR?
+			}	
+		}else{
+			//RETURN ERRO
 		}
 	}
-	
 	public EquipamentoVO[] getProduto() {
 		return produto;
 	}
 	
 	public void setProduto(EquipamentoVO[] produto) {
 		if(produto!=null) {
-			this.produto = produto;
+			for(int i =0; i<produto.length;i++) {
+				if(!produto[i].getNome().equals("") && produto[i].getPreco() > 0) {
+					this.produto = produto;
+				}
+			}
+			
 		}else{
 			//RETURN ERROR?
 		}
@@ -85,7 +90,11 @@ public class VendaVO {
 	
 	public void setQuantidadeProduto(int[] quantidadeProduto) {
 		if(quantidadeProduto!=null) {
-			this.quantidadeProduto = quantidadeProduto;
+			for(int i=0; i < quantidadeProduto.length ; i++) {
+				if(quantidadeProduto[i]>0) {
+					this.quantidadeProduto = quantidadeProduto;
+				}
+			}
 		}else{
 			//RETURN ERROR?
 		}
@@ -96,11 +105,14 @@ public class VendaVO {
 	}
 	public void setPrecoProduto(float[] precoProduto) {
 		if(precoProduto!=null) {
-			this.precoProduto = precoProduto;
+			for(int i=0; i < precoProduto.length ; i++) {
+				if(precoProduto[i]>0) {
+					this.precoProduto = precoProduto;
+				}
+			}
+			
 		}else{
 			//RETURN ERROR?
 		}
 	}
-     
-     
 }

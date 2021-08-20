@@ -14,7 +14,7 @@ public class ClienteVO {
 		return nome;
 	}
 	public void setNome(String nome) {
-		if(nome!=null && !nome.equals(" ")) {
+		if(nome!=null && !nome.equals("")) {
 			this.nome = nome;
 		}else{
 			//RETURN ERROR?
@@ -25,7 +25,7 @@ public class ClienteVO {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		if(endereco!=null && !endereco.equals(" ")) {
+		if(endereco!=null && !endereco.equals("")) {
 			this.endereco = endereco;
 		}else{
 			//RETURN ERROR?
@@ -38,7 +38,7 @@ public class ClienteVO {
 	}
 	
 	public void setEmail(String email) {
-		if(email!=null && !email.equals(" ")) {
+		if(email!=null && !email.equals("")) {
 			this.email = email;
 		}else{
 			//RETURN ERROR?
@@ -50,7 +50,7 @@ public class ClienteVO {
 		return telefone;
 	}
 	public void setTelefone(String telefone) {
-		if(telefone!=null && !telefone.equals(" ")) {
+		if(telefone!=null && !telefone.equals("")) {
 			this.telefone = telefone;
 		}else{
 			//RETURN ERROR?
@@ -61,7 +61,7 @@ public class ClienteVO {
 		return bairro;
 	}
 	public void setBairro(String bairro) {
-		if(bairro!=null && !bairro.equals(" ")) {
+		if(bairro!=null && !bairro.equals("")) {
 			this.bairro = bairro;
 		}else{
 			//RETURN ERROR?
@@ -74,7 +74,7 @@ public class ClienteVO {
 		return cep;
 	}
 	public void setCep(String cep) {
-		if(cep!=null && !cep.equals(" ")) {
+		if(cep!=null && !cep.equals("")) {
 			this.cep = cep;
 		}else{
 			//RETURN ERROR?
@@ -87,7 +87,7 @@ public class ClienteVO {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
-		if(cpf!=null && !cpf.equals(" ")) {
+		if(cpf!=null && !cpf.equals("")) {
 			this.cpf = cpf;
 		}else{
 			//RETURN ERROR?

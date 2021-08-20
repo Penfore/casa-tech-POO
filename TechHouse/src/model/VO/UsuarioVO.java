@@ -19,7 +19,7 @@ public class UsuarioVO {
 		return email;
 	}
 	public void setEmail(String email) {
-		if(email!=null && !email.equals(" ")) {
+		if(email!=null && !email.equals("")) {
 			this.email = email;
 		}else{
 			//RETURN ERROR?
@@ -30,7 +30,7 @@ public class UsuarioVO {
 		return senha;
 	}
 	public void setSenha(String senha) {
-		if(senha!=null && !senha.equals(" ")) {
+		if(senha!=null && !senha.equals("")) {
 			this.senha = senha;
 		}else{
 			//RETURN ERROR?

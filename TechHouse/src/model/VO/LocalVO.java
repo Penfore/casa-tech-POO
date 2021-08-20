@@ -19,7 +19,7 @@ public class LocalVO {
 	}
 	
 	public void setCasa(String casa) {
-		if(casa!=null && !casa.equals(" ")) {
+		if(casa!=null && !casa.equals("")) {
 			this.casa = casa;
 		}else{
 			//RETURN ERROR?
@@ -30,7 +30,7 @@ public class LocalVO {
 		return compartimento;
 	}
 	public void setCompartimento(String compartimento) {
-		if(compartimento!=null && !compartimento.equals(" ")) {
+		if(compartimento!=null && !compartimento.equals("")) {
 			this.compartimento = compartimento;
 		}else{
 			//RETURN ERROR?
