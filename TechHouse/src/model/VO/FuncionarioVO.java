@@ -1,6 +1,7 @@
 package model.vo; // Será corrigido os caminhos dos diretórios para encaixar nas próximas branches
 
-public class FuncionarioVO {
+public class FuncionarioVO extends UsuarioVO // Visto que todo funcionário deverá ter um login como usuário do sistema;
+{
 	private String nome;
 	private String endereco;
 	private String email;

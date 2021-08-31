@@ -5,7 +5,8 @@ public class EquipamentoVO {
 	private double peso;
 	private double preco;
 	private String codigo;
-	private int quantidade;
+	private int quantidade = 0; // Inicializando com valor zerado para evitar erros;
+	private int quantidadePedido = 0; // Inicializando com valor zerado para evitar erros;
 	private LocalVO local;
 	private FuncionarioVO responsavel;
 	private String descricao;
@@ -42,7 +43,7 @@ public class EquipamentoVO {
 	}
 	public void setCodigo(String codigo) {
 		if(codigo != null && !codigo.equals("")) {
-			this.cod = cod;
+			this.codigo = codigo;
 		}else{
 			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A caixa do código não pode estar vazia!");
@@ -53,18 +54,33 @@ public class EquipamentoVO {
 	public int getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(int quantidade) {
-		if(quantidade>=0) {
-			this.quantidade = quantidade;
-		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A quantidade atribuída é inválida!");
+	public void setQuantidade(int quantidade) 
+	{
+		this.quantidade += quantidae;	
+	}
+
+
+	public int getQuantidadePedido()
+	{
+		return quantidadePedido;
+	}
+	public void setQuantidadePedido(int quantidadePedido)
+	{
+		if (quantidadePedido > 0)
+		{
+			if (quantidadePedido <= quantidade)
+			{
+				this.quantidadePedido = quantidadePedido;
+			} else
+			{
+				// No futuro, essa mensagem será trocada por um throw exception;
+				System.out.println("A quantidade do equipamento no pedido não pode ser maior do que a quantidade do estoque"); 
+			}
 		}
-		
 	}
 	
 
-	public LocalVO getLocal() {
+	public LocalVO getLocal() { // Ainda não entendi o uso do local em EquipamentoVO;
 		return local;
 	}
 	public void setLocal(LocalVO local) {
@@ -83,12 +99,10 @@ public class EquipamentoVO {
 		return responsavel;
 	}
 	public void setResponsavel(FuncionarioVO responsavel) {
-		if(responsavel!=null) {
-			if(!responsavel.getNome().equals("")){
-				if(!responsavel.getEmail().equals("") || !responsavel.getTelefone().equals("")){
-					this.responsavel = responsavel;
-				}
-			}			
+		if(responsavel!=null) 
+		{
+			this.responsavel = responsavel;		
+		}			
 		}
 		else{
 			// No futuro, essa mensagem será trocada por um throw exception;
@@ -102,9 +116,18 @@ public class EquipamentoVO {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
-		if(descricao!=null && !descricao.equals("")) {
-			this.descricao = descricao;
-		}else{
+		if(descricao!=null && !descricao.equals("")) 
+		{
+			if (descricao.length() <= 500) // Limitando em 500 caracteres o tamanho da descrição;
+			{
+				this.descicao = descricao;
+			} else 
+			{
+				// No futuro, essa mensagem será trocada por um throw exception;
+				System.out.println("A descrição precisa ter menos de 500 caracteres!");
+			}
+		} else
+		{
 			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A descrição não pode estar vazia!");
 		}

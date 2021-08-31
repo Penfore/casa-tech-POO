@@ -1,6 +1,6 @@
 package model.vo; // Será corrigido os caminhos dos diretórios para encaixar nas próximas branches
 
-public class LocalVO {
+public class LocalVO { // NÃO ENTENDI AINDA PRA QUE SERVE ESSA CLASSE E COMO UTILIZÁ-LA :/
 	private String id;
 	private String casa;
 	private String compartimento;
