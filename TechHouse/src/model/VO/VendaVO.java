@@ -1,4 +1,4 @@
-package model.VO;
+package model.vo; // Será corrigido os caminhos dos diretórios para encaixar nas próximas branches
 import java.util.Calendar;
 
 public class VendaVO {
