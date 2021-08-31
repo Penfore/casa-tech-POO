@@ -9,7 +9,7 @@ public class VendaVO {
      private float precoTotal;
      private String id;
      private Calendar dataDeCompra; //HOW TO MAKE THIS WHIT CALENDAR // Solved ;)
-     private String status;
+     // private String status; // Ver definição dos métodos de status;
      private ClienteVO comprador;
 	 private ArrayList <EquipamentoVO> carrinhoCompras = new ArrayList<EquipamentoVO>();
      
@@ -66,7 +66,7 @@ public class VendaVO {
 	public void setDataDeCompra() 
 	{
 		Calendar dataDeCompra = Calendar.getInstance();
-		
+
 		dataDeCompra.get(Calendar.YEAR);
 		dataDeCompra.get(Calendar.MONTH);
 		dataDeCompra.get(Calendar.DAY_OF_MONTH);
@@ -78,7 +78,7 @@ public class VendaVO {
 	}
 	
 
-	public String getStatus() {
+	/* public String getStatus() { // Não lembro o que era esse status kkjj
 		return status;
 	}
 	public void setStatus(String status) {
@@ -88,7 +88,7 @@ public class VendaVO {
 			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A caixa status não pode estar vazia!");
 		}
-	}
+	} */
 	
 
 	public ClienteVO getComprador() {
