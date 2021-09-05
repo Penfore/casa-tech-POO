@@ -1,105 +1,111 @@
 package src.model.vo; 
 
-public class FuncionarioVO extends UsuarioVO // Visto que todo funcionário deverá ter um login como usuário do sistema;
+public class FuncionarioVO extends UsuarioVO // Visto que todo funcionÃ¡rio deverÃ¡ ter um login como usuÃ¡rio do sistema;
 {
+	private int id;
 	private String nome;
 	private String endereco;
 	private String email;
 	private String telefone;
-	private int cargo; // Cargo está como inteiro pois será uma enumeração;
+	private int cargo;
+	private UsuarioVO usuario;
 
 	
-	// NOME DO FUNCIONÁRIO
-	public String getNome() 
-	{
+	//ID
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		if(id >= 0) {
+			this.id = id;
+		}else {
+			System.out.println("ID nao valido");
+		}
+		
+	}
+	
+	// OBJETO USUARIO
+	public UsuarioVO getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(UsuarioVO usuario) {
+		if(usuario!=null) {
+			this.usuario = usuario;
+		}else{
+			System.out.println("Usuario invalido");
+		}
+		
+	}
+	
+	// NOME DO FUNCIONÃ�RIO
+	public String getNome(){
 		return nome;
 	}
-	public void setNome(String nome) 
-	{
+	
+	
+	public void setNome(String nome){
 		if(nome!=null && !nome.equals("")) 
 		{
 			this.nome = nome;
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa nome não pode estar vazia!");
+		} else{
+			System.out.println("A caixa nome nÃ£o pode estar vazia!");
 		}
 	}
-	//
 
 
-	// ENDEREÇO DO FUNCIONARIO // Não é opcional
-	public String getEndereco() 
-	{
+
+	// ENDEREÃ‡O DO FUNCIONARIO // NÃ£o Ã© opcional
+	public String getEndereco(){
 		return endereco;
 	}
-	public void setEndereco(String endereco) 
-	{
-		if(endereco!=null && !endereco.equals("")) 
-		{
+	
+	public void setEndereco(String endereco){
+		if(endereco!=null && !endereco.equals("")){
 			this.endereco = endereco;
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa endereço não pode estar vazia!");
+		} else{
+			System.out.println("A caixa endereÃ§o nÃ£o pode estar vazia!");
 		}	
 	}
-	//
 
 
-	// E-MAIL DO FUNCIONÁRIO // Não é opcional
-	public String getEmail() 
-	{
+	// E-MAIL DO FUNCIONÃ�RIO 
+	public String getEmail(){
 		return email;
 	}
-	public void setEmail(String email) 
-	{
-		if(email!=null && !email.equals("")) 
-		{
+	
+	public void setEmail(String email) {
+		if(email!=null && !email.equals("")){
 			this.email = email;
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa email não pode estar vazia!");
+		} else{
+			System.out.println("A caixa email nÃ£o pode estar vazia!");
 		}	
 	}
-	//
 
-
-	// TELEFONE DO FUNCIONÁRIO // Não é opcional
-	public String getTelefone() 
-	{
+	// TELEFONE DO FUNCIONÃ�RIO 
+	public String getTelefone(){
 		return telefone;
 	}
-	public void setTelefone(String telefone) 
-	{
-		if(telefone!=null && !telefone.equals("")) 
-		{
+	
+	public void setTelefone(String telefone){
+		if(telefone!=null && !telefone.equals("")){
 			this.telefone = telefone;
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa de número de telefone não pode estar vazia!");
+		} else{
+			System.out.println("A caixa de nÃºmero de telefone nÃ£o pode estar vazia!");
 		}	
 	}
-	//
 
-
-	// CARGO DO FUNCIONÁRIO 
-	public int getCargo() 
-	{
+	// CARGO DO FUNCIONÃ�RIO 
+	public int getCargo(){
 		return cargo;
 	}
+	
 	public void setCargo(int cargo) 
 	{
-		if(cargo >= 0) // && cargo <= 4; O número máximo de cargos dependerá de cada empresa 
-		{
+		if(cargo >= 0){ // && cargo <= 4;
 			this.cargo = cargo;
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("Cargo inválido!");
+		} else{
+			System.out.println("Cargo invÃ¡lido!");
 		}	
 	}
-	//
 }

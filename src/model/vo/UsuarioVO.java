@@ -2,27 +2,34 @@ package src.model.vo;
 
 public class UsuarioVO 
 {
-	private String nomeUsuario; 
+	private int id;
+	private String nickName; 
 	private String senha;
-
-
-	// NOME DE USUARIO DO LOGIN
-	public String getNomeUsuario()
-	{
-		return nome;
+	
+	
+	
+	public int getId() {
+		return id;
 	}
-	public void setNomeUsuario(String nomeUsuario)
-	{
-		if(nome!=null && !nomeUsuario.equals(""))
-		{
-			this.nomeUsuario = nomeUsuario;
-		} else 
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa nome não pode estar vazia!");
+	public void setId(int id) {
+		if(id>=0) {
+			this.id = id;
 		}
 	}
-	//
+	
+	
+	
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		if(nickName !=null && nickName !="") {
+			this.nickName = nickName;
+		}else {
+			
+		}
+		
+	}
 
 
 	// SENHA DE USUARIO DO LOGIN
@@ -34,18 +41,14 @@ public class UsuarioVO
 	{
 		if(senha!=null && !senha.equals("")) 
 		{
-			if (senha.lenght() >= 8) // Senha precisa ter no mínimo 8 caracteres por questões de segurança; Mais padrões podem ser adicionados;
-			{
+			if (senha.length() >= 8){
 				this.senha = senha;
-			} else 
-			{
-				// No futuro, essa mensagem será trocada por um throw exception;
+				// VERIFY SENHA LENGTH 
+			} else{
 				System.out.println("A senha precisa ter 8 ou mais caracteres!");
 			}
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa senha não pode estar vazia ou está incorreta!"); // No BO será escrita a lógica para a validação de senha;
+			System.out.println("A caixa senha não pode estar vazia ou está incorreta!"); 
 		}
 	}
-	//
 }

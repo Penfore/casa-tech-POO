@@ -1,13 +1,27 @@
 package src.model.vo; 
 
 public class ClienteVO {
+	private int id;
 	private String nome;
-	private String enderecoRua; 
+	private String rua; 
 	private String bairro;
 	private String email;
 	private String telefone;
 	private String cep;
 	private String cpf;
+	
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		if(id>=0) {
+			this.id = id;
+		}else {
+			System.out.println("ID invalido!");
+		}
+	}
 	
 	
 	// NOME
@@ -18,28 +32,22 @@ public class ClienteVO {
 		if(nome!=null && !nome.equals("")) {
 			this.nome = nome;
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("O nome não pode ser vazio!");
 
 		}
 	}
-	//
 
-	
 	// NOME DA RUA
 	public String getEnderecoRua() {
-		return enderecoRua;
+		return rua;
 	}
-	public void setEnderecoRua(String enderecoRua) { 
-		if(enderecoRua!=null && !enderecoRua.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
-			this.enderecoRua = enderecoRua;
+	public void setEnderecoRua(String rua) { 
+		if(rua!=null && !rua.equals("")) { 
+			this.rua = rua;
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A caixa rua não pode estar vazia!");
 		}
-		
 	}
-	//
 	
 
 	// E-MAIL
@@ -47,10 +55,9 @@ public class ClienteVO {
 		return email;
 	}
 	public void setEmail(String email) {
-		if(email!=null && !email.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
+		if(email!=null && !email.equals("")){ 
 			this.email = email;
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A caixa email não pode estar vazia!");
 		}
 		
@@ -63,15 +70,15 @@ public class ClienteVO {
 		return telefone;
 	}
 	public void setTelefone(String telefone) {
-		if(telefone!=null && !telefone.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
+		if(telefone!=null && !telefone.equals("")) { 
 			this.telefone = telefone;
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
+			
 			System.out.println("A caixa número de telefone não pode estar vazia!");
 		}
 		
 	}
-	//
+	
 
 
 	// BAIRRO
@@ -95,52 +102,42 @@ public class ClienteVO {
 		return cep;
 	}
 	public void setCep(String cep) {
-		if(cep!=null && !cep.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
+		if(cep!=null && !cep.equals("")) { 
 			this.cep = cep;
 		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
 			System.out.println("A caixa do CEP não pode estar vazia!");
 		}
 		
 	}	
-	//
-
 
 	// CPF
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) { 
-		if(cpf!=null && !cpf.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
-			if (cpf.length() == 11)
-			{
-				if (cpf.substring(0, 10).matches("[0-9]*"))
-				{
+		if(cpf!=null && !cpf.equals("")) { 
+			if (cpf.length() == 11){
+				if (cpf.substring(0, 10).matches("[0-9]*")){
 					if ((!cpf.equals("00000000000")) && (!cpf.equals("11111111111")) // Sinalizando expressão para melhorar visualização
-							&& (!cpf.equals("22222222222")) && (!cpf.equals("33333333333")) //
-							&& (!cpf.equals("44444444444")) && (!cpf.equals("55555555555")) //
-							&& (!cpf.equals("66666666666")) && (!cpf.equals("77777777777")) //
-							&& (!cpf.equals("88888888888"))&& (!cpf.equals("99999999999"))) //
-					{
+							&& (!cpf.equals("22222222222")) && (!cpf.equals("33333333333")) 
+							&& (!cpf.equals("44444444444")) && (!cpf.equals("55555555555")) 
+							&& (!cpf.equals("66666666666")) && (!cpf.equals("77777777777")) 
+							&& (!cpf.equals("88888888888"))&& (!cpf.equals("99999999999"))){
+						
 						this.cpf = cpf;
-					} else
-					{
+						
+					}else{
 						System.out.println("Os números do CPF não podem ser todos igual!");
 					}		
 							
-				} else
-				{
+				} else{
 					System.out.println("O CPF não pode conter letras, apenas números!");
 				}
-			} else 
-			{
+			} else{
 				System.out.println("O CPF precisa ter 11 caracteres!");
 			}
-		} else
-		{
-			// No futuro, essa mensagem será trocada por um throw exception;
+		} else{
 			System.out.println("A caixa do CPF não pode estar vazia!");
 		}
 	}	
 }
-//

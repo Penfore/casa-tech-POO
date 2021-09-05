@@ -1,38 +1,32 @@
 package src.model.vo;
 
-// Essa classe servirá para gerar os objetos recibos das vendas concluídas. Esses objetos serão salvos em algum lugar que se possa checar;
-public class ReciboVO
-{
+// Essa classe servirÃ¡ para gerar os objetos recibos das vendas concluÃ­das. 
+public class ReciboVO{
     private VendaVO vendaFinalizada;
-    private String id;
-
-
-    // OBJETO DA VENDA FINALIZADA QUE SERÁ PASSADO POR REFERÊNCIA PARA A CLASSE ReciboVO
-    public VendaVO getVendaFinalizada()
-    {
+    private int id;
+    
+    
+    
+    public VendaVO getVendaFinalizada(){
         return vendaFinalizada;
     }
-    public void setVendaFinalizada(VendaVO vendaFinalizada)
-    {
-        if (vendaFinalizada != null)
-        {
+    
+    
+    
+    public void setVendaFinalizada(VendaVO vendaFinalizada){
+        if (vendaFinalizada != null){
             this.vendaFinalizada = vendaFinalizada;
-        } else 
-        {
+        } else {
             System.out.println("A venda não foi concluída!");
         }
     }
-    //
 
-
-    // NÚMERO IDENTIFICADO DA VENDA FINALIZADA
-    public String getId()
+    public int getId()
     {
         return id;
     }
-    public void setId(VendaVO vendaFinalizada) 
+    public void setId(VendaVO venda) 
     {
-        this.id = vendaFinalizada.getId(); 
+        this.id = venda.getId();
     }
-    //
 }
