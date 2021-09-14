@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BaseDao{
-    private static Connection conn = null;
+public class BaseDao {
+    Connection conn = null;
 		
 	// DADOS CONEXÃO FULVIN :)    
 	//    private static final String url = "jdbc:postgresql://localhost:5432/Casa-Tech-POO"; 
@@ -14,44 +14,25 @@ public class BaseDao{
 	 
 
     //DADOS DE CONEXÂO DA ISABELE :)
-    private static final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=casatech";
     private static final String usuario = "postgres";
     private static final String senha = "123";
 
-    public Connection getConnection()
-    {
-        if (conn == null)
-        {
-            try 
-            {
+    public Connection getConnection() throws SQLException{
+        if (conn == null){
+            try {
                 conn = DriverManager.getConnection(url, usuario, senha);
-            } catch (SQLException e)
-            {
+            }catch (SQLException e){
                 e.printStackTrace();
             }
-
             return conn;
-        } else 
-        {
+            
+        }else{
             return conn;
         }
     }
 
 
-    public static void closeConnection()
-    {
-        if (conn != null)
-        {
-            try 
-            {
-                conn.close();
-            } catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-        }
-
-        conn = null;
-    }
+   
 
 }
