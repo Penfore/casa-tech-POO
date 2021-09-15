@@ -38,10 +38,10 @@ public class ClienteVO {
 	}
 
 	// NOME DA RUA
-	public String getEnderecoRua() {
+	public String getRua() {
 		return rua;
 	}
-	public void setEnderecoRua(String rua) { 
+	public void setRua(String rua) { 
 		if(rua!=null && !rua.equals("")) { 
 			this.rua = rua;
 		}else{
