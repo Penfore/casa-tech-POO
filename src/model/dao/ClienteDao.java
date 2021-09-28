@@ -14,7 +14,7 @@ public class ClienteDao extends BaseDao {
 
     public void Inserir (ClienteVO vo) throws SQLException{
         conn = getConnection();
-        String sql = "Insert into Cliente (nome,rua,bairro,email,telefone,cep,cpf) values (?,?)";
+        String sql = "Insert into Cliente (nome,rua,bairro,email,telefone,cep,cpf) values (?,?,?,?,?,?,?)";
         PreparedStatement ptst = conn.prepareStatement(sql);
         try{            
         ptst.setString(1, vo.getNome());
@@ -58,6 +58,7 @@ public class ClienteDao extends BaseDao {
             ptst.setString(5, vo.getTelefone());
             ptst.setString(6, vo.getCep());
             ptst.setString(7, vo.getCpf());
+            ptst.setInt(8, vo.getId());
 			
 			ptst.execute();
 
@@ -82,6 +83,7 @@ public class ClienteDao extends BaseDao {
 			while(rs.next()) {
 				ClienteVO cliVO = new ClienteVO();
 
+				cliVO.setId(rs.getInt("id"));
 				cliVO.setNome(rs.getString("nome"));
 				cliVO.setRua(rs.getString("rua"));
 				cliVO.setBairro(rs.getString("bairro"));

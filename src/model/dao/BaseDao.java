@@ -37,8 +37,4 @@ public class BaseDao {
             return conn;
         }
     }
-
-
-   
-
 }

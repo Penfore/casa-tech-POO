@@ -11,11 +11,7 @@ public class VendaVO {
      private Calendar dataDeCompra; 
      private String status; 
      private ClienteVO comprador;
-	 private ArrayList <EquipamentoVO> carrinhoCompras = new ArrayList<EquipamentoVO>();
-	 //carrinho de compras vai ser uma tabela n-n no banco entre venda e produto
-	 //ver como fazer isso aq depois 
-	 
-	 private int quantidadeProduto[]; //mudar pra arrayList depois 
+
      
      
 	public int getId() {
@@ -74,15 +70,14 @@ public class VendaVO {
 		return dataDeCompra;
 	}
 	
-	public void setDataDeCompra() {
-		Calendar dataDeCompra = Calendar.getInstance();
-
+	public void setDataDeCompra(Calendar dataDeCompra) {
+		
 		dataDeCompra.get(Calendar.YEAR);
 		dataDeCompra.get(Calendar.MONTH);
 		dataDeCompra.get(Calendar.DAY_OF_MONTH);
 		dataDeCompra.get(Calendar.HOUR_OF_DAY);
 		dataDeCompra.get(Calendar.MINUTE);
-		dataDeCompra.get(Calendar.SECOND);
+
 
 		this.dataDeCompra = dataDeCompra;
 	}
@@ -111,32 +106,5 @@ public class VendaVO {
 		} else{
 			System.out.println("Os atributos do comprador são inválidos!");
 		}
-	}
-
-
-	public ArrayList <EquipamentoVO> getCarrinhoCompras(){
-		return carrinhoCompras;
-	}
-	
-	public void setCarrinhoCompras(EquipamentoVO equipamento){
-		if (equipamento != null){
-			this.carrinhoCompras.add(equipamento);
-		}
-	}
-
-	public int[] getQuantidadeProduto() {
-		return quantidadeProduto;
-	}
-
-	public void setQuantidadeProduto(int[] quantidadeProduto) {
-		for(int i =0; i <quantidadeProduto.length; i++ ) {
-			if(quantidadeProduto[i]>=0){
-				this.quantidadeProduto = quantidadeProduto;
-			}else{
-				
-			}
-		}
-	}
-	
-	
+	}	
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class FuncionarioDao extends BaseDao{
 	public void inserir(FuncionarioVO vo) throws SQLException  {
 		conn = getConnection();
-		String sql = "Insert into Funcionario (nome,endereco,email,telefone,cargo,Funcionario_id) values (?,?,?,?,?,?)";
+		String sql = "Insert into Funcionario (nome,endereco,email,telefone,cargo,usuario_id) values (?,?,?,?,?,?)";
 		PreparedStatement ptst = conn.prepareStatement(sql);
 		try {
 			ptst.setString(1,vo.getNome());
@@ -21,11 +21,12 @@ public class FuncionarioDao extends BaseDao{
 			ptst.setString(3,vo.getEmail());
 			ptst.setString(4,vo.getTelefone());
 			ptst.setInt(5,vo.getCargo());
-			ptst.setInt(6,vo.getUsuario().getId());// EU ACHO QUE ASSIM VAI 
-			
+			ptst.setInt(6,vo.getUsuario().getId());
+
 			ptst.execute();
+
 		}catch( SQLException e) {
-			
+			System.out.println(e);
 		}
 	}
 	
@@ -46,7 +47,7 @@ public class FuncionarioDao extends BaseDao{
 	
 	public void updateById(FuncionarioVO vo) throws SQLException  {
 		conn = getConnection();
-		String sql = "UPDATE  Funcionario SET (nome,endereco,email,telefone,cargo,Funcionario_id) = (?,?,?,?,?,?) WHERE id =?";
+		String sql = "UPDATE  Funcionario SET (nome,endereco,email,telefone,cargo,usuario_id) = (?,?,?,?,?,?) WHERE id =?";
 		PreparedStatement ptst = conn.prepareStatement(sql);
 		try {
 			
@@ -68,7 +69,7 @@ public class FuncionarioDao extends BaseDao{
 	
 	public List<FuncionarioVO> index() throws SQLException{
 		conn = getConnection();
-		String sql = "SELECT * FROM Funcionario INNER JOIN Usuarios on Funcionario.usuario_id = Usuario.id";
+		String sql = "SELECT * FROM Funcionario INNER JOIN Usuario on Funcionario.usuario_id = Usuario.id";
 		Statement st;
 		ResultSet rs;
 		List<FuncionarioVO> Funcionarios = new ArrayList<FuncionarioVO>();
@@ -89,7 +90,6 @@ public class FuncionarioDao extends BaseDao{
 				usuVO.setNickName(rs.getString("nickName"));
 				usuVO.setSenha(rs.getString("Senha"));
 				
-				
 				funVO.setId(rs.getInt("id"));
 				funVO.setNome(rs.getString("nome"));
 				funVO.setEndereco(rs.getString("endereco"));
@@ -98,7 +98,9 @@ public class FuncionarioDao extends BaseDao{
 				funVO.setCargo(rs.getInt("telefone"));	
 				funVO.setUsuario(usuVO);
 
+				
 				Funcionarios.add(funVO);
+				
 				
 			}
 		}catch(SQLException e) {

@@ -8,7 +8,6 @@ import java.sql.Statement;
 import src.model.vo.EquipamentoVO;
 import src.model.vo.LocalVO;
 import src.model.vo.FuncionarioVO;
-import src.model.vo.UsuarioVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,11 +78,13 @@ public class EquipamentoDao extends BaseDao{
 	
 	public List<EquipamentoVO> index() throws SQLException{
 		conn = getConnection();
+		
 		String sql = "SELECT * FROM Equipamento "
-				+ "INNER JOIN Local on Equipamento.local_id = Local.id"
-				+ "INNER JOIN Funcionario on Equipamento.responsavel_id = Funcionario.id";
+				+ "INNER JOIN Local on Equipamento.local_id = Local.id "
+				+ "INNER JOIN Funcionario on Equipamento.responsavel_id = Funcionario.id ";
 		Statement st;
 		ResultSet rs;
+		
 		List<EquipamentoVO> equipamentos = new ArrayList<EquipamentoVO>();
 		
 		try {
@@ -93,25 +94,22 @@ public class EquipamentoDao extends BaseDao{
 			
 			
 			while(rs.next()) {
-				//TALVEZ EU ESTEJA FAZENDO DO JEITO BURRO REVER ISSO AQ 
+				//LEMBRAR DE TROCAR UM DOS CAMPOS NOME QUE TA DANDO CONFLITO
+
 				EquipamentoVO equiVO = new EquipamentoVO();
 				FuncionarioVO funVO = new FuncionarioVO();
-				UsuarioVO usuVO = new UsuarioVO();
 				LocalVO localVO = new LocalVO();
 				
-				usuVO.setId(rs.getInt("usuario_id"));
-				usuVO.setNickName(rs.getString("nickName"));
-				usuVO.setSenha(rs.getString("Senha"));
-				
-				funVO.setId(rs.getInt("id"));
+
+			
+				funVO.setId(rs.getInt("responsavel_id"));
 				funVO.setNome(rs.getString("nome"));
 				funVO.setEndereco(rs.getString("endereco"));
 				funVO.setEmail(rs.getString("email"));
 				funVO.setTelefone(rs.getString("telefone"));
 				funVO.setCargo(rs.getInt("telefone"));	
-				funVO.setUsuario(usuVO);
-				
-				localVO.setId(rs.getInt("id"));
+
+				localVO.setId(rs.getInt("local_id"));
 				localVO.setCasa(rs.getString("casa"));
 				localVO.setCompartimento(rs.getString("compartimento"));
 				
