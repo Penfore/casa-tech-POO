@@ -8,7 +8,7 @@ public class FuncionarioVO extends UsuarioVO // Visto que todo funcionÃ¡rio de
 	private String email;
 	private String telefone;
 	private int cargo;
-	private int usuario_id;
+	private UsuarioVO usuario;
 
 	
 	//ID
@@ -26,12 +26,12 @@ public class FuncionarioVO extends UsuarioVO // Visto que todo funcionÃ¡rio de
 	}
 	
 	// OBJETO USUARIO
-	public int getUsuario_id() {
-		return usuario_id;
+	public UsuarioVO getUsuario() {
+		return usuario;
 	}
-	public void setUsuario_id(int usuario_id) {
-		if(usuario_id >=0) {
-			this.usuario_id = usuario_id;
+	public void setUsuario_id(UsuarioVO usuario) {
+		if(usuario != null) {
+			this.usuario = usuario;
 		}else{
 			System.out.println("Usuario_id invalido");
 		}

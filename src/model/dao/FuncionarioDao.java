@@ -21,7 +21,7 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 			ptst.setString(3, vo.getEmail());
 			ptst.setString(4, vo.getTelefone());
 			ptst.setInt(5, vo.getCargo());
-			ptst.setInt(6, vo.getUsuario_id());
+			ptst.setInt(6, vo.getUsuario().getId());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -39,6 +39,7 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 	}
 
 	public void removeById(FuncionarioVO vo) throws SQLException {
+		super.removeById(vo);
 		String sql = "DELETE FROM Funcionario WHERE id =?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 
@@ -60,13 +61,13 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 		String sql = "UPDATE  Funcionario SET (nome,endereco,email,telefone,cargo,usuario_id) = (?,?,?,?,?,?) WHERE id =?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
-
+			super.updateById(vo);
 			ptst.setString(1, vo.getNome());
 			ptst.setString(2, vo.getEndereco());
 			ptst.setString(3, vo.getEmail());
 			ptst.setString(4, vo.getTelefone());
 			ptst.setInt(5, vo.getCargo());
-			ptst.setInt(6, vo.getUsuario_id());
+			ptst.setInt(6, vo.getUsuario().getId());
 			ptst.setInt(7, vo.getId());
 
 			int affectedRows = ptst.executeUpdate();
