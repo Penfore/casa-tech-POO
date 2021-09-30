@@ -7,79 +7,127 @@ import java.sql.Statement;
 
 import src.model.vo.LocalVO;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class LocalDao extends BaseDao { 
 
-    public void Inserir (LocalVO vo) throws SQLException{
-        conn = getConnection();
-        String sql = "Insert into Local (casa,compartimento) values (?,?)";
-        PreparedStatement ptst = conn.prepareStatement(sql);
-        try{            
-        ptst.setString(1, vo.getCasa());
-        ptst.setString(2, vo.getCompartimento());
-        ptst.execute();
-        }catch( SQLException e) {
-			
-        }
+public class LocalDao<VO extends LocalVO> extends BaseDao<VO> implements LocalInterDao<VO>{
 
-    }
+	public void store(VO vo) throws SQLException {
 
-    public void RemoveById (LocalVO vo) throws SQLException{
-        conn = getConnection();
-        String sql = "Delete from Local where Id = ?";
-        PreparedStatement ptst = conn.prepareStatement(sql);
-        try{            
-        ptst.setInt(1, vo.getId());
-        ptst.execute();
-
-        }catch( SQLException e ){
-
-        }			
-    }
-
-    public void updateById(LocalVO vo) throws SQLException  {
-		conn = getConnection();
-		String sql = "UPDATE Local SET (casa,compartimento) = (?,?) WHERE id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		String sql = "Insert into Local (casa,compartimento) values (?,?)";
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
+			ptst.setString(1, vo.getCasa());
+			ptst.setString(2, vo.getCompartimento());
 			
-			ptst.setString(1,vo.getCasa());
-			ptst.setString(2,vo.getCompartimento());
-			ptst.setInt(3,vo.getId());
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 			
-			ptst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-			
-		}catch( SQLException e) {
-			
+	}
+
+	public void removeById(VO vo) throws SQLException{
+		String sql = "Delete from Local where Id = ?";
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
+		try {
+			ptst.setInt(1, vo.getId());
+
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 
-    public List<LocalVO> index() throws SQLException{
-		conn = getConnection();
+	public void updateById(VO vo) throws SQLException {
+		String sql = "UPDATE Local SET (casa,compartimento) = (?,?) WHERE id =?";
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
+		try {
+
+			ptst.setString(1, vo.getCasa());
+			ptst.setString(2, vo.getCompartimento());
+			ptst.setInt(3, vo.getId());
+
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ResultSet index() throws SQLException {
 		String sql = "SELECT * FROM Local";
 		Statement st;
-		ResultSet rs;
-		List<LocalVO> locais = new ArrayList<LocalVO>();
-        try {
-			
-			st = conn.createStatement(); 
+		ResultSet rs = null;
+		
+		try {
+			st = getConnection().createStatement();
 			rs = st.executeQuery(sql);
-			
-			
-			while(rs.next()) {
-				LocalVO locVO = new LocalVO();
-				locVO.setId(rs.getInt("id"));
-				locVO.setCasa(rs.getString("casa"));
-				locVO.setCompartimento(rs.getString("compartimento"));
-				locais.add(locVO);
-				
-			}
-		}catch(SQLException e) {
-			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		return locais;
-    }
+		return rs;
+	}
+	
+	public ResultSet show(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Local WHERE id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet findByCasa(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Local WHERE casa =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getCasa());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet listByCompartimento(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Local WHERE compartimento =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getCompartimento());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

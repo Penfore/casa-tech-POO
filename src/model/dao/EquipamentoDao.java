@@ -6,19 +6,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import src.model.vo.EquipamentoVO;
-import src.model.vo.LocalVO;
-import src.model.vo.FuncionarioVO;
 
-import java.util.ArrayList;
-import java.util.List;
-public class EquipamentoDao extends BaseDao{
+public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implements EquipamentoInterDao<VO>{
 
-	public void inserir(EquipamentoVO vo) throws SQLException  {
-		conn = getConnection();
+	public void store(EquipamentoVO vo) throws SQLException {
 		String sql = "Insert into Equipamento "
 				+ "(nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id) "
 				+ "values (?,?,?,?,?,?,?,?)";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
+		
 		try {
 			ptst.setString(1,vo.getNome());
 			ptst.setDouble(2,vo.getPeso());
@@ -28,34 +24,40 @@ public class EquipamentoDao extends BaseDao{
 			ptst.setDouble(6,vo.getPreco());
 			ptst.setInt(7,vo.getResponsavel().getId());
 			ptst.setInt(8,vo.getLocal().getId());
+
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 			
-			ptst.execute();
 		}catch( SQLException e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
 	public void removeById(EquipamentoVO vo) throws SQLException  {
-		conn = getConnection();
 		String sql = "DELETE FROM Equipamento WHERE id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
 			ptst.setInt(1,vo.getId());
-			ptst.execute();
+			
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 
 			
 		}catch( SQLException e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
 	public void updateById(EquipamentoVO vo) throws SQLException  {
-		conn = getConnection();
 		String sql = "UPDATE  Equipamento SET "
 				+ "(nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id) = "
 				+ "(?,?,?,?,?,?,?,?) WHERE id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 			
 			ptst.setString(1,vo.getNome());
@@ -68,67 +70,116 @@ public class EquipamentoDao extends BaseDao{
 			ptst.setInt(8,vo.getLocal().getId());
 			ptst.setInt(9,vo.getId());
 			
-			ptst.execute();
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A update falhou :( ");
+			}
 
 			
 		}catch( SQLException e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
-	public List<EquipamentoVO> index() throws SQLException{
-		conn = getConnection();
+	public ResultSet index() throws SQLException{
 		
-		String sql = "SELECT * FROM Equipamento "
-				+ "INNER JOIN Local on Equipamento.local_id = Local.id "
-				+ "INNER JOIN Funcionario on Equipamento.responsavel_id = Funcionario.id ";
+		String sql = "SELECT * FROM Equipamento ";
 		Statement st;
-		ResultSet rs;
-		
-		List<EquipamentoVO> equipamentos = new ArrayList<EquipamentoVO>();
+		ResultSet rs= null;
 		
 		try {
 			
-			st = conn.createStatement(); 
+			st = getConnection().createStatement(); 
 			rs = st.executeQuery(sql);
 			
-			
-			while(rs.next()) {
-				//LEMBRAR DE TROCAR UM DOS CAMPOS NOME QUE TA DANDO CONFLITO
-
-				EquipamentoVO equiVO = new EquipamentoVO();
-				FuncionarioVO funVO = new FuncionarioVO();
-				LocalVO localVO = new LocalVO();
-				
-
-			
-				funVO.setId(rs.getInt("responsavel_id"));
-				funVO.setNome(rs.getString("nome"));
-				funVO.setEndereco(rs.getString("endereco"));
-				funVO.setEmail(rs.getString("email"));
-				funVO.setTelefone(rs.getString("telefone"));
-				funVO.setCargo(rs.getInt("telefone"));	
-
-				localVO.setId(rs.getInt("local_id"));
-				localVO.setCasa(rs.getString("casa"));
-				localVO.setCompartimento(rs.getString("compartimento"));
-				
-				equiVO.setId(rs.getInt("id"));
-				equiVO.setNome(rs.getString("nome"));
-				equiVO.setCodigo(rs.getString("codigo"));
-				equiVO.setPeso(rs.getDouble("peso"));
-				equiVO.setQuantidade(rs.getInt("quantidade"));
-				equiVO.setDescricao(rs.getString("descricao"));	
-				equiVO.setPreco(rs.getDouble("preco"));
-				equiVO.setResponsavel(funVO);
-				equiVO.setLocal(localVO);
-				
-				equipamentos.add(equiVO);
-				
-			}
 		}catch(SQLException e) {
-			
+			e.printStackTrace();
 		}
-		return equipamentos;
+		return rs;
+	}
+	
+	public ResultSet show(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Equipamento WHERE id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet findByNome(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Equipamento WHERE nome =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getNome());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet findByCOD(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Equipamento WHERE codigo =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getCodigo());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet listByResponsavel(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Equipamento WHERE responssavel_id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getResponsavel().getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet listByLocal(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Equipamento WHERE id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getLocal().getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 }

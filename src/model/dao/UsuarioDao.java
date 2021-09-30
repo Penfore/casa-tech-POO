@@ -7,81 +7,116 @@ import java.sql.Statement;
 
 import src.model.vo.UsuarioVO;
 
-import java.util.ArrayList;
-import java.util.List;
-public class UsuarioDao extends BaseDao{
-	
-	public void inserir(UsuarioVO vo) throws SQLException  {
-		conn = getConnection();
+public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements UsuarioInterDao<VO>{
+
+	public void store(VO vo) throws SQLException {
 		String sql = "Insert into Usuario (nickName,senha) values (?,?)";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
-			ptst.setString(1,vo.getNickName());
-			ptst.setString(2,vo.getSenha());
-			ptst.execute();
-		}catch( SQLException e) {
-			
+			ptst.setString(1, vo.getNickName());
+			ptst.setString(2, vo.getSenha());
+
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
+
+			ResultSet generatedKeys = ptst.getGeneratedKeys();
+
+			if (generatedKeys.next()) {
+				vo.setId(generatedKeys.getInt(1));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
-	
-	public void removeById(UsuarioVO vo) throws SQLException  {
-		conn = getConnection();
+
+	public void removeById(VO vo) throws SQLException {
 		String sql = "DELETE FROM Usuario WHERE id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
-			ptst.setInt(1,vo.getId());
+			ptst.setInt(1, vo.getId());
 			ptst.execute();
 
-			
-		}catch( SQLException e) {
-			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
-	
-	public void updateById(UsuarioVO vo) throws SQLException  {
-		conn = getConnection();
+
+	public void updateById(VO vo) throws SQLException {
+
 		String sql = "UPDATE  Usuario SET (nickName,senha) = (?,?) WHERE id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
-			
-			ptst.setString(1,vo.getNickName());
-			ptst.setString(2,vo.getSenha());
-			ptst.setInt(3,vo.getId());
-			
+
+			ptst.setString(1, vo.getNickName());
+			ptst.setString(2, vo.getSenha());
+			ptst.setInt(3, vo.getId());
+
 			ptst.execute();
 
-			
-		}catch( SQLException e) {
-			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
-	
-	public List<UsuarioVO> index() throws SQLException{
-		conn = getConnection();
+
+	public ResultSet index() throws SQLException {
 		String sql = "SELECT * FROM Usuario";
 		Statement st;
-		ResultSet rs;
-		List<UsuarioVO> usuarios = new ArrayList<UsuarioVO>();
-		
+		ResultSet rs = null;
+
 		try {
-			
-			st = conn.createStatement(); 
+
+			st = getConnection().createStatement();
 			rs = st.executeQuery(sql);
-			
-			
-			while(rs.next()) {
-				UsuarioVO usuVO = new UsuarioVO();
-				usuVO.setId(rs.getInt("id"));
-				usuVO.setNickName(rs.getString("nickName"));
-				usuVO.setSenha(rs.getString("senha"));
-				usuarios.add(usuVO);
-				
-			}
-		}catch(SQLException e) {
-			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		return usuarios;
+		return rs;
+	}
+
+	public ResultSet show(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Usuario WHERE id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 	
+	public boolean autenticar(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Usuario WHERE nickName =? AND senha = ? ";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+		boolean login = false;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getNickName());
+			ptst.setString(1, vo.getSenha());
+
+			rs = ptst.executeQuery();
+			
+			if (!rs.isBeforeFirst() ) {    
+				throw new SQLException("login ou senha incorretos :( ");
+			}else {
+				login = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return login;
+	}
 }

@@ -6,38 +6,36 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import src.model.vo.CarrinhoVO;
-import src.model.vo.EquipamentoVO;
-import src.model.vo.VendaVO;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+public class CarrinhoDao<VO extends CarrinhoVO> extends BaseDao<VO> implements CarrinhoInterDao<VO> {
 
-public class CarrinhoDao extends BaseDao {
-
-	public void inserir(CarrinhoVO vo) throws SQLException {
-		conn = getConnection();
+	public void store(CarrinhoVO vo) throws SQLException {
 		String sql = "Insert into Carrinho (venda_id,equipamento_id,quantidade) values (?,?,?)";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 			ptst.setInt(1, vo.getVenda().getId());
 			ptst.setInt(2,vo.getProduto().getId());
 			ptst.setInt(3,vo.getQuantidade());
-			ptst.execute();
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 		} catch (SQLException e) {
 
 		}
 	}
 
 	public void removeById(CarrinhoVO vo) throws SQLException {
-		conn = getConnection();
 		String sql = "DELETE FROM Carrinho WHERE venda_id = ? AND equipamento_id = ? ";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
 			ptst.setInt(1, vo.getVenda().getId());
 			ptst.setInt(2, vo.getProduto().getId());
-			ptst.execute();
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 
 		} catch (SQLException e) {
 
@@ -45,66 +43,92 @@ public class CarrinhoDao extends BaseDao {
 	}
 
 	public void updateById(CarrinhoVO vo) throws SQLException {
-		conn = getConnection();
 		String sql = "UPDATE  Carrinho SET (quantidade) = ? WHERE venda_id =?";
-		PreparedStatement ptst = conn.prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
 			ptst.setInt(1, vo.getVenda().getId());
 			ptst.setInt(2,vo.getProduto().getId());
 			ptst.setInt(3,vo.getQuantidade());
-			ptst.execute();
+			int affectedRows = ptst.executeUpdate();
+			if (affectedRows == 0) {
+				throw new SQLException(" A inserção falhou :( ");
+			}
 
 		} catch (SQLException e) {
 
 		}
 	}
 
-	public List<CarrinhoVO> index() throws SQLException {
-		conn = getConnection();
-		String sql = "SELECT * FROM Carrinho a";
+	public ResultSet index() throws SQLException {
+		String sql = "SELECT * FROM Carrinho ";
 		Statement st;
-		ResultSet rs;
-		List<CarrinhoVO> carrinho = new ArrayList<CarrinhoVO>();
-
+		ResultSet rs = null;
 		try {
 
-			st = conn.createStatement();
+			st = getConnection().createStatement();
 			rs = st.executeQuery(sql);
 
-			while (rs.next()) {
-				CarrinhoVO carrinhoVO = new CarrinhoVO();
-				VendaVO vendaVO = new VendaVO();
-				EquipamentoVO equiVO = new EquipamentoVO();
-				
-				Calendar calendar = Calendar.getInstance();
-				calendar.setTime(rs.getDate("dataDeCompra"));
-				
-				equiVO.setId(rs.getInt("equipamento_id"));
-				equiVO.setNome(rs.getString("nome"));
-				equiVO.setCodigo(rs.getString("codigo"));
-				equiVO.setPeso(rs.getDouble("peso"));
-				equiVO.setQuantidade(rs.getInt("quantidade"));
-				equiVO.setDescricao(rs.getString("descricao"));	
-				equiVO.setPreco(rs.getDouble("preco"));
-
-				vendaVO.setPrecoTotal(rs.getFloat("precoTotal"));
-				vendaVO.setDataDeCompra(calendar);// TRANSFORMAR ISSO EM DATETIME NO BANCO
-				vendaVO.setStatus(rs.getString("Status"));
-				vendaVO.setId(rs.getInt("venda_id"));
-				
-				carrinhoVO.setVenda(vendaVO);
-				carrinhoVO.setProduto(equiVO);
-				carrinhoVO.setQuantidade(rs.getInt("quantidade"));
-				
-			
-				carrinho.add(carrinhoVO);
-
-			}
 		} catch (SQLException e) {
 
 		}
-		return carrinho;
+		return rs;
+	}
+	
+	public ResultSet show(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Carrinho WHERE venda_id =? AND equipamento_id=?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getVenda().getId());
+			ptst.setInt(2, vo.getProduto().getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet listByVenda(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Carrinho WHERE venda_id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getVenda().getId());
+
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet listByProduto(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Carrinho WHERE equipamento_id=?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getProduto().getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 }
