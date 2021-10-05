@@ -21,7 +21,7 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 			ptst.setString(3, vo.getEmail());
 			ptst.setString(4, vo.getTelefone());
 			ptst.setInt(5, vo.getCargo());
-			ptst.setInt(6, vo.getUsuario().getId());
+			ptst.setInt(6, vo.getUsuid());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -67,7 +67,7 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 			ptst.setString(3, vo.getEmail());
 			ptst.setString(4, vo.getTelefone());
 			ptst.setInt(5, vo.getCargo());
-			ptst.setInt(6, vo.getUsuario().getId());
+			ptst.setInt(6, vo.getUsuid());
 			ptst.setInt(7, vo.getId());
 
 			int affectedRows = ptst.executeUpdate();

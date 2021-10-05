@@ -11,8 +11,9 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 
 	public void store(VO vo) throws SQLException {
 		String sql = "Insert into Usuario (nickName,senha) values (?,?)";
-		PreparedStatement ptst = getConnection().prepareStatement(sql);
+		PreparedStatement ptst = getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 		try {
+			
 			ptst.setString(1, vo.getNickName());
 			ptst.setString(2, vo.getSenha());
 
@@ -22,9 +23,10 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 			}
 
 			ResultSet generatedKeys = ptst.getGeneratedKeys();
-
+			
 			if (generatedKeys.next()) {
-				vo.setId(generatedKeys.getInt(1));
+				System.out.println(generatedKeys.getInt(1));
+				vo.setUsuid(generatedKeys.getInt(1));
 			}
 
 		} catch (SQLException e) {
@@ -37,7 +39,7 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
-			ptst.setInt(1, vo.getId());
+			ptst.setInt(1, vo.getUsuid());
 			ptst.execute();
 
 		} catch (SQLException e) {
@@ -53,7 +55,7 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 
 			ptst.setString(1, vo.getNickName());
 			ptst.setString(2, vo.getSenha());
-			ptst.setInt(3, vo.getId());
+			ptst.setInt(3, vo.getUsuid());
 
 			ptst.execute();
 
@@ -85,7 +87,7 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
-			ptst.setInt(1, vo.getId());
+			ptst.setInt(1, vo.getUsuid());
 
 			rs = ptst.executeQuery();
 
@@ -119,4 +121,22 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 		}
 		return login;
 	}
+	
+	public ResultSet findByNickName(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Usuario WHERE NickName =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setString(1, vo.getNickName());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
 }

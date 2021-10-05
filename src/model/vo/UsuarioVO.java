@@ -1,17 +1,17 @@
 package src.model.vo;
 
 public abstract class UsuarioVO {
-	private int id;
+	private int usu_id;
 	private String nickName;
 	private String senha;
 
-	public int getId() {
-		return id;
+	public int getUsuid() {
+		return usu_id;
 	}
 
-	public void setId(int id) {
+	public void setUsuid(int id) {
 		if (id >= 0) {
-			this.id = id;
+			this.usu_id = id;
 		}
 	}
 
