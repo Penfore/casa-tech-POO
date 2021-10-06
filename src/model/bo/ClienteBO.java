@@ -3,15 +3,22 @@ package src.model.bo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import src.model.dao.VendaDao;
-import src.model.vo.VendaVO;
+import src.model.dao.ClienteDao;
+import src.model.vo.ClienteVO;
 
-public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
-	VendaDao<VendaVO> dao = new VendaDao<VendaVO>();
+public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<ClienteVO> {
 
-	public void store(VendaVO vo) {
+
+	ClienteDao<ClienteVO> dao = new ClienteDao<ClienteVO>();
+
+	public void store(ClienteVO vo){
 		try {
-			dao.store(vo);
+			ResultSet rs = dao.findByCPF(vo);
+			if (rs.next()) {
+
+			} else {
+				dao.store(vo);
+			}
 
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -19,13 +26,13 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	}
 
-	public void updateById(VendaVO vo) {
+	public void updateById(ClienteVO vo)  {
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.updateById(vo);
 			} else {
-
+				
 			}
 
 		} catch (SQLException e) {
@@ -34,13 +41,13 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	}
 
-	public void removeById(VendaVO vo) {
+	public void removeById(ClienteVO vo){
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.removeById(vo);
 			} else {
-
+				
 			}
 
 		} catch (SQLException e) {
@@ -49,7 +56,7 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	}
 
-	public void show(VendaVO vo) {
+	public void show(ClienteVO vo){
 		try {
 			dao.show(vo);
 		} catch (SQLException e) {
@@ -58,7 +65,7 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	}
 
-	public void index() {
+	public void index()  {
 		try {
 			dao.index();
 		} catch (SQLException e) {
@@ -66,23 +73,22 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 		}
 
 	}
-
-	public void findByCliente(VendaVO vo) {
+	
+	public void findByCPF(ClienteVO vo)  {
 		try {
-			dao.findByCliente(vo);
+			dao.findByCPF(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
 
 	}
-
-	public void findByDate(VendaVO vo) {
+	
+	public void findByNome(ClienteVO vo)  {
 		try {
-			dao.findByDate(vo);
+			dao.findByNome(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
 	}
-
+	
 }

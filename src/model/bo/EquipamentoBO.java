@@ -3,17 +3,16 @@ package src.model.bo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import src.model.dao.FuncionarioDao;
-import src.model.dao.UsuarioDao;
-import src.model.vo.FuncionarioVO;
+import src.model.dao.EquipamentoDao;
+import src.model.vo.EquipamentoVO;
 
+public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInterBO<EquipamentoVO> {
 
-public class FuncionarioBO implements BaseInterBO<FuncionarioVO>, FuncionarioInterBO<FuncionarioVO>, UsuarioInterBO<FuncionarioVO>{
-	UsuarioDao<FuncionarioVO> dao = new FuncionarioDao();
-	FuncionarioDao fundao = new FuncionarioDao();
-	public void store(FuncionarioVO vo){
+	EquipamentoDao<EquipamentoVO> dao = new EquipamentoDao<EquipamentoVO>();
+
+	public void store(EquipamentoVO vo){
 		try {
-			ResultSet rs = dao.findByNickName(vo);
+			ResultSet rs = dao.findByCOD(vo);
 			if (rs.next()) {
 
 			} else {
@@ -26,7 +25,7 @@ public class FuncionarioBO implements BaseInterBO<FuncionarioVO>, FuncionarioInt
 
 	}
 
-	public void updateById(FuncionarioVO vo)  {
+	public void updateById(EquipamentoVO vo)  {
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
@@ -41,7 +40,7 @@ public class FuncionarioBO implements BaseInterBO<FuncionarioVO>, FuncionarioInt
 
 	}
 
-	public void removeById(FuncionarioVO vo){
+	public void removeById(EquipamentoVO vo){
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
@@ -56,7 +55,7 @@ public class FuncionarioBO implements BaseInterBO<FuncionarioVO>, FuncionarioInt
 
 	}
 
-	public void show(FuncionarioVO vo){
+	public void show(EquipamentoVO vo){
 		try {
 			dao.show(vo);
 		} catch (SQLException e) {
@@ -74,31 +73,36 @@ public class FuncionarioBO implements BaseInterBO<FuncionarioVO>, FuncionarioInt
 
 	}
 	
-	public void findByEmail(FuncionarioVO vo)  {
+	public void findByNome(EquipamentoVO vo)  {
 		try {
-			fundao.findByEmail(vo);
+			dao.findByNome(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
 
 	}
 	
-	public void listByCargo(FuncionarioVO vo)  {
+	public void findByCOD(EquipamentoVO vo)  {
 		try {
-			fundao.listByCargo(vo);
+			dao.findByCOD(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
 	}
 	
-	public void autenticar(FuncionarioVO vo)  {
+	public void listByResponsavel(EquipamentoVO vo)  {
 		try {
-			fundao.autenticar(vo);
+			dao.listByResponsavel(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
 	}
-	
+	public void listByLocal(EquipamentoVO vo)  {
+		try {
+			dao.listByLocal(vo);
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+	}
+
 }

@@ -9,11 +9,15 @@ import src.model.vo.CarrinhoVO;
 public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<CarrinhoVO> {
 	CarrinhoDao<CarrinhoVO> dao = new CarrinhoDao<CarrinhoVO>();
 
-	public void store(CarrinhoVO vo){
+	public void store(CarrinhoVO vo) {
+
 		try {
-//FAZER UMA FUNÇÃO TIPO LIST BY VENDA E PRODUTO PRA VERIFICAR AQ
+			ResultSet rs = dao.listByProdutoVenda(vo);
+			if (rs.next()) {
+
+			} else {
 				dao.store(vo);
-			
+			}
 
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -21,13 +25,13 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 
 	}
 
-	public void updateById(CarrinhoVO vo)  {
+	public void updateById(CarrinhoVO vo) {
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.updateById(vo);
 			} else {
-				
+
 			}
 
 		} catch (SQLException e) {
@@ -36,13 +40,13 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 
 	}
 
-	public void removeById(CarrinhoVO vo){
+	public void removeById(CarrinhoVO vo) {
 		try {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.removeById(vo);
 			} else {
-				
+
 			}
 
 		} catch (SQLException e) {
@@ -51,7 +55,7 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 
 	}
 
-	public void show(CarrinhoVO vo){
+	public void show(CarrinhoVO vo) {
 		try {
 			dao.show(vo);
 		} catch (SQLException e) {
@@ -60,7 +64,7 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 
 	}
 
-	public void index()  {
+	public void index() {
 		try {
 			dao.index();
 		} catch (SQLException e) {
@@ -68,8 +72,8 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 		}
 
 	}
-	
-	public void listByVenda(CarrinhoVO vo)  {
+
+	public void listByVenda(CarrinhoVO vo) {
 		try {
 			dao.listByVenda(vo);
 		} catch (SQLException e) {
@@ -77,10 +81,19 @@ public class CarrinhoBO implements BaseInterBO<CarrinhoVO>, CarrinhoInterBO<Carr
 		}
 
 	}
-	
-	public void listByProduto(CarrinhoVO vo)  {
+
+	public void listByProduto(CarrinhoVO vo) {
 		try {
 			dao.listByProduto(vo);
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+	}
+
+	public void listByProdutoVenda(CarrinhoVO vo) {
+		try {
+			dao.listByProdutoVenda(vo);
 		} catch (SQLException e) {
 			System.out.println(e);
 		}

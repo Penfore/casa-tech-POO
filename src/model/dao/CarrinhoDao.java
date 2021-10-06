@@ -130,5 +130,24 @@ public class CarrinhoDao<VO extends CarrinhoVO> extends BaseDao<VO> implements C
 		}
 		return rs;
 	}
+	
+	public ResultSet listByProdutoVenda(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Carrinho WHERE equipamento_id=? AND venda_id =?";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			
+			ptst = getConnection().prepareStatement(sql);
+			ptst.setInt(1, vo.getProduto().getId());
+			ptst.setInt(2, vo.getVenda().getId());
+
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 
 }
