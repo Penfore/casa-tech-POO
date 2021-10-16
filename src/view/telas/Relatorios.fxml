@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" style="-fx-background-color: #07F49E; -fx-opacity: 0.7;" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="768.0" prefWidth="296.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
          <children>
             <ImageView fitHeight="180.0" fitWidth="168.0" layoutX="59.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/ButtonNovoItem.png" />
+                  <Image url="@images/IconAdm.png" />
                </image>
             </ImageView>
-            <Label layoutX="91.0" layoutY="341.0" prefHeight="35.0" prefWidth="90.0" text="LOCAIS">
+            <Button layoutY="359.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="FUNCIONARIOS" textFill="#2f2f2f">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="SansSerif Bold" size="25.0" />
                </font>
-            </Label>
-            <ChoiceBox layoutX="16.0" layoutY="382.0" prefHeight="25.0" prefWidth="256.0" />
-            <ChoiceBox layoutX="20.0" layoutY="475.0" prefHeight="25.0" prefWidth="256.0" />
-            <Label layoutX="60.0" layoutY="431.0" prefHeight="35.0" prefWidth="168.0" text="RESPONSAVEL">
+            </Button>
+            <Button layoutY="413.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="CLIENTES" textFill="#2f2f2f">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="SansSerif Bold" size="25.0" />
                </font>
-            </Label>
-            <Button layoutX="31.0" layoutY="538.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="212.0" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/ButtonNovoCliente.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            </Button>
+            <Button layoutY="467.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="ESTOQUE" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutY="521.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="VENDAS" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
             </Button>
          </children>
       </Pane>
@@ -87,24 +86,5 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <Pane layoutX="218.0" layoutY="111.0" prefHeight="658.0" prefWidth="1103.0">
-         <children>
-            <TextField layoutX="187.0" layoutY="24.0" prefHeight="33.0" prefWidth="893.0" styleClass="input" />
-            <Label layoutX="108.0" layoutY="21.0" prefHeight="31.0" prefWidth="75.0" text="Nome">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <TableView layoutX="77.0" layoutY="112.0" prefHeight="544.0" prefWidth="1026.0" style="-fx-background-color: 0;">
-              <columns>
-                <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-                <TableColumn prefWidth="300.0" styleClass="table" text="NOME" />
-                  <TableColumn prefWidth="150.0" styleClass="table" text="QUANT." />
-                  <TableColumn prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
-                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
-              </columns>
-            </TableView>
-         </children>
-      </Pane>
    </children>
 </Pane>

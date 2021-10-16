@@ -7,11 +7,30 @@
 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 4, 0, 0, 2);
 
 }
+.PanelWhite{
+ -fx-background-color: white;
+ -fx-background-radius : 15px;
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 4, 0, 0, 2);
+
+}
+
+.PanelFun{
+-fx-background-color: transparent
+}
 .body{
  -fx-background-color: linear-gradient(to top, #C2C7FC, white);
 }
+.bodyGreen{
+ -fx-background-color: linear-gradient(to bottom, #B4FBE1, white);
+}
 .PurpleButton{
  -fx-background-color: #6F7BF7;
+ -fx-background-radius : 10px;
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 4, 0, 0, 2);
+
+}
+.PinkButton{
+ -fx-background-color: #F40779;
  -fx-background-radius : 10px;
 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 4, 0, 0, 2);
 

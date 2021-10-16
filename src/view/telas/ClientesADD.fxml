@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-radius: 20; -fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="132.0" fitWidth="144.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/IconResponsavel.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="186.0" layoutY="30.0" text="NOME COMPLETO " textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login" layoutX="179.0" layoutY="66.0" prefHeight="37.0" prefWidth="846.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <TextField fx:id="login1" layoutX="23.0" layoutY="203.0" prefHeight="37.0" prefWidth="416.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Label layoutX="30.0" layoutY="167.0" text="CEP" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="884.0" layoutY="308.0" text="N°" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login11" layoutX="619.0" layoutY="199.0" prefHeight="37.0" prefWidth="402.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <TextField fx:id="login2" layoutX="23.0" layoutY="307.0" prefHeight="37.0" prefWidth="761.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Label layoutX="30.0" layoutY="271.0" text="RUA" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login111" layoutX="928.0" layoutY="305.0" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Label layoutX="636.0" layoutY="173.0" text="CPF" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="636.0" layoutY="377.0" text="TELEFONE" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login112" layoutX="619.0" layoutY="403.0" prefHeight="37.0" prefWidth="402.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Label layoutX="30.0" layoutY="361.0" text="BAIRRO" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="844.0" layoutY="484.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/B-Aplicar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="635.0" layoutY="515.0" mnemonicParsing="false" style="-fx-background-color: 0;" />
+            <ImageView fitHeight="48.0" fitWidth="164.0" layoutX="623.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/B-Cancel.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="login21" layoutX="23.0" layoutY="412.0" prefHeight="37.0" prefWidth="415.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Label layoutX="31.0" layoutY="467.0" text="EMAIL" textFill="#757575">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login22" layoutX="24.0" layoutY="503.0" prefHeight="37.0" prefWidth="512.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

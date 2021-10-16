@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="768.0" prefWidth="296.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="168.0" layoutX="59.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/IconAdm.png" />
+               </image>
+            </ImageView>
+            <Button layoutY="359.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="FUNCIONARIOS" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutY="413.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="CLIENTES" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutY="467.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="ESTOQUE" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutY="521.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="296.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="VENDAS" textFill="#2f2f2f">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="125.0" fitWidth="1320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Barra%20superior.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="-2.0" layoutY="-1.0" prefHeight="112.0" prefWidth="1325.0" style="-fx-background-color: 0;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="98.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconVenda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconEstoque.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="72.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconClientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="98.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconAdm.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <Pane layoutX="321.0" layoutY="126.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="167.0" text="TOTAL DE VENDAS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView layoutX="295.0" layoutY="420.0" prefHeight="368.0" prefWidth="1023.0" style="-fx-background-color: 000;">
+         <columns>
+            <TableColumn prefWidth="164.00003051757812" styleClass="table" text="COD VENDA" />
+            <TableColumn prefWidth="128.66668701171875" styleClass="table" text="DATA" />
+            <TableColumn prefWidth="195.0" styleClass="table" text="STATUS" />
+            <TableColumn prefWidth="200.0" styleClass="table" text="TOTAL PREÇO" />
+            <TableColumn prefWidth="218.6666259765625" styleClass="table" text="TOTAL PRODUTOS" />
+            <TableColumn prefWidth="116.3333740234375" styleClass="table" text="CLIENTES" />
+         </columns>
+      </TableView>
+      <Pane layoutX="585.0" layoutY="123.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="22.0" layoutY="7.0" prefHeight="25.0" prefWidth="141.0" text="TOTAL CAPITAL" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="853.0" layoutY="127.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="19.0" layoutY="8.0" prefHeight="25.0" prefWidth="148.0" text="VENDAS DO MÊS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="1093.0" layoutY="126.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="5.0" layoutY="-28.0" prefHeight="102.0" prefWidth="191.0" text="PAGAMENTO COMUN" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="48.0" prefHeight="52.0" prefWidth="177.0" text="PAGAMENTO" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="321.0" layoutY="273.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="55.0" layoutY="-10.0" prefHeight="44.0" prefWidth="80.0" text="VENDAS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="48.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="12.0" prefHeight="44.0" prefWidth="123.0" text="CANCELADAS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="585.0" layoutY="270.0" prefHeight="111.0" prefWidth="191.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="55.0" layoutY="-10.0" prefHeight="44.0" prefWidth="80.0" text="VENDAS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="48.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="12.0" prefHeight="44.0" prefWidth="123.0" text="FINALIZADAS" textFill="#5b5b5b">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>
