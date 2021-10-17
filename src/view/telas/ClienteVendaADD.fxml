@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane prefHeight="548.0" prefWidth="870.0" style="-fx-background-radius: 20;" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="-114.0" layoutY="-8.0" prefHeight="550.0" prefWidth="873.0">
@@ -30,16 +29,16 @@
             <TextField fx:id="login" layoutX="305.0" layoutY="54.0" prefHeight="36.0" prefWidth="568.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
          </children>
       </Pane>
-      <Button layoutX="118.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+      <Button layoutX="93.0" layoutY="469.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="170.0" style="-fx-background-color: 0;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/B-Aplicar.png" />
+                  <Image url="@images/B-Adicionar.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="625.0" layoutY="472.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+      <Button layoutX="581.0" layoutY="472.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="192.0" style="-fx-background-color: 0;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                <image>

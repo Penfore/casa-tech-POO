@@ -19,7 +19,7 @@ public class Clientes extends Application{
 		
 		Scene cena = new Scene(root);
 		
-		ps.setTitle("casatech-clientes");
+		ps.setTitle("CT - Clientes");
 		ps.setScene(cena);
 		ps.show();
 	}

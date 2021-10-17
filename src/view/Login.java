@@ -19,7 +19,7 @@ public class Login extends Application{
 		
 		Scene cena = new Scene(root);
 		
-		ps.setTitle("casatech");
+		ps.setTitle("Casa Tech");
 		ps.setScene(cena);
 		ps.show();
 	}

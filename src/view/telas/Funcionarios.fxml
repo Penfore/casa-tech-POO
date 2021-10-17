@@ -7,28 +7,95 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodyGreen" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css">
          <children>
-            <Pane prefHeight="768.0" prefWidth="296.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
+            <Pane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
                <children>
-                  <ImageView fitHeight="179.0" fitWidth="183.0" layoutX="60.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+                  <Pane prefHeight="126.0" prefWidth="1282.0">
+                     <children>
+                        <ImageView fitHeight="130.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/Barra%20superior.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconVenda.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconEstoque.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconClientes.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconLocal.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconFuncionarios.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/IconAdm.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="46.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/FundoFun.png" />
+                        <Image url="@images/IconResponsavel.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="51.0" layoutY="368.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+                  <Label layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                      <font>
                         <Font name="SansSerif Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="2.0" layoutY="439.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="0.0" style="-fx-background-color: 0;" textAlignment="RIGHT">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
+                  <Button layoutX="9.0" layoutY="418.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: 0;">
                      <graphic>
-                        <ImageView fitHeight="44.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="52.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/ButtonAddFun.png" />
                            </image>
@@ -37,63 +104,15 @@
                   </Button>
                </children>
             </Pane>
-            <ImageView fitHeight="125.0" fitWidth="1320.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/Barra%20superior.png" />
-               </image>
-            </ImageView>
-            <HBox alignment="CENTER" layoutX="-1.0" layoutY="1.0" prefHeight="112.0" prefWidth="1325.0" style="-fx-background-color: 0;">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <ImageView fitHeight="98.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconVenda.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <ImageView fitHeight="82.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconEstoque.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <ImageView fitHeight="72.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconClientes.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <ImageView fitHeight="98.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconAdm.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </HBox>
-            <TableView layoutX="298.0" layoutY="113.0" prefHeight="658.0" prefWidth="1024.0" style="-fx-background-color: 0;">
-              <columns>
-                <TableColumn prefWidth="329.6666259765625" styleClass="table" text="NOME" />
-                <TableColumn prefWidth="319.3333740234375" styleClass="table" text="ENDERECO" />
-                  <TableColumn prefWidth="158.33331298828125" styleClass="table" text="TELEFONE" />
-                  <TableColumn prefWidth="218.6666259765625" styleClass="table" text="OPÇÕES" />
-              </columns>
-            </TableView>
          </children>
       </Pane>
+      <TableView layoutX="250.0" layoutY="122.0" prefHeight="596.0" prefWidth="1030.0" style="-fx-background-color: 0;">
+        <columns>
+          <TableColumn prefWidth="329.6666259765625" styleClass="table" text="NOME" />
+          <TableColumn prefWidth="319.3333740234375" styleClass="table" text="ENDERECO" />
+            <TableColumn prefWidth="158.33331298828125" styleClass="table" text="TELEFONE" />
+            <TableColumn prefWidth="218.6666259765625" styleClass="table" text="OPÇÕES" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

@@ -10,9 +10,9 @@
    <children>
       <Pane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-radius: 20; -fx-background-color: white;">
          <children>
-            <ImageView fitHeight="132.0" fitWidth="144.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="138.0" fitWidth="150.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/IconResponsavel.png" />
+                  <Image url="@images/AvatarCliente.png" />
                </image>
             </ImageView>
             <Label layoutX="186.0" layoutY="30.0" text="NOME COMPLETO " textFill="#757575">

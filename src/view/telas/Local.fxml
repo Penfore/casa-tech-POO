@@ -7,94 +7,121 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1320.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="1.0" prefHeight="768.0" prefWidth="296.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
+      <Pane layoutX="251.0" layoutY="118.0" prefHeight="603.0" prefWidth="1030.0">
          <children>
-            <ImageView fitHeight="179.0" fitWidth="183.0" layoutX="60.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <TextField layoutX="135.0" layoutY="14.0" prefHeight="30.0" prefWidth="869.0" styleClass="input" />
+            <Label layoutX="29.0" layoutY="7.0" prefHeight="31.0" prefWidth="75.0" text="Nome">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView layoutX="3.0" layoutY="60.0" prefHeight="542.0" prefWidth="1024.0" style="-fx-background-color: 0;">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <columns>
+                  <TableColumn prefWidth="120.0" styleClass="table" text="CASA" />
+                  <TableColumn prefWidth="300.0" styleClass="table" text="COMPARTIMENTO" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
+               </columns>
+            </TableView>
+            <ChoiceBox layoutX="12.0" layoutY="8.0" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: 0;" />
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" layoutY="2.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
+         <children>
+            <Pane prefHeight="126.0" prefWidth="1282.0">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Barra%20superior.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconVenda.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconEstoque.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconClientes.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconLocal.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconFuncionarios.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconAdm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+            </Pane>
+            <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="46.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/FundoFun.png" />
+                  <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
-            <Label layoutX="51.0" layoutY="368.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+            <Label layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="43.0" layoutY="429.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="152.0" style="-fx-background-color: 0;">
+            <Button layoutX="21.0" layoutY="562.0" mnemonicParsing="false" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/ButtonNovoCliente.png" />
+                        <Image url="@images/B-Adicionar.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
          </children>
       </Pane>
-      <ImageView fitHeight="125.0" fitWidth="1320.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/Barra%20superior.png" />
-         </image>
-      </ImageView>
-      <HBox alignment="CENTER" layoutX="-2.0" layoutY="-1.0" prefHeight="112.0" prefWidth="1325.0" style="-fx-background-color: 0;">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="98.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/IconVenda.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="82.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/IconEstoque.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="72.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/IconClientes.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="98.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/IconAdm.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-      <TableView layoutX="297.0" layoutY="186.0" prefHeight="583.0" prefWidth="1024.0" style="-fx-background-color: 0;">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <columns>
-            <TableColumn prefWidth="120.0" styleClass="table" text="CASA" />
-            <TableColumn prefWidth="300.0" styleClass="table" text="COMPARTIMENTO" />
-            <TableColumn prefWidth="150.0" styleClass="table" text="OPÇÕES" />
-         </columns>
-      </TableView>
-      <TextField layoutX="423.0" layoutY="130.0" prefHeight="42.0" prefWidth="879.0" styleClass="input" />
-      <Label layoutX="331.0" layoutY="132.0" text="Nome:">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
    </children>
 </Pane>

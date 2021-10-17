@@ -19,7 +19,7 @@ public class Estoque extends Application{
 		
 		Scene cena = new Scene(root);
 		
-		ps.setTitle("casatech-estoque");
+		ps.setTitle("CT - Estoque");
 		ps.setScene(cena);
 		ps.show();
 	}
