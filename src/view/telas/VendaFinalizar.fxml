@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1040.0" style="-fx-background-color: 0;" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1040.0" styleClass="bodyGreen">
+         <children>
+            <Pane layoutX="26.0" layoutY="407.0" prefHeight="177.0" prefWidth="980.0" style="-fx-background-color: fff;">
+               <children>
+                  <HBox alignment="CENTER" layoutY="58.0" prefHeight="120.0" prefWidth="984.0" spacing="15.0">
+                     <children>
+                        <Pane prefHeight="60.0" prefWidth="265.0" styleClass="input">
+                           <children>
+                              <Label layoutX="64.0" layoutY="17.0" prefHeight="27.0" prefWidth="199.0" text="CLIENTE COMPRADOR">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="80.0" fitWidth="50.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/AvatarCliente.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="60.0" prefWidth="255.0">
+                           <children>
+                              <Label layoutY="-8.0" prefHeight="35.0" prefWidth="253.0" text="FORMA DE PAGAMENTO">
+                                 <font>
+                                    <Font name="SansSerif Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox layoutY="25.0" prefHeight="35.0" prefWidth="255.0" />
+                           </children>
+                        </Pane>
+                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="132.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/B-Finalizar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/B-Cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="25.0" right="25.0" top="30.0" />
+                     </padding>
+                  </HBox>
+                  <Pane layoutX="21.0" layoutY="16.0" prefHeight="41.0" prefWidth="923.0" styleClass="input">
+                     <children>
+                        <Label layoutX="16.0" layoutY="6.0" text="TOTAL">
+                           <font>
+                              <Font name="SansSerif Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="838.0" layoutY="6.0" text="00,00">
+                           <font>
+                              <Font name="SansSerif Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <TableView layoutX="42.0" layoutY="18.0" prefHeight="348.0" prefWidth="960.0" styleClass="table">
+               <columns>
+                  <TableColumn prefWidth="75.0" styleClass="table" text="ID" />
+                  <TableColumn prefWidth="401.6666564941406" styleClass="table" text="PRODUTO" />
+                  <TableColumn prefWidth="204.33334350585938" styleClass="table" text="QUANTIDADE" />
+                  <TableColumn prefWidth="183.66668701171875" styleClass="table" text="VALOR(UNI)" />
+                  <TableColumn prefWidth="139.66668701171875" styleClass="table" text="TOTAL" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</Pane>

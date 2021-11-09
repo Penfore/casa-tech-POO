@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-color: 0;" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" styleClass="bodyGreen">
+         <children>
+            <Button layoutX="426.0" layoutY="467.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="203.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="179.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/B-Cancel.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TableView layoutX="28.0" layoutY="19.0" prefHeight="251.0" prefWidth="1004.0" styleClass="table">
+               <columns>
+                  <TableColumn prefWidth="101.66666412353516" styleClass="table" text="ID" />
+                  <TableColumn prefWidth="446.33333587646484" styleClass="table" text="PRODUTO" />
+                  <TableColumn prefWidth="167.66665649414062" styleClass="table" text="QUANTIDADE" />
+                  <TableColumn prefWidth="161.0" styleClass="table" text="VALOR(UNI)" />
+                  <TableColumn prefWidth="128.3333740234375" styleClass="table" text="TOTAL" />
+               </columns>
+            </TableView>
+            <Pane layoutX="30.0" layoutY="298.0" prefHeight="228.0" prefWidth="394.0" styleClass="PanelWhite">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/AvatarCliente.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="87.0" layoutY="23.0" text="NOME DO CLIENTE" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="70.0" text="BAIRRO" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="162.0" layoutY="69.0" text="RUA" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="292.0" layoutY="67.0" text="CEP" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="108.0" text="EMAIL@GAMIL.COM" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="141.0" text="TELEFONE" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="174.0" text="CPF" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="630.0" layoutY="299.0" prefHeight="228.0" prefWidth="394.0" styleClass="PanelWhite">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/CarrinhoCompra.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="87.0" layoutY="23.0" text="COD DE VENDA" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="70.0" prefHeight="21.0" prefWidth="228.0" text="FORMA DE PAGAMENTO" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="108.0" text="TOTAL" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="141.0" text="00/00/0000" textFill="#5b5b5b">
+                     <font>
+                        <Font name="SansSerif Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button layoutX="426.0" layoutY="317.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="203.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="179.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/B-Finalizar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</Pane>
