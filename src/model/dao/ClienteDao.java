@@ -10,16 +10,14 @@ import src.model.vo.ClienteVO;
 public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements ClienteInterDao<VO> {
 
 	public void store(ClienteVO vo) throws SQLException {
-		String sql = "Insert into Cliente (nome,rua,bairro,email,telefone,cep,cpf) values (?,?,?,?,?,?,?)";
+		String sql = "Insert into Cliente (nome,endereco,email,telefone,cpf) values (?,?,?,?,?)";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 			ptst.setString(1, vo.getNome());
-			ptst.setString(2, vo.getRua());
-			ptst.setString(3, vo.getBairro());
-			ptst.setString(4, vo.getEmail());
-			ptst.setString(5, vo.getTelefone());
-			ptst.setString(6, vo.getCep());
-			ptst.setString(7, vo.getCpf());
+			ptst.setString(2, vo.getEndereco());
+			ptst.setString(3, vo.getEmail());
+			ptst.setString(4, vo.getTelefone());
+			ptst.setString(5, vo.getCpf());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -50,18 +48,16 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 
 	public void updateById(ClienteVO vo) throws SQLException {
 
-		String sql = "UPDATE Cliente SET (nome,rua,bairro,email,telefone,cep,cpf) = (?,?,?,?,?,?,?) WHERE id =?";
+		String sql = "UPDATE Cliente SET (nome,endereco,email,telefone,cpf) = (?,?,?,?,?,) WHERE id =?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
 			ptst.setString(1, vo.getNome());
-			ptst.setString(2, vo.getRua());
-			ptst.setString(3, vo.getBairro());
-			ptst.setString(4, vo.getEmail());
-			ptst.setString(5, vo.getTelefone());
-			ptst.setString(6, vo.getCep());
-			ptst.setString(7, vo.getCpf());
-			ptst.setInt(8, vo.getId());
+			ptst.setString(2, vo.getEndereco());
+			ptst.setString(3, vo.getEmail());
+			ptst.setString(4, vo.getTelefone());
+			ptst.setString(5, vo.getCpf());
+			ptst.setInt(6, vo.getId());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -133,6 +129,20 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 			ptst = getConnection().prepareStatement(sql);
 			ptst.setString(1, vo.getNome());
 
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	public ResultSet quantidadeClientes() throws SQLException {
+		String sql = "SELECT COUNT(*) FROM cliente";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
 			rs = ptst.executeQuery();
 
 		} catch (SQLException e) {

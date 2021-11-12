@@ -97,29 +97,29 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 		return rs;
 	}
 	
-	public boolean autenticar(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Usuario WHERE nickName =? AND senha = ? ";
+	public ResultSet autenticar(VO vo) throws SQLException {
+		String sql = "SELECT * FROM Usuario "
+				+ "INNER JOIN funcionario ON funcionario.usuario_id = casatech.usuario.id "
+				+ "WHERE nickName = ? AND senha = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
-		boolean login = false;
 
 		try {
+
 			ptst = getConnection().prepareStatement(sql);
 			ptst.setString(1, vo.getNickName());
-			ptst.setString(1, vo.getSenha());
+			ptst.setString(2, vo.getSenha());
 
 			rs = ptst.executeQuery();
 			
 			if (!rs.isBeforeFirst() ) {    
 				throw new SQLException("login ou senha incorretos :( ");
-			}else {
-				login = true;
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return login;
+		return rs;
 	}
 	
 	public ResultSet findByNickName(VO vo) throws SQLException {
@@ -132,7 +132,7 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 			ptst.setString(1, vo.getNickName());
 
 			rs = ptst.executeQuery();
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

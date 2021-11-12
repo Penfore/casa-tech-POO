@@ -8,4 +8,7 @@ public interface EquipamentoInterDao<VO> {
 	public ResultSet findByCOD(VO entity) throws SQLException;
 	public ResultSet listByResponsavel(VO entity) throws SQLException;
 	public ResultSet listByLocal(VO entity) throws SQLException;
+	public ResultSet quantidadeEstoque() throws SQLException;
+	public ResultSet EquipamentoMaisVendido() throws SQLException;
+	public ResultSet TotalEquipamentosVendidos() throws SQLException;
 }

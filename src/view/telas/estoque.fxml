@@ -112,12 +112,16 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="3.0" layoutY="60.0" prefHeight="542.0" prefWidth="1024.0" style="-fx-background-color: 0;">
+            <TableView layoutX="3.0" layoutY="60.0" prefHeight="542.0" prefWidth="1024.0" style="-fx-background-color: 0;" styleClass="table">
               <columns>
-                <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-                <TableColumn prefWidth="300.0" styleClass="table" text="NOME" />
+                <TableColumn prefWidth="326.0" styleClass="table" text="NOME" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="DESCRIÇÃO" />
                   <TableColumn prefWidth="150.0" styleClass="table" text="QUANT." />
                   <TableColumn prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="COD" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="PESO" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="RESPONSAVEL" />
+                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="LOCAL" />
                   <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
               </columns>
                <columnResizePolicy>

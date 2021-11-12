@@ -2,6 +2,9 @@ package src.model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import src.model.dao.VendaDao;
 import src.model.vo.VendaVO;
@@ -58,31 +61,84 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	}
 
-	public void index() {
+	public List<VendaVO> index() {
+		ResultSet rs = null;
+		List<VendaVO> vendas = new ArrayList<VendaVO>();
 		try {
-			dao.index();
+			rs = dao.index();
+			while (rs.next()) {
+				VendaVO venda = new VendaVO();
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getDate("datadecompra"));
+				
+				
+				venda.setDataDeCompra(cal);
+				venda.setId(rs.getInt("id"));
+				venda.setPrecoTotal(rs.getFloat("precoTotal"));
+				venda.setStatus(rs.getString("status"));
+				venda.setFormaDePagamento(rs.getString("formaDePagamento"));
+
+				vendas.add(venda);
+
+			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return vendas;
 	}
 
-	public void findByCliente(VendaVO vo) {
+	public List<VendaVO> findByCliente(VendaVO vo) {
+		ResultSet rs = null;
+		List<VendaVO> vendas = new ArrayList<VendaVO>();
 		try {
-			dao.findByCliente(vo);
+			rs = dao.findByCliente(vo);
+			while (rs.next()) {
+				VendaVO venda = new VendaVO();
+				// ClienteVO comprador = new ClienteVO();
+				venda.setId(rs.getInt("id"));
+				venda.setPrecoTotal(rs.getFloat("precoTotal"));
+
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getDate("datadecompra"));
+				venda.setDataDeCompra(cal);
+
+				venda.setStatus(rs.getString("status"));
+
+				vendas.add(venda);
+				// fazer a parte de cliente com o join se pa
+			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return vendas;
 	}
 
-	public void findByDate(VendaVO vo) {
+	public List<VendaVO> findByDate(VendaVO vo) {
+		ResultSet rs = null;
+		List<VendaVO> vendas = new ArrayList<VendaVO>();
 		try {
-			dao.findByDate(vo);
+			rs = dao.findByDate(vo);
+			while (rs.next()) {
+				VendaVO venda = new VendaVO();
+				// ClienteVO comprador = new ClienteVO();
+				venda.setId(rs.getInt("id"));
+				venda.setPrecoTotal(rs.getFloat("precoTotal"));
+
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getDate("datadecompra"));
+				venda.setDataDeCompra(cal);
+
+				venda.setStatus(rs.getString("status"));
+
+				vendas.add(venda);
+				// fazer a parte de cliente com o join se pa
+			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return vendas;
 	}
-
 }

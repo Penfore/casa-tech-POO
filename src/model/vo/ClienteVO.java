@@ -3,11 +3,9 @@ package src.model.vo;
 public class ClienteVO {
 	private int id;
 	private String nome;
-	private String rua; 
-	private String bairro;
+	private String endereco; 
 	private String email;
 	private String telefone;
-	private String cep;
 	private String cpf;
 	
 	
@@ -37,18 +35,6 @@ public class ClienteVO {
 		}
 	}
 
-	// NOME DA RUA
-	public String getRua() {
-		return rua;
-	}
-	public void setRua(String rua) { 
-		if(rua!=null && !rua.equals("")) { 
-			this.rua = rua;
-		}else{
-			System.out.println("A caixa rua não pode estar vazia!");
-		}
-	}
-	
 
 	// E-MAIL
 	public String getEmail() {
@@ -62,9 +48,6 @@ public class ClienteVO {
 		}
 		
 	}
-	//
-
-
 	// TELEFONE
 	public String getTelefone() {
 		return telefone;
@@ -79,37 +62,6 @@ public class ClienteVO {
 		
 	}
 	
-
-
-	// BAIRRO
-	public String getBairro() {
-		return bairro;
-	}
-	public void setBairro(String bairro) {
-		if(bairro!=null && !bairro.equals("")) { // Deveríamos permitir que fosse opcional o cadastro desse dado?
-			this.bairro = bairro;
-		}else{
-			// No futuro, essa mensagem será trocada por um throw exception;
-			System.out.println("A caixa do baixo não pode estar vazia!");
-		}
-	
-	}
-	//
-
-
-	// CEP
-	public String getCep() {
-		return cep;
-	}
-	public void setCep(String cep) {
-		if(cep!=null && !cep.equals("")) { 
-			this.cep = cep;
-		}else{
-			System.out.println("A caixa do CEP não pode estar vazia!");
-		}
-		
-	}	
-
 	// CPF
 	public String getCpf() {
 		return cpf;
@@ -138,6 +90,18 @@ public class ClienteVO {
 			}
 		} else{
 			System.out.println("A caixa do CPF não pode estar vazia!");
+		}
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		if(endereco!=null && !endereco.equals("")){ 
+			this.endereco = email;
+		}else{
+			System.out.println("A caixa endereco não pode estar vazia!");
 		}
 	}	
 }

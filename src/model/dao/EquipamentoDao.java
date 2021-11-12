@@ -182,4 +182,62 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 		}
 		return rs;
 	}
+	
+	public ResultSet quantidadeEstoque() throws SQLException {
+		String sql = "Select SUM(quantidade) from casatech.equipamento";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet TotalEquipamentosVendidos() throws SQLException {
+		String sql = "SELECT (a.c * b.d) "
+				+    "FROM (SELECT COUNT(*)  AS c FROM carrinho)AS a,"
+				+    "     (SELECT SUM(quantidade)  AS d from carrinho)As b ";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	
+	public ResultSet EquipamentoMaisVendido() throws SQLException {
+		String sql = "SELECT equipamento_id, "
+				+ "nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id "
+				+ "FROM ("
+				+ "	SELECT equipamento_id,"
+				+ "     nome,peso,codigo,equipamento.quantidade,descricao,preco,responsavel_id,local_id,"
+				+ "     COUNT(*) OVER(PARTITION BY equipamento_id) AS Total"
+				+ "      FROM  carrinho JOIN equipamento ON"
+				+ "	  carrinho.equipamento_id = equipamento.id"
+				+ "	  )AS equip"
+				+ "group by equipamento_id,nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id"
+				+ "having count(*) > 1";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

@@ -2,10 +2,12 @@ package src.model.bo;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface EquipamentoInterBO<VO> {
-	public void findByNome(VO entity) throws SQLException;
-	public void findByCOD(VO entity) throws SQLException;
-	public void listByResponsavel(VO entity) throws SQLException;
-	public void listByLocal(VO entity) throws SQLException;
+	public List<VO> findByNome(VO entity) throws SQLException;
+	public List<VO> findByCOD(VO entity) throws SQLException;
+	public List<VO> listByResponsavel(VO entity) throws SQLException;
+	public List<VO> listByLocal(VO entity) throws SQLException;
+	
 }

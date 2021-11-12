@@ -70,5 +70,8 @@
 }
 .table{
 -fx-background-color: C5FCE9;
--fx-text-fill:white;
+-fx-text-fill:black;
+-fx-alignment:center;
+-fx-font-size: 20px
+
 }

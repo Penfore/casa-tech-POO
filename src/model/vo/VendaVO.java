@@ -1,16 +1,14 @@
 package src.model.vo;
 import java.util.Calendar;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Random;
+
 
 public class VendaVO {
 	 private int id;
      private float precoTotal;
-     private String codigo;
      private Calendar dataDeCompra; 
      private String status; 
      private ClienteVO comprador;
+     private String formaDePagamento;
 
      
      
@@ -38,33 +36,6 @@ public class VendaVO {
 			
 		}
 	}
-
-
-	public String getCodigo(){
-		return codigo;
-	}
-	public void setCodigo(String codigo){
-		if (codigo != null && !codigo.equals("")){
-			this.codigo = codigo;	
-		}else{
-			System.out.println("A caixa ID não pode estar vaiza!");
-		}	
-	}
-	
-	//ESSA FUNCAO NAO SERA USADA AQUI 
-//	public String generateCodigo(){ 
-//		Random gerador = new Random();
-//
-//		String aux = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//		String cod = "";
-//
-//		while (cod.length() < 35){
-//			cod = cod + aux.charAt(gerador.nextInt(62));
-//		} 
-//		
-//		return cod;
-//	}
-	
 
 	public Calendar getDataDeCompra() {
 		return dataDeCompra;
@@ -106,5 +77,22 @@ public class VendaVO {
 		} else{
 			System.out.println("Os atributos do comprador são inválidos!");
 		}
+	}
+
+	public String getFormaDePagamento() {
+		return formaDePagamento;
+	}
+
+	public void setFormaDePagamento(String formaDePagamento) {
+		if(formaDePagamento!=null && !formaDePagamento.equals("")) {
+			if(formaDePagamento.equals("Dinheiro") || formaDePagamento.equals("Cartao")) {
+				this.formaDePagamento = formaDePagamento;
+			}else {
+				//forma de pagamento invalida
+			}
+		}else {
+			//forma de pagamento deve conter algo
+		}
+		
 	}	
 }

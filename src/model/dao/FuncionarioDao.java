@@ -147,4 +147,20 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 		}
 		return rs;
 	}
+
+
+	public ResultSet quantidadeFuncionarios() throws SQLException {
+		String sql = "SELECT COUNT(*) FROM Funcionario";
+		PreparedStatement ptst;
+		ResultSet rs = null;
+
+		try {
+			ptst = getConnection().prepareStatement(sql);
+			rs = ptst.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

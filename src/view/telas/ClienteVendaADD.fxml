@@ -6,19 +6,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="548.0" prefWidth="870.0" style="-fx-background-radius: 20;" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="548.0" prefWidth="870.0" style="-fx-background-radius: 20;" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.VendaController">
    <children>
       <Pane layoutX="-114.0" layoutY="-8.0" prefHeight="550.0" prefWidth="873.0">
          <children>
-            <TableView layoutX="209.0" layoutY="124.0" prefHeight="334.0" prefWidth="674.0" styleClass="table">
+            <TableView fx:id="tableCLientes" layoutX="215.0" layoutY="124.0" prefHeight="334.0" prefWidth="668.0" styleClass="table">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <columns>
-                  <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-                  <TableColumn prefWidth="300.0" styleClass="table" text="CPF" />
-                  <TableColumn prefWidth="150.0" styleClass="table" text="NOME" />
-                  <TableColumn prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
+                  <TableColumn fx:id="colID" prefWidth="120.0" styleClass="table" text="ID" />
+                  <TableColumn fx:id="colCPF" prefWidth="300.0" styleClass="table" text="CPF" />
+                  <TableColumn fx:id="colNome" prefWidth="150.0" styleClass="table" text="NOME" />
+                  <TableColumn fx:id="colEndereco" prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
                </columns>
             </TableView>
             <Label layoutX="221.0" layoutY="56.0" text="Nome:">

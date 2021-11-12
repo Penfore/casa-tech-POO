@@ -2,11 +2,13 @@ package src.model.bo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import src.model.dao.LocalDao;
 
 import src.model.vo.LocalVO;
+
 
 public class LocalBO implements BaseInterBO<LocalVO>, LocalInterBO<LocalVO> {
 	LocalDao<LocalVO> dao = new LocalDao<LocalVO>();
@@ -65,30 +67,68 @@ public class LocalBO implements BaseInterBO<LocalVO>, LocalInterBO<LocalVO> {
 
 	}
 
-	public void index()  {
+	public List<LocalVO> index()  {
+		ResultSet rs = null;
+		List<LocalVO> locais = new ArrayList<LocalVO>();
 		try {
-			dao.index();
+			rs = dao.index();
+			while(rs.next()){
+				LocalVO local = new LocalVO();
+				
+				local.setId(rs.getInt("id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
+				locais.add(local);
+			}
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+		return locais;
 
 	}
 	
-	public void findByCasa(LocalVO vo)  {
+	public List<LocalVO> findByCasa(LocalVO vo)  {
+		ResultSet rs = null;
+		List<LocalVO> locais = new ArrayList<LocalVO>();
 		try {
-			dao.findByCasa(vo);
+			rs = dao.findByCasa(vo);
+			while(rs.next()){
+				LocalVO local = new LocalVO();
+				
+				local.setId(rs.getInt("id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
+				locais.add(local);
+			}
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+		return locais;
 
 	}
 	
-	public void listByCompartimento(LocalVO vo)  {
+	public List<LocalVO> listByCompartimento(LocalVO vo)  {
+		ResultSet rs = null;
+		List<LocalVO> locais = new ArrayList<LocalVO>();
 		try {
-			dao.listByCompartimento(vo);
+			rs = dao.listByCompartimento(vo);
+			while(rs.next()){
+				LocalVO local = new LocalVO();
+				
+				local.setId(rs.getInt("id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
+				locais.add(local);
+			}
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+		return locais;
 
 	}
+	
+
 }
