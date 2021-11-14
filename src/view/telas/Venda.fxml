@@ -8,8 +8,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.VendaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.TelasPrincipaisController.VendaController">
    <children>
+      <TableView fx:id="tableVenda" layoutX="258.0" layoutY="129.0" prefHeight="586.0" prefWidth="1017.0" style="-fx-background-color: 000;">
+         <columns>
+            <TableColumn fx:id="colCOD" prefWidth="164.00003051757812" styleClass="table" text="COD VENDA" />
+            <TableColumn fx:id="colData" prefWidth="128.66668701171875" styleClass="table" text="DATA" />
+            <TableColumn fx:id="colStatus" prefWidth="195.0" styleClass="table" text="STATUS" />
+            <TableColumn fx:id="colTotal" prefWidth="200.0" styleClass="table" text="TOTAL" />
+            <TableColumn fx:id="colCliente" prefWidth="218.6666259765625" styleClass="table" text="CLIENTE" />
+            <TableColumn fx:id="colOpcoes" prefWidth="116.3333740234375" styleClass="table" text="OPÇÕES" />
+         </columns>
+      </TableView>
       <Pane layoutX="1.0" layoutY="-1.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
          <children>
             <Pane prefHeight="126.0" prefWidth="1282.0">
@@ -21,7 +31,7 @@
                   </ImageView>
                   <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="vendasBut" mnemonicParsing="false" opacity="0.5" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -30,7 +40,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="estoqueBut" mnemonicParsing="false" onAction="#irTelaEstoque" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fx:id="estoque" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -39,7 +49,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="clientesBut" mnemonicParsing="false" onAction="#irTelaClientes" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -48,7 +58,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="localBut" mnemonicParsing="false" onAction="#irTelaLocal" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -57,7 +67,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="funcionariosBut" mnemonicParsing="false" onAction="#irTelaFuncionarios" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -66,7 +76,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="relatoriosBut" mnemonicParsing="false" onAction="#irTelaRelatorios" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -87,12 +97,12 @@
                   <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
-            <Label fx:id="NomeUsuario" layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" textFill="#4d4d4d">
+            <Label fx:id="NomeUsuario" contentDisplay="CENTER" layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NomeUsuario" textAlignment="CENTER" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="novaVenda" layoutX="21.0" layoutY="562.0" mnemonicParsing="false" onAction="#NovaVenda" style="-fx-background-color: 0;">
+            <Button fx:id="novaVenda" layoutX="21.0" layoutY="562.0" mnemonicParsing="false" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -103,15 +113,5 @@
             </Button>
          </children>
       </Pane>
-      <TableView fx:id="tableVenda" layoutX="258.0" layoutY="129.0" prefHeight="586.0" prefWidth="1017.0" style="-fx-background-color: 000;">
-         <columns>
-            <TableColumn fx:id="colCOD" prefWidth="164.00003051757812" styleClass="table" text="COD VENDA" />
-            <TableColumn fx:id="colData" prefWidth="128.66668701171875" styleClass="table" text="DATA" />
-            <TableColumn fx:id="colStatus" prefWidth="195.0" styleClass="table" text="STATUS" />
-            <TableColumn fx:id="colTotal" prefWidth="200.0" styleClass="table" text="TOTAL" />
-            <TableColumn fx:id="colCliente" prefWidth="218.6666259765625" styleClass="table" text="CLIENTE" />
-            <TableColumn fx:id="colOpcoes" prefWidth="116.3333740234375" styleClass="table" text="OPÇÕES" />
-         </columns>
-      </TableView>
    </children>
 </Pane>

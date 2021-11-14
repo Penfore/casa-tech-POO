@@ -45,7 +45,7 @@ public class TelasPrincipal extends Application{
         setPs(ps);
 
         ps.setTitle("Casa Tech");
-        load(telasNome.login);
+        load(telasNome.clientes);
         ps.show();
     }
 

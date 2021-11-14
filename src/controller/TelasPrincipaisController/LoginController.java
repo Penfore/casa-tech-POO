@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import src.model.bo.FuncionarioBO;
 import src.model.vo.FuncionarioVO;
-import src.view.*;
 
 public class LoginController {
 	@FXML private TextField login;
@@ -18,7 +17,7 @@ public class LoginController {
 	FuncionarioVO authfunvo = new FuncionarioVO();
 	
 	public void auth(ActionEvent event) throws Exception {
-		Venda venda = new Venda();
+		//Venda venda = new Venda();
 		FuncionarioBO bo = new FuncionarioBO();
 		FuncionarioVO funvo = new FuncionarioVO();
 		
@@ -30,7 +29,8 @@ public class LoginController {
 	
 		this.authfunvo = bo.autenticar(funvo);
 		
-		venda.switchSceneVenda(stage);
+		//venda.switchSceneVenda(stage);
+
 	}
 	public FuncionarioVO returnFuncionario(FuncionarioVO vo) {
 		return(vo); 
