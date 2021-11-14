@@ -1,4 +1,4 @@
-package src.controller;
+package src.controller.TelasPrincipaisController;
 
 import java.sql.SQLException;
 

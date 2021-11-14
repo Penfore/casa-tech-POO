@@ -6,49 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Venda",
+            "name": "Launch Login",
             "request": "launch",
-            "mainClass": "src.view.Venda",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch RelatoriosVenda",
-            "request": "launch",
-            "mainClass": "src.view.RelatoriosVenda",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch RelatoriosFuncionario",
-            "request": "launch",
-            "mainClass": "src.view.RelatoriosFuncionario",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch RelatoriosEstoque",
-            "request": "launch",
-            "mainClass": "src.view.RelatoriosEstoque",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch RelatoriosCliente",
-            "request": "launch",
-            "mainClass": "src.view.RelatoriosCliente",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch Relatorios",
-            "request": "launch",
-            "mainClass": "src.view.Relatorios",
+            "mainClass": "src.view.Login",
             "projectName": "casa-tech-POO_2bdf4d01",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
@@ -62,28 +22,6 @@
         },
         {
             "type": "java",
-            "name": "Launch Funcionarios",
-            "request": "launch",
-            "mainClass": "src.view.Funcionarios",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch Clientes",
-            "request": "launch",
-            "mainClass": "src.view.Clientes",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
             "name": "Launch Estoque",
             "request": "launch",
             "mainClass": "src.view.Estoque",
@@ -92,9 +30,9 @@
         },
         {
             "type": "java",
-            "name": "Launch Login",
+            "name": "Launch TelasPrincipal",
             "request": "launch",
-            "mainClass": "src.view.Login",
+            "mainClass": "src.view.TelasPrincipal",
             "projectName": "casa-tech-POO_2bdf4d01",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         }
