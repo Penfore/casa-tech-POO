@@ -7,21 +7,112 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="bodyGreen" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.TelasPrincipaisController.RelatoriosController">
    <children>
-      <TableView layoutX="262.0" layoutY="262.0" prefHeight="447.0" prefWidth="1004.0" style="-fx-background-color: 0;">
-         <columns>
-            <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-            <TableColumn prefWidth="300.0" styleClass="table" text="NOME" />
-            <TableColumn prefWidth="150.0" styleClass="table" text="QUANT." />
-            <TableColumn prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
-            <TableColumn prefWidth="186.3333740234375" styleClass="table" text="QUANTIDADE DE VENDAS" />
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <HBox layoutX="259.0" layoutY="120.0" prefHeight="140.0" prefWidth="1018.0" spacing="20.0">
+      <Pane layoutX="1.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
+         <children>
+            <Pane prefHeight="126.0" prefWidth="1282.0">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Barra%20superior.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
+                     <children>
+                        <Button fx:id="vendasBut" mnemonicParsing="false" onAction="#irTelaVenda" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconVenda.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="estoqueBut" mnemonicParsing="false" onAction="#irTelaEstoque" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconEstoque.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="clientesBut" mnemonicParsing="false" onAction="#irTelaClientes" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconClientes.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="localBut" mnemonicParsing="false" onAction="#irTelaLocal" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconLocal.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="funcionariosBut" mnemonicParsing="false" onAction="#irTelaFuncionarios" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconFuncionarios.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="relatoriosBut" mnemonicParsing="false" opacity="0.5" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/IconAdm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+            </Pane>
+            <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="68.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/IconPermissoes.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="3.0" layoutY="325.0" prefHeight="210.0" prefWidth="244.0">
+               <children>
+                  <Button fx:id="relatoriosFunBut" mnemonicParsing="false" onAction="#irTelaRelatoriosFuncionarios" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="FUNCIONARIOS" textFill="#2f2f2f">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="relatoriosCliBut" mnemonicParsing="false" onAction="#irTelaRelatoriosClientes" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="CLIENTES" textFill="#2f2f2f">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="relatoriosEstBut" mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: D2D5DD; -fx-border-color: C7C7C7;" text="ESTOQUE" textFill="#2f2f2f">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="relatoriosVenBut" mnemonicParsing="false" onAction="#irTelaRelatoriosVendas" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="VENDAS" textFill="#2f2f2f">
+                     <font>
+                        <Font name="SansSerif Bold" size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <HBox layoutX="261.0" layoutY="129.0" prefHeight="140.0" prefWidth="1018.0" spacing="20.0">
          <children>
             <Pane prefHeight="100.0" prefWidth="275.0" styleClass="PanelWhite">
                <children>
@@ -70,108 +161,17 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </padding>
       </HBox>
-      <Pane prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
-         <children>
-            <Pane prefHeight="126.0" prefWidth="1282.0">
-               <children>
-                  <ImageView fitHeight="130.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Barra%20superior.png" />
-                     </image>
-                  </ImageView>
-                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconVenda.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconEstoque.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconClientes.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconLocal.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconFuncionarios.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/IconAdm.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </HBox>
-               </children>
-            </Pane>
-            <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="68.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/IconPermissoes.png" />
-               </image>
-            </ImageView>
-            <VBox layoutX="3.0" layoutY="325.0" prefHeight="210.0" prefWidth="244.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="FUNCIONARIOS" textFill="#2f2f2f">
-                     <font>
-                        <Font name="SansSerif Bold" size="25.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="CLIENTES" textFill="#2f2f2f">
-                     <font>
-                        <Font name="SansSerif Bold" size="25.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="ESTOQUE" textFill="#2f2f2f">
-                     <font>
-                        <Font name="SansSerif Bold" size="25.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" style="-fx-background-color: 0; -fx-border-color: C7C7C7;" text="VENDAS" textFill="#2f2f2f">
-                     <font>
-                        <Font name="SansSerif Bold" size="25.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-         </children>
-      </Pane>
+      <TableView layoutX="264.0" layoutY="271.0" prefHeight="447.0" prefWidth="1004.0" style="-fx-background-color: 0;">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
+            <TableColumn prefWidth="300.0" styleClass="table" text="NOME" />
+            <TableColumn prefWidth="150.0" styleClass="table" text="QUANT." />
+            <TableColumn prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
+            <TableColumn prefWidth="186.3333740234375" styleClass="table" text="QUANTIDADE DE VENDAS" />
+         </columns>
+      </TableView>
    </children>
 </Pane>

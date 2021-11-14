@@ -97,12 +97,7 @@
                   <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
-            <Label fx:id="NomeUsuario" contentDisplay="CENTER" layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NomeUsuario" textAlignment="CENTER" textFill="#4d4d4d">
-               <font>
-                  <Font name="SansSerif Bold" size="24.0" />
-               </font>
-            </Label>
-            <Button fx:id="novaVenda" layoutX="21.0" layoutY="562.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+            <Button fx:id="novaVenda" layoutX="21.0" layoutY="562.0" mnemonicParsing="false" onAction="#NovaVenda" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -113,5 +108,10 @@
             </Button>
          </children>
       </Pane>
+      <Label layoutX="42.0" layoutY="306.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+         <font>
+            <Font name="SansSerif Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

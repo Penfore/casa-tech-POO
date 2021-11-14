@@ -1,6 +1,6 @@
 package src.controller.TelasPrincipaisController;
 
-import java.sql.SQLException;
+/*import java.sql.SQLException;
 
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -8,10 +8,11 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import src.model.bo.FuncionarioBO;
-import src.model.vo.FuncionarioVO;
+import src.model.vo.FuncionarioVO;*/
+import src.controller.TrocarTelas;
 
-public class LoginController {
-	@FXML private TextField login;
+public class LoginController extends TrocarTelas {
+	/*@FXML private TextField login;
 	@FXML private TextField senha;
 	private Stage stage;
 	FuncionarioVO authfunvo = new FuncionarioVO();
@@ -34,5 +35,5 @@ public class LoginController {
 	}
 	public FuncionarioVO returnFuncionario(FuncionarioVO vo) {
 		return(vo); 
-	}
+	}*/
 }

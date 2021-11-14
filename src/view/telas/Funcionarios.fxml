@@ -93,15 +93,12 @@
                         <Font name="SansSerif Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="9.0" layoutY="418.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <ImageView fitHeight="52.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/ButtonAddFun.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Button layoutX="9.0" layoutY="418.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: 0;" />
+                  <ImageView fitHeight="52.0" fitWidth="226.0" layoutX="12.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ButtonNovoCliente.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <TableView fx:id="funTable" layoutX="253.0" layoutY="122.0" prefHeight="594.0" prefWidth="1024.0" style="-fx-background-color: 0;">

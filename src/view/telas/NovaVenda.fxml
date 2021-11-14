@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.TelasPrincipaisController.VendaController">
    <children>
       <TableView layoutX="257.0" layoutY="138.0" prefHeight="556.0" prefWidth="673.0" style="-fx-background-color: 000;">
         <columns>
@@ -92,9 +92,9 @@
                         <Image url="@images/Barra%20superior.png" />
                      </image>
                   </ImageView>
-                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="1283.0" style="-fx-background-color: 0;">
+                  <HBox alignment="CENTER" layoutY="-4.0" prefHeight="126.0" prefWidth="1283.0" style="-fx-background-color: 0;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="vendasBut" mnemonicParsing="false" opacity="0.5" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -103,7 +103,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="estoqueBut" mnemonicParsing="false" onAction="#irTelaEstoque" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -112,7 +112,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="clientesBut" mnemonicParsing="false" onAction="#irTelaClientes" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -121,7 +121,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="localBut" mnemonicParsing="false" onAction="#irTelaLocal" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -130,7 +130,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="funcionariosBut" mnemonicParsing="false" onAction="#irTelaFuncionarios" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -139,7 +139,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
+                        <Button fx:id="relatoriosBut" mnemonicParsing="false" onAction="#irTelaRelatorios" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="98.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
