@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="374.0" style="-fx-background-radius: 10;" styleClass="body" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="18.0" layoutY="14.0" prefHeight="86.0" prefWidth="339.0" styleClass="PanelWhite">
+         <children>
+            <Label layoutX="108.0" layoutY="6.0" text="ATENÇÃO!" textFill="#f76f6f">
+               <font>
+                  <Font name="SansSerif Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="41.0" text="deseja mesmo excluir esse item do estoque?">
+               <font>
+                  <Font name="SansSerif Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="187.0" layoutY="114.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: 0;">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/B-Cancel.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="41.0" layoutY="117.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/B-Aplicar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</Pane>

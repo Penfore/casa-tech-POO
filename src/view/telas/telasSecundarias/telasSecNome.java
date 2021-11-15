@@ -4,17 +4,17 @@ public enum telasSecNome {
     ClientesADD("ClientesADD"),
     ClienteVendaADD("ClienteVendaADD"),
     
-    Excluir("Excluir"),
-
     FuncionariosADD("FuncionariosADD"),
 
     LocalADD("LocalADD"),
 
     ProdutoADD("ProdutoADD"),
+    ProdutoExcluir("ProdutoExcluir"),
 
-    Recibo("Recibo"),
     VendaADD("VendaADD"),
-    VendaFinalizar("VendaFinalizar");
+    VendaExcluir("VendaExcluir"),
+    VendaFinalizar("VendaFinalizar"),
+    Recibo("Recibo");
 
     private final String telasSecNome;
 

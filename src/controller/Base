@@ -1,7 +1,7 @@
-src.controller.TelasSecudariaController.LocalADDController
+src.controller.TelasSecudariaController.VendaFinalizarController
 
  extends FecharTelaSec
 
- public void abrirADD() {
-        TelasSecudaria.load(telasSecNome.FuncionariosADD);
+ public void abrirVendaADD() {
+        TelasSecudaria.load(telasSecNome.VendaADD);
     }

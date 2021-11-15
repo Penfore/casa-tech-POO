@@ -3,31 +3,7 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Launch Login",
-            "request": "launch",
-            "mainClass": "src.view.Login",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch Local",
-            "request": "launch",
-            "mainClass": "src.view.Local",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch Estoque",
-            "request": "launch",
-            "mainClass": "src.view.Estoque",
-            "projectName": "casa-tech-POO_2bdf4d01",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-17.0.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
+    "configurations": [        
         {
             "type": "java",
             "name": "Launch TelasPrincipal",

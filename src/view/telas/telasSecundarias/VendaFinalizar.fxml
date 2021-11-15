@@ -7,7 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1040.0" style="-fx-background-color: 0;" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1040.0" style="-fx-background-color: 0;" stylesheets="@ButtonFade.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.TelasSecudariaController.VendaFinalizarController">
    <children>
       <Pane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1040.0" styleClass="bodyGreen">
          <children>
@@ -24,7 +24,7 @@
                               </Label>
                               <ImageView fitHeight="80.0" fitWidth="50.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/AvatarCliente.png" />
+                                    <Image url="@../images/AvatarCliente.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -36,23 +36,23 @@
                                     <Font name="SansSerif Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox layoutY="25.0" prefHeight="35.0" prefWidth="255.0" />
+                              <ComboBox fx:id="formaPagamentoComboBox" layoutX="1.0" layoutY="24.0" prefHeight="35.0" prefWidth="253.0" />
                            </children>
                         </Pane>
                         <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="132.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/B-Finalizar.png" />
+                                    <Image url="@../images/B-Finalizar.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: 0;">
+                        <Button fx:id="cancelarBut" mnemonicParsing="false" onAction="#FecharTela" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="48.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/B-Cancel.png" />
+                                    <Image url="@../images/B-Cancel.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -78,13 +78,13 @@
                   </Pane>
                </children>
             </Pane>
-            <TableView layoutX="42.0" layoutY="18.0" prefHeight="348.0" prefWidth="960.0" styleClass="table">
+            <TableView layoutX="42.0" layoutY="18.0" prefHeight="348.0" prefWidth="980.0" styleClass="table">
                <columns>
                   <TableColumn prefWidth="75.0" styleClass="table" text="ID" />
                   <TableColumn prefWidth="401.6666564941406" styleClass="table" text="PRODUTO" />
                   <TableColumn prefWidth="204.33334350585938" styleClass="table" text="QUANTIDADE" />
                   <TableColumn prefWidth="183.66668701171875" styleClass="table" text="VALOR(UNI)" />
-                  <TableColumn prefWidth="139.66668701171875" styleClass="table" text="TOTAL" />
+                  <TableColumn prefWidth="113.0" styleClass="table" text="TOTAL" />
                </columns>
             </TableView>
          </children>

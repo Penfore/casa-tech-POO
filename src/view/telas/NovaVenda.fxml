@@ -13,7 +13,7 @@
       <TableView layoutX="257.0" layoutY="138.0" prefHeight="556.0" prefWidth="673.0" style="-fx-background-color: 000;">
         <columns>
           <TableColumn prefWidth="279.0000305175781" styleClass="table" text="PRODUTO" />
-          <TableColumn prefWidth="105.99996948242188" styleClass="table" text="QTD" />
+          <TableColumn prefWidth="105.99996948242188" styleClass="table" text="QUANT" />
             <TableColumn prefWidth="165.0" styleClass="table" text="VALOR" />
             <TableColumn prefWidth="125.0" styleClass="table" text="EDITAR" />
         </columns>
@@ -24,63 +24,20 @@
             <String fx:value="backgroundright" />
          </styleClass>
          <children>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="601.0" prefWidth="348.0" spacing="20.0">
+            <Pane layoutX="15.0" layoutY="19.0" prefHeight="44.0" prefWidth="318.0" styleClass="input">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="290.0" styleClass="PurpleButton" text="ADICIONAR" textFill="WHITE">
+                  <Label layoutX="12.0" layoutY="1.0" prefHeight="40.0" prefWidth="83.0" text="TOTAL" textFill="#4d4d4d">
                      <font>
-                        <Font name="SansSerif Bold" size="17.0" />
+                        <Font name="SansSerif Bold" size="24.0" />
                      </font>
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconEitar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="292.0" styleClass="PinkButton" text="EXCLUIR" textFill="WHITE">
+                  </Label>
+                  <Label layoutX="222.0" layoutY="9.0" prefHeight="27.0" prefWidth="66.0" text="00,00">
                      <font>
-                        <Font name="SansSerif Bold" size="17.0" />
+                        <Font name="SansSerif Bold" size="24.0" />
                      </font>
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/IconExcluir.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="290.0" styleClass="GreenButton" text="FINALIZAR" textFill="WHITE">
-                     <font>
-                        <Font name="SansSerif Bold" size="22.0" />
-                     </font>
-                  </Button>
+                  </Label>
                </children>
-               <padding>
-                  <Insets bottom="30.0" />
-               </padding>
-            </VBox>
-            <VBox layoutX="-4.0" layoutY="1.0" prefHeight="596.0" prefWidth="352.0" spacing="300.0">
-               <children>
-                  <Pane prefHeight="44.0" prefWidth="318.0" styleClass="input">
-                     <children>
-                        <Label layoutX="12.0" layoutY="1.0" prefHeight="40.0" prefWidth="83.0" text="TOTAL" textFill="#4d4d4d">
-                           <font>
-                              <Font name="SansSerif Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="222.0" layoutY="9.0" prefHeight="27.0" prefWidth="66.0" text="00,00">
-                           <font>
-                              <Font name="SansSerif Bold" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </VBox>
+            </Pane>
          </children>
       </Pane>
       <Pane layoutY="1.0" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
@@ -165,22 +122,60 @@
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <Pane layoutX="23.0" layoutY="547.0" prefHeight="62.0" prefWidth="200.0" styleClass="input">
-               <children>
-                  <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/AvatarCliente.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="80.0" layoutY="13.0" prefHeight="39.0" prefWidth="105.0" text="CLIENTE">
-                     <font>
-                        <Font name="SansSerif Bold" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Button layoutX="22.0" layoutY="493.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Button" />
+            <Button fx:id="ClienteVendaADD" layoutX="11.0" layoutY="493.0" mnemonicParsing="false" onAction="#abrirClienteVendaADD" prefHeight="72.0" prefWidth="222.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <Pane prefHeight="59.0" prefWidth="182.0" styleClass="input">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/AvatarCliente.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="80.0" layoutY="13.0" prefHeight="39.0" prefWidth="105.0" text="CLIENTE">
+                           <font>
+                              <Font name="SansSerif Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </graphic></Button>
          </children>
       </Pane>
+      <VBox alignment="BOTTOM_CENTER" layoutX="932.0" layoutY="494.0" prefHeight="227.0" prefWidth="348.0" spacing="20.0">
+         <children>
+            <Button fx:id="VendaADD" mnemonicParsing="false" onAction="#abrirVendaADD" prefHeight="45.0" prefWidth="290.0" styleClass="PurpleButton" text="ADICIONAR" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconEitar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="VendaExcluir" mnemonicParsing="false" onAction="#abrirVendaExcluir" prefHeight="45.0" prefWidth="290.0" styleClass="PinkButton" text="EXCLUIR" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/IconExcluir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="VendaFinalizar" mnemonicParsing="false" onAction="#abrirVendaFinalizar" prefHeight="45.0" prefWidth="290.0" styleClass="GreenButton" text="FINALIZAR" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+      </VBox>
    </children>
 </Pane>
