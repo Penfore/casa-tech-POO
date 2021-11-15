@@ -119,17 +119,17 @@
                   <Font name="SansSerif Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="112.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+            <Label fx:id="qtdFun" layoutX="112.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" textFill="#5b5b5b">
                <font>
                   <Font name="SansSerif Bold" size="35.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <TableView layoutX="263.0" layoutY="249.0" prefHeight="458.0" prefWidth="1010.0" style="-fx-background-color: 0;">
+      <TableView fx:id="tableFun" layoutX="263.0" layoutY="249.0" prefHeight="458.0" prefWidth="1010.0" style="-fx-background-color: 0;">
          <columns>
-            <TableColumn prefWidth="184.0" styleClass="table" text="ID" />
-            <TableColumn prefWidth="825.0" styleClass="table" text="NOME" />
+            <TableColumn fx:id="colID" prefWidth="184.0" styleClass="table" text="ID" />
+            <TableColumn fx:id="colNome" prefWidth="825.0" styleClass="table" text="NOME" />
          </columns>
       </TableView>
    </children>

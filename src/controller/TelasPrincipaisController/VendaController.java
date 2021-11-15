@@ -27,13 +27,11 @@ public class VendaController extends TrocarTelas implements Initializable{
 	@FXML private TableColumn<VendaVO, Float> colTotal;
 	
 	VendaBO bo = new VendaBO();
-	
-	
-	
+	ObservableList<VendaVO> index = FXCollections.observableArrayList(bo.index());
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
-			ObservableList<VendaVO> index = FXCollections.observableArrayList(bo.index());
+
 
 			colCOD.setCellValueFactory(new PropertyValueFactory<>("id"));
 			colData.setCellValueFactory(new PropertyValueFactory<>("datadecompra"));

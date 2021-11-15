@@ -23,8 +23,8 @@
                   <TableColumn fx:id="colValor" prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
                   <TableColumn fx:id="colCOD" prefWidth="186.3333740234375" styleClass="table" text="COD" />
                   <TableColumn fx:id="colPeso" prefWidth="186.3333740234375" styleClass="table" text="PESO" />
-                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="RESPONSAVEL" />
-                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="LOCAL" />
+                  <TableColumn fx:id="colRes" prefWidth="186.3333740234375" styleClass="table" text="RESPONSAVEL" />
+                  <TableColumn fx:id="colLocal" prefWidth="186.3333740234375" styleClass="table" text="LOCAL" />
                   <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
                </columns>
             </TableView>

@@ -125,7 +125,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 	
 	public ResultSet findByDate(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Usuario WHERE date =?";
+		String sql = "SELECT * FROM Venda WHERE datadecompra =?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -187,7 +187,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		return rs;
 	}
 	public ResultSet vendasDoMes() throws SQLException {
-		String sql = "Select COUNT(*) from casatech.venda Where status = 'Finalizado' AND dataDeCompra "
+		String sql = "Select COUNT(*) from venda Where status = 'Finalizado' AND dataDeCompra "
 				+    "BETWEEN ? AND ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
@@ -213,7 +213,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		return rs;
 	}
 	public ResultSet TotalPrecoVendido() throws SQLException {
-		String sql = "Select SUM(precoTotal) As capital from casatech.venda Where status = 'Finalizado'";
+		String sql = "Select SUM(precoTotal) As capital from venda Where status = 'Finalizado'";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 

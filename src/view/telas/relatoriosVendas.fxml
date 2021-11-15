@@ -123,7 +123,7 @@
                               <Font name="SansSerif Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="142.0" layoutY="41.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                        <Label fx:id="Total" alignment="CENTER" layoutX="93.0" layoutY="41.0" prefHeight="52.0" prefWidth="141.0" textFill="#5b5b5b">
                            <font>
                               <Font name="SansSerif Bold" size="35.0" />
                            </font>
@@ -139,7 +139,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="140.0" layoutY="46.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="Finalizadas" alignment="CENTER" layoutX="115.0" layoutY="46.0" prefHeight="52.0" prefWidth="92.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -153,7 +153,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="140.0" layoutY="41.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="Capital" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="41.0" prefHeight="52.0" prefWidth="103.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -167,7 +167,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="67.0" layoutY="38.0" prefHeight="52.0" prefWidth="210.0" text="PAGAMENTO" textFill="#5b5b5b">
+                  <Label fx:id="Pagamento" alignment="CENTER" layoutX="14.0" layoutY="38.0" prefHeight="52.0" prefWidth="289.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="27.0" />
                      </font>
@@ -181,7 +181,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="140.0" layoutY="40.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="Canceladas" alignment="CENTER" layoutX="120.0" layoutY="40.0" prefHeight="52.0" prefWidth="92.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -195,7 +195,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="140.0" layoutY="41.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="VendaMes" alignment="CENTER" layoutX="115.0" layoutY="41.0" prefHeight="52.0" prefWidth="103.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>

@@ -95,7 +95,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		List<FuncionarioVO> funcionarios = new ArrayList<FuncionarioVO>();
 		try {
-			fundao.findByEmail(vo);
+			rs = fundao.findByEmail(vo);
 			while (rs.next()) {
 				FuncionarioVO funVO = new FuncionarioVO();
 
@@ -118,7 +118,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		List<FuncionarioVO> funcionarios = new ArrayList<FuncionarioVO>();
 		try {
-			fundao.listByCargo(vo);
+			rs = fundao.listByCargo(vo);
 			while (rs.next()) {
 				FuncionarioVO funVO = new FuncionarioVO();
 
@@ -168,7 +168,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		int quantidade = 0;
 		try {
-			fundao.quantidadeFuncionarios();
+			rs =fundao.quantidadeFuncionarios();
 			while (rs.next()) {
 				quantidade = rs.getInt("count");
 			}

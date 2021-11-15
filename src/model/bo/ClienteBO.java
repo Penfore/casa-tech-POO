@@ -90,7 +90,7 @@ public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<Cliente
 		ResultSet rs = null;
 		List<ClienteVO> clientes = new ArrayList<ClienteVO>();
 		try {
-			dao.findByCPF(vo);
+			rs = dao.findByCPF(vo);
 			while (rs.next()) {
 				ClienteVO comprador = new ClienteVO();
 				comprador.setId(rs.getInt("id"));
@@ -111,7 +111,7 @@ public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<Cliente
 		ResultSet rs = null;
 		List<ClienteVO> clientes = new ArrayList<ClienteVO>();
 		try {
-			dao.findByNome(vo);
+			rs = dao.findByNome(vo);
 			while (rs.next()) {
 				ClienteVO comprador = new ClienteVO();
 				comprador.setId(rs.getInt("id"));
@@ -130,7 +130,7 @@ public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<Cliente
 		ResultSet rs = null;
 		int quantidade = 0;
 		try {
-			dao.quantidadeClientes();
+			rs = dao.quantidadeClientes();
 			while (rs.next()) {
 				quantidade = rs.getInt("count");
 			}

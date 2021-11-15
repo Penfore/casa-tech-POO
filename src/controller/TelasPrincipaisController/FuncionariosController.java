@@ -32,16 +32,16 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<FuncionarioVO> index = FXCollections.observableArrayList(bo.index());
 		try {
-			
+			colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+			colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+			colEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+			colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+
+			tableFun.setItems(index);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-		colEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-		colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 
-		tableFun.setItems(index);
 	}
 	
     public void abrirFuncionariosADD() {

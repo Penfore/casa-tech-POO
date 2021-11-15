@@ -141,4 +141,94 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 		}
 		return vendas;
 	}
+
+	@Override
+	public Integer totalVendas() throws SQLException {
+		ResultSet rs = null;
+		int quantidade = 0;
+		try {
+			rs = dao.totalVendas();
+			while (rs.next()) {
+				quantidade = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return quantidade;
+	}
+
+	@Override
+	public Integer vendasFinalizadas() throws SQLException {
+		ResultSet rs = null;
+		int quantidade = 0;
+		try {
+			rs = dao.vendasFinalizadas();
+			while (rs.next()) {
+				quantidade = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return quantidade;
+	}
+
+	@Override
+	public Integer vendasCanceladas() throws SQLException {
+		ResultSet rs = null;
+		int quantidade = 0;
+		try {
+			rs = dao.vendasCanceladas();
+			while (rs.next()) {
+				quantidade = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return quantidade;
+	}
+
+	@Override
+	public Integer vendasDoMes() throws SQLException {
+		ResultSet rs = null;
+		int quantidade = 0;
+		try {
+			rs = dao.vendasDoMes();
+			while (rs.next()) {
+				quantidade = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return quantidade;
+	}
+
+	@Override
+	public Float TotalPrecoVendido() throws SQLException {
+		ResultSet rs = null;
+		float quantidade = 0;
+		try {
+			rs = dao.TotalPrecoVendido();
+			while (rs.next()) {
+				quantidade = rs.getInt("capital");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return quantidade;
+	}
+
+	@Override
+	public String PagamentoMaisUsado() throws SQLException {
+		ResultSet rs = null;
+		String pagamento = " ";
+		try {
+			rs = dao.PagamentoMaisUsado();
+			while (rs.next()) {
+				pagamento = rs.getString("max");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return pagamento;
+	}
 }

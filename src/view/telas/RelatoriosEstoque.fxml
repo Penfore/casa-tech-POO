@@ -121,7 +121,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="45.0" layoutY="39.0" prefHeight="52.0" prefWidth="176.0" text="PRODUTO" textFill="#5b5b5b">
+                  <Label fx:id="MaisVendido" layoutX="42.0" layoutY="31.0" prefHeight="52.0" prefWidth="176.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -130,12 +130,12 @@
             </Pane>
             <Pane prefHeight="100.0" prefWidth="275.0" styleClass="PanelWhite">
                <children>
-                  <Label layoutX="44.0" layoutY="2.0" prefHeight="41.0" prefWidth="195.0" text="PRODUTOS VENDIDOS" textFill="#5b5b5b">
+                  <Label layoutX="32.0" layoutY="2.0" prefHeight="41.0" prefWidth="195.0" text="PRODUTOS VENDIDOS" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="117.0" layoutY="41.0" prefHeight="52.0" prefWidth="41.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="qtdMaisVendido" layoutX="86.0" layoutY="41.0" prefHeight="52.0" prefWidth="100.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -149,7 +149,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="112.0" layoutY="43.0" prefHeight="52.0" prefWidth="40.0" text="00" textFill="#5b5b5b">
+                  <Label fx:id="qtdEstoque" layoutX="52.0" layoutY="34.0" prefHeight="52.0" prefWidth="161.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>

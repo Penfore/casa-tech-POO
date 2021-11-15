@@ -83,7 +83,13 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	
 	public ResultSet index() throws SQLException{
 		
-		String sql = "SELECT * FROM Equipamento ";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id";
 		Statement st;
 		ResultSet rs= null;
 		
@@ -184,7 +190,7 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet quantidadeEstoque() throws SQLException {
-		String sql = "Select SUM(quantidade) from casatech.equipamento";
+		String sql = "Select SUM(quantidade) from equipamento";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -199,9 +205,9 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet TotalEquipamentosVendidos() throws SQLException {
-		String sql = "SELECT (a.c * b.d) "
-				+    "FROM (SELECT COUNT(*)  AS c FROM carrinho)AS a,"
-				+    "     (SELECT SUM(quantidade)  AS d from carrinho)As b ";
+		String sql = "SELECT (a.c * b.d) AS qtd "
+				+ "FROM (SELECT COUNT(*)  AS c FROM carrinho)AS a, "
+				+ "	 (SELECT SUM(quantidade)  AS d from carrinho)As b ";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -217,17 +223,9 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	
 	
 	public ResultSet EquipamentoMaisVendido() throws SQLException {
-		String sql = "SELECT equipamento_id, "
-				+ "nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id "
-				+ "FROM ("
-				+ "	SELECT equipamento_id,"
-				+ "     nome,peso,codigo,equipamento.quantidade,descricao,preco,responsavel_id,local_id,"
-				+ "     COUNT(*) OVER(PARTITION BY equipamento_id) AS Total"
-				+ "      FROM  carrinho JOIN equipamento ON"
-				+ "	  carrinho.equipamento_id = equipamento.id"
-				+ "	  )AS equip"
-				+ "group by equipamento_id,nome,peso,codigo,quantidade,descricao,preco,responsavel_id,local_id"
-				+ "having count(*) > 1";
+		String sql = "SELECT MAX(nome) as max FROM (SELECT nome,equipamento_id, count(*) "
+				+ "FROM carrinho JOIN equipamento ON equipamento.id = equipamento_id "
+				+ "GROUP BY equipamento_id, nome )as pg";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 

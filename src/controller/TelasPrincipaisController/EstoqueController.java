@@ -3,6 +3,8 @@ package src.controller.TelasPrincipaisController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,6 +31,9 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 	@FXML private TableColumn<EquipamentoVO, String> colCOD;	
 	@FXML private TableColumn<EquipamentoVO, Float> colPeso;	
 	@FXML private TableColumn<EquipamentoVO, Float> colValor;
+	@FXML private TableColumn<EquipamentoVO, String> colRes;	
+	@FXML private TableColumn<EquipamentoVO, String> colLocal;	
+	
 	
 	EquipamentoBO bo = new EquipamentoBO();
 
@@ -47,11 +52,17 @@ public class EstoqueController extends TrocarTelas implements Initializable{
         	colQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         	colPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
         	colValor.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        	colLocal.setCellValueFactory(local -> Bindings.createStringBinding(
+        	()-> local.getValue().getLocal().getCasa() + " - " + 
+        	local.getValue().getLocal().getCompartimento()
+        			));
+        	colRes.setCellValueFactory((responsavel -> 
+        		new SimpleStringProperty(responsavel.getValue().getResponsavel().getNome())));
         	
         	tableEquipamento.setItems(index);
     
         	tableEquipamento.setEditable(true);
-    
+     
         	tableEquipamento.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         	tableEquipamento.getSelectionModel().setCellSelectionEnabled(true);
         	

@@ -1,6 +1,7 @@
 package src.model.bo;
 
 
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -9,5 +10,8 @@ public interface EquipamentoInterBO<VO> {
 	public List<VO> findByCOD(VO entity) throws SQLException;
 	public List<VO> listByResponsavel(VO entity) throws SQLException;
 	public List<VO> listByLocal(VO entity) throws SQLException;
+	public Integer quantidadeEstoque() throws SQLException;
+	public String EquipamentoMaisVendido() throws SQLException;
+	public Integer TotalEquipamentosVendidos() throws SQLException;
 	
 }
