@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import src.controller.TrocarTelas;
+import src.view.TelasSecudaria;
+import src.view.telas.telasSecundarias.telasSecNome;
 
 public class LocalController extends TrocarTelas {
     @FXML private ComboBox<String> localComboBox;
@@ -14,5 +16,9 @@ public class LocalController extends TrocarTelas {
         pesquisa.addAll("CASA","COMPARTIMENTO");
 
         localComboBox.setItems(pesquisa);
+    }
+
+    public void abrirLocalADD() {
+        TelasSecudaria.load(telasSecNome.LocalADD);
     }
 }

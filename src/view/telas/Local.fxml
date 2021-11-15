@@ -91,7 +91,7 @@
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="21.0" layoutY="562.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+            <Button fx:id="LocalADD" layoutX="21.0" layoutY="562.0" mnemonicParsing="false" onAction="#abrirLocalADD" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>

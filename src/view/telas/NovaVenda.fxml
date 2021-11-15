@@ -179,6 +179,7 @@
                   </Label>
                </children>
             </Pane>
+            <Button layoutX="22.0" layoutY="493.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Button" />
          </children>
       </Pane>
    </children>

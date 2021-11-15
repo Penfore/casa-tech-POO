@@ -16,7 +16,7 @@
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="15.0" layoutY="424.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="152.0" style="-fx-background-color: 0;">
+            <Button fx:id="ClientesADD" layoutX="15.0" layoutY="424.0" mnemonicParsing="false" onAction="#abrirClientesADD" prefHeight="55.0" prefWidth="152.0" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>

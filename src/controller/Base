@@ -1,0 +1,7 @@
+src.controller.TelasSecudariaController.LocalADDController
+
+ extends FecharTelaSec
+
+ public void abrirADD() {
+        TelasSecudaria.load(telasSecNome.FuncionariosADD);
+    }

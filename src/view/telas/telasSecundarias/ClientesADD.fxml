@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.addClienteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-color: 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controller.TelasSecudariaController.ClientesADDController">
    <children>
       <Pane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1062.0" style="-fx-background-radius: 20; -fx-background-color: white;">
          <children>
             <ImageView fitHeight="138.0" fitWidth="150.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/AvatarCliente.png" />
+                  <Image url="@../images/AvatarCliente.png" />
                </image>
             </ImageView>
             <Label layoutX="186.0" layoutY="30.0" text="NOME COMPLETO " textFill="#757575">
@@ -39,21 +39,23 @@
                </font>
             </Label>
             <TextField fx:id="telefone" layoutX="619.0" layoutY="403.0" prefHeight="37.0" prefWidth="402.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
-            <Button fx:id="ok" layoutX="844.0" layoutY="484.0" mnemonicParsing="false" onAction="#addCliente" style="-fx-background-color: 0;">
+            <Button fx:id="cancelarBut" layoutX="844.0" layoutY="484.0" mnemonicParsing="false" onAction="#FecharTela" style="-fx-background-color: 0;">
                <graphic>
                   <ImageView fitHeight="48.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/B-Aplicar.png" />
+                        <Image url="@../images/B-Cancel.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="635.0" layoutY="515.0" mnemonicParsing="false" style="-fx-background-color: 0;" />
-            <ImageView fitHeight="48.0" fitWidth="164.0" layoutX="623.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/B-Cancel.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="636.0" layoutY="485.0" mnemonicParsing="false" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/B-Adicionar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Label layoutX="31.0" layoutY="370.0" text="CPF" textFill="#757575">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />

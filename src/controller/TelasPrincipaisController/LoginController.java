@@ -13,7 +13,7 @@ import src.controller.TrocarTelas;
 
 public class LoginController extends TrocarTelas {
 	/*@FXML private TextField login;
-	@FXML private TextField senha;
+	@FXML private PasswordField senha;
 	private Stage stage;
 	FuncionarioVO authfunvo = new FuncionarioVO();
 	

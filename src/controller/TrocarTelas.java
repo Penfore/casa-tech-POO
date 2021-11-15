@@ -48,9 +48,6 @@ public class TrocarTelas {
         TelasPrincipal.load(telasNome.relatoriosVendas);
     }
 
-
-
-
     public void deslogar() {
         TelasPrincipal.load(telasNome.relatorios);
     }

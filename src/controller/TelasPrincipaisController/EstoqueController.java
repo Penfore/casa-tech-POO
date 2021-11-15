@@ -5,8 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import src.controller.TrocarTelas;
+import src.view.TelasSecudaria;
+import src.view.telas.telasSecundarias.telasSecNome;
 
-public class EstoqueController extends TrocarTelas {
+public class EstoqueController extends TrocarTelas{
     @FXML private ComboBox<String> estoqueComboBox;
 
     public void initialize() {
@@ -14,5 +16,9 @@ public class EstoqueController extends TrocarTelas {
         pesquisa.addAll("NOME", "CÓDIGO", "RESPONSÁVEL", "LOCAL");
 
         estoqueComboBox.setItems(pesquisa);
+    }
+
+    public void abrirProdutoADD() {
+        TelasSecudaria.load(telasSecNome.ProdutoADD);
     }
 }

@@ -10,14 +10,14 @@ import src.view.telas.telasNome;
 
 public class TelasPrincipal extends Application{
 
-    private static Stage ps;
+    private static Stage pricipal;
     private static UsuarioVO user;
 
-    public static Stage getPs() {
-        return ps;
+    public static Stage getPricipal() {
+        return pricipal;
     }
-    public static void setPs(Stage ps) {
-        TelasPrincipal.ps = ps;
+    public static void setPricipal(Stage pricipal) {
+        TelasPrincipal.pricipal = pricipal;
     }
     public static UsuarioVO getUser() {
         return user;
@@ -35,18 +35,18 @@ public class TelasPrincipal extends Application{
             Parent root = FXMLLoader.load(TelasPrincipal.class.getResource("./telas/" + telasNome + ".fxml"));
             Scene scene = new Scene(root);
     
-            ps.setScene(scene);
+            pricipal.setScene(scene);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void start(Stage ps) throws Exception {
-        setPs(ps);
+    public void start(Stage pricipal) throws Exception {
+        setPricipal(pricipal);
 
-        ps.setTitle("Casa Tech");
-        load(telasNome.login); //Tela que irá aparecer quano programa iniciar
-        ps.show();
+        pricipal.setTitle("Casa Tech");
+        load(telasNome.estoque); //Tela que irá aparecer quano programa iniciar
+        pricipal.show();
     }
 
 
