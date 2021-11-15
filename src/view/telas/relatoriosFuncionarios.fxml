@@ -128,9 +128,8 @@
       </Pane>
       <TableView layoutX="263.0" layoutY="249.0" prefHeight="458.0" prefWidth="1010.0" style="-fx-background-color: 0;">
          <columns>
-            <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-            <TableColumn prefWidth="674.6666870117188" styleClass="table" text="NOME" />
-            <TableColumn prefWidth="230.33331298828125" styleClass="table" text="PRODUTOS VENDIDO (VALOR)" />
+            <TableColumn prefWidth="184.0" styleClass="table" text="ID" />
+            <TableColumn prefWidth="825.0" styleClass="table" text="NOME" />
          </columns>
       </TableView>
    </children>

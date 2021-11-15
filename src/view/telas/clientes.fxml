@@ -104,12 +104,12 @@
       </Pane>
       <Pane layoutX="251.0" layoutY="119.0" prefHeight="602.0" prefWidth="1030.0">
          <children>
-            <TableView layoutX="4.0" layoutY="66.0" prefHeight="517.0" prefWidth="1020.0" style="-fx-background-color: 0;" styleClass="table">
+            <TableView fx:id="tableCliente" layoutX="4.0" layoutY="66.0" prefHeight="517.0" prefWidth="1020.0" style="-fx-background-color: 0;" styleClass="table">
               <columns>
-                <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-                <TableColumn prefWidth="300.0" styleClass="table" text="CPF" />
-                  <TableColumn prefWidth="150.0" styleClass="table" text="NOME" />
-                  <TableColumn prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
+                <TableColumn fx:id="colID" prefWidth="120.0" styleClass="table" text="ID" />
+                <TableColumn fx:id="colCPF" prefWidth="300.0" styleClass="table" text="CPF" />
+                  <TableColumn fx:id="colNome" prefWidth="150.0" styleClass="table" text="NOME" />
+                  <TableColumn fx:id="colEndereco" prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
                   <TableColumn prefWidth="150.0" styleClass="table" text="OPÇÕES" />
               </columns>
                <columnResizePolicy>

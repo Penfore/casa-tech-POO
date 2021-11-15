@@ -72,7 +72,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		List<FuncionarioVO> funcionarios = new ArrayList<FuncionarioVO>();
 		try {
-			dao.index();
+			rs = dao.index();
 			while (rs.next()) {
 				FuncionarioVO funVO = new FuncionarioVO();
 

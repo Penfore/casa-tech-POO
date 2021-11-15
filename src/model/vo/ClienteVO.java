@@ -99,7 +99,7 @@ public class ClienteVO {
 
 	public void setEndereco(String endereco) {
 		if(endereco!=null && !endereco.equals("")){ 
-			this.endereco = email;
+			this.endereco = endereco;
 		}else{
 			System.out.println("A caixa endereco não pode estar vazia!");
 		}

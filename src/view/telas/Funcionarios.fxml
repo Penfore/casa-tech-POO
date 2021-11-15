@@ -103,15 +103,15 @@
                      </graphic></Button>
                </children>
             </Pane>
-            <TableView fx:id="funTable" layoutX="253.0" layoutY="122.0" prefHeight="594.0" prefWidth="1024.0" style="-fx-background-color: 0;">
+            <TableView fx:id="tableFun" layoutX="253.0" layoutY="122.0" prefHeight="594.0" prefWidth="1024.0" style="-fx-background-color: 0;">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <columns>
-                  <TableColumn fx:id="funNome" prefWidth="326.0" styleClass="table" text="NOME" />
-                  <TableColumn fx:id="funEmail" prefWidth="186.3333740234375" styleClass="table" text="EMAIL" />
-                  <TableColumn fx:id="funEndereco" prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
-                  <TableColumn fx:id="funTelefone" prefWidth="268.6666259765625" styleClass="table" text="TELEFONE" />
+                  <TableColumn fx:id="colNome" prefWidth="326.0" styleClass="table" text="NOME" />
+                  <TableColumn fx:id="colEmail" prefWidth="186.3333740234375" styleClass="table" text="EMAIL" />
+                  <TableColumn fx:id="colEndereco" prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
+                  <TableColumn fx:id="colTelefone" prefWidth="268.6666259765625" styleClass="table" text="TELEFONE" />
                   <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
                </columns>
             </TableView>
