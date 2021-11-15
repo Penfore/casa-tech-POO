@@ -37,7 +37,6 @@ public class ClientesController extends TrocarTelas implements Initializable {
 
 		try {
 			pesquisa.addAll("ID", "CPF", "NOME", "ENDEREÇO");
-
 			clientesComboBox.setItems(pesquisa);
 
 			colID.setCellValueFactory(new PropertyValueFactory<>("id"));

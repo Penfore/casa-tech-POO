@@ -11,6 +11,7 @@ public class VendaFinalizarController extends FecharTelaSec{
 
     public void initialize() {
         ObservableList<String> formaPagamento = FXCollections.observableArrayList();
+        
         formaPagamento.addAll("DINHEIRO","CARTÃO DE DEBITO","CARTÃO DE CRÉDITO","PIX");
 
         formaPagamentoComboBox.setItems(formaPagamento);

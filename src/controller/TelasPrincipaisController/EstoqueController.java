@@ -21,25 +21,22 @@ import src.view.telas.telasSecundarias.telasSecNome;
 public class EstoqueController extends TrocarTelas implements Initializable{
     @FXML private ComboBox<String> estoqueComboBox;
     
-	@FXML private TableView<EquipamentoVO> tableEquipamento;
-	
-	@FXML private TableColumn<EquipamentoVO, String> colNome;
-	
-	@FXML private TableColumn<EquipamentoVO, String> colDesc;
-	
-	@FXML private TableColumn<EquipamentoVO, Integer> colQtd;
-	
-	@FXML private TableColumn<EquipamentoVO, String> colCOD;
-	
-	@FXML private TableColumn<EquipamentoVO, Float> colPeso;
-	
+	@FXML private TableView<EquipamentoVO> tableEquipamento;	
+
+	@FXML private TableColumn<EquipamentoVO, String> colNome;	
+	@FXML private TableColumn<EquipamentoVO, String> colDesc;	
+	@FXML private TableColumn<EquipamentoVO, Integer> colQtd;	
+	@FXML private TableColumn<EquipamentoVO, String> colCOD;	
+	@FXML private TableColumn<EquipamentoVO, Float> colPeso;	
 	@FXML private TableColumn<EquipamentoVO, Float> colValor;
 	
 	EquipamentoBO bo = new EquipamentoBO();
 
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> pesquisa = FXCollections.observableArrayList();
+
         ObservableList<EquipamentoVO> index = FXCollections.observableArrayList(bo.index());
+		
         try {
             pesquisa.addAll("NOME", "CÓDIGO", "RESPONSÁVEL", "LOCAL");
             estoqueComboBox.setItems(pesquisa);

@@ -1,5 +1,10 @@
 src.controller.TelasSecudariaController.VendaFinalizarController
 
+src.controller.TelasPrincipaisController.RelatoriosController.RelatoriosController
+src.controller.TelasPrincipaisController.RelatoriosController.RelatoriosClientesController
+src.controller.TelasPrincipaisController.RelatoriosController.RelatoriosEstoqueController
+src.controller.TelasPrincipaisController.RelatoriosController.RelatoriosVendasController
+
  extends FecharTelaSec
 
  public void abrirVendaADD() {

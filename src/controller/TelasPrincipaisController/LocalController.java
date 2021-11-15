@@ -18,15 +18,12 @@ import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
 public class LocalController extends TrocarTelas implements Initializable {
-	@FXML
-	private ComboBox<String> localComboBox;
+	@FXML private ComboBox<String> localComboBox;
 
-	@FXML
-	private TableView<LocalVO> tableLocal;
-	@FXML
-	private TableColumn<LocalVO, String> colCasa;
-	@FXML
-	private TableColumn<LocalVO, String> colComp;
+	@FXML private TableView<LocalVO> tableLocal;
+	
+	@FXML private TableColumn<LocalVO, String> colCasa;
+	@FXML private TableColumn<LocalVO, String> colComp;
 
 	LocalBO bo = new LocalBO();
 

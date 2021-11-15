@@ -15,15 +15,15 @@ public abstract class BaseDao<VO> implements BaseInterDao<VO> {
 	// private static final String senha = "";
 
 	// DADOS DE CONEX�O DA ISABELE :)
-	 private static final String url =
-	 "jdbc:postgresql://localhost:5432/postgres?currentSchema=casatech";
-	 private static final String usuario = "postgres";
-	 private static final String senha = "123";
+	 //private static final String url =
+	 //"jdbc:postgresql://localhost:5432/postgres?currentSchema=casatech";
+	 //private static final String usuario = "postgres";
+	 //private static final String senha = "123";
 
 	// DADOS DE CONEX�O DO DAVI :D
-//private static final String url = "jdbc:postgresql://localhost:5432/CasaTech-POO";
-//	private static final String usuario = "postgres";
-//	private static final String senha = "1234";
+	private static final String url = "jdbc:postgresql://localhost:5432/CasaTech-POO";
+	private static final String usuario = "postgres";
+	private static final String senha = "1234";
 
 	public static Connection getConnection() throws SQLException {
 		if (conn == null) {
