@@ -105,7 +105,14 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet show(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Equipamento WHERE id =?";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id "
+				+ "WHERE Equipamento.id = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -122,7 +129,14 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet findByNome(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Equipamento WHERE nome =?";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id "
+				+ "WHERE Equipamento.nome = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -139,7 +153,14 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet findByCOD(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Equipamento WHERE codigo =?";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id "
+				+ "WHERE Equipamento.codigo = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 

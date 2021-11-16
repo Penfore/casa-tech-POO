@@ -46,6 +46,8 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
 				throw new SQLException(" A inserção falhou :( ");
+			}else {
+				System.out.println("deu certo:)");
 			}
 
 		} catch (SQLException e) {
@@ -76,7 +78,9 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 
 	public ResultSet index() throws SQLException {
-		String sql = "SELECT * FROM Venda";
+		String sql = "SELECT venda.id, precototal,datadecompra,status,formadepagamento,cliente_id,cliente.nome as comprador "
+				+ "FROM Venda "
+				+ "Inner Join cliente ON Venda.cliente_id = cliente.id";
 		Statement st;
 		ResultSet rs = null;
 		try {
@@ -91,7 +95,9 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 	
 	public ResultSet show(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Usuario WHERE id =?";
+		String sql = "SELECT venda.id, precototal,datadecompra,status,formadepagamento,cliente_id,cliente.nome as comprador "
+				+ "FROM Venda "
+				+ "Inner Join cliente ON Venda.cliente_id = cliente.id WHERE venda.id = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -108,13 +114,16 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 	
 	public ResultSet findByCliente(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Usuario WHERE cliente_id =?";
+		String sql = "SELECT venda.*, cliente.nome as comprador FROM venda INNER JOIN cliente ON "
+				+ "venda.cliente_id = cliente.id "
+				+ "WHERE cliente.nome = ? ";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
-			ptst.setInt(1, vo.getComprador().getId());
+			ptst.setString(1, vo.getComprador().getNome());
+			System.out.println(ptst);
 
 			rs = ptst.executeQuery();
 
@@ -125,7 +134,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 	
 	public ResultSet findByDate(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Venda WHERE datadecompra =?";
+		String sql = "SELECT * FROM Venda WHERE datadecompra = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 

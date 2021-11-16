@@ -104,19 +104,20 @@
       </Pane>
       <Pane layoutX="251.0" layoutY="118.0" prefHeight="603.0" prefWidth="1030.0">
          <children>
-            <TextField layoutX="135.0" layoutY="14.0" prefHeight="30.0" prefWidth="869.0" styleClass="input" />
+            <TextField fx:id="pesquisa" layoutX="135.0" layoutY="14.0" prefHeight="30.0" prefWidth="869.0" styleClass="input" />
             <TableView fx:id="tableLocal" layoutX="3.0" layoutY="60.0" prefHeight="542.0" prefWidth="1024.0" style="-fx-background-color: 0;">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <columns>
+                  <TableColumn fx:id="colID" prefWidth="120.0" styleClass="table" text="ID" />
                   <TableColumn fx:id="colCasa" prefWidth="120.0" styleClass="table" text="CASA" />
                   <TableColumn fx:id="colComp" prefWidth="300.0" styleClass="table" text="COMPARTIMENTO" />
-                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
+                  <TableColumn fx:id="colOptions" prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
                </columns>
             </TableView>
-            <ComboBox fx:id="localComboBox" layoutX="14.0" layoutY="13.0" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: 0;" />
-            <Button fx:id="pesquisarBut" layoutX="911.0" layoutY="13.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="93.0" style="-fx-background-color: 0;" text="PESQUISAR" />
+            <ComboBox fx:id="localComboBox" layoutX="14.0" layoutY="13.0" prefHeight="33.0" prefWidth="118.0" promptText="find by" style="-fx-background-color: 0;" />
+            <Button layoutX="911.0" layoutY="13.0" mnemonicParsing="false" onAction="#listBy" prefHeight="33.0" prefWidth="93.0" style="-fx-background-color: 0;" text="PESQUISAR" />
          </children>
       </Pane>
    </children>

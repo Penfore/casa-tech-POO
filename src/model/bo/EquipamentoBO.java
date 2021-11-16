@@ -59,13 +59,39 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 
 	}
 
-	public void show(EquipamentoVO vo) {
+	public EquipamentoVO show(EquipamentoVO vo) {
+		ResultSet rs = null;
+		EquipamentoVO equiVO = new EquipamentoVO();
 		try {
-			dao.show(vo);
+			rs = dao.show(vo);
+			while (rs.next()) {
+				
+				LocalVO local = new LocalVO();
+				FuncionarioVO funVO = new FuncionarioVO();
+
+				funVO.setId(rs.getInt("responsavel_id"));
+				funVO.setNome(rs.getString("responsavel"));
+				
+				local.setId(rs.getInt("local_id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
+				equiVO.setId(rs.getInt("id"));
+				equiVO.setNome(rs.getString("equip_nome"));
+				equiVO.setCodigo(rs.getString("codigo"));
+				equiVO.setPeso(rs.getDouble("peso"));
+				equiVO.setQuantidade(rs.getInt("quantidade"));
+				equiVO.setDescricao(rs.getString("descricao"));
+				equiVO.setPreco(rs.getDouble("preco"));
+				
+				equiVO.setLocal(local);
+				equiVO.setResponsavel(funVO);
+			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return equiVO;
 	}
 
 	public List<EquipamentoVO> index() {
@@ -109,18 +135,30 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 		ResultSet rs = null;
 		List<EquipamentoVO> equipamentos = new ArrayList<EquipamentoVO>();
 		try {
-			dao.findByNome(vo);
+			rs = dao.findByNome(vo);
 			while (rs.next()) {
 				EquipamentoVO equiVO = new EquipamentoVO();
+				LocalVO local = new LocalVO();
+				FuncionarioVO funVO = new FuncionarioVO();
 
+				funVO.setId(rs.getInt("responsavel_id"));
+				funVO.setNome(rs.getString("responsavel"));
+				
+				local.setId(rs.getInt("local_id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
 				equiVO.setId(rs.getInt("id"));
-				equiVO.setNome(rs.getString("nome"));
+				equiVO.setNome(rs.getString("equip_nome"));
 				equiVO.setCodigo(rs.getString("codigo"));
 				equiVO.setPeso(rs.getDouble("peso"));
 				equiVO.setQuantidade(rs.getInt("quantidade"));
 				equiVO.setDescricao(rs.getString("descricao"));
 				equiVO.setPreco(rs.getDouble("preco"));
-
+				
+				equiVO.setLocal(local);
+				equiVO.setResponsavel(funVO);
+				
 				equipamentos.add(equiVO);
 			}
 			rs.close();
@@ -134,18 +172,30 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 		ResultSet rs = null;
 		List<EquipamentoVO> equipamentos = new ArrayList<EquipamentoVO>();
 		try {
-			dao.findByCOD(vo);
+			rs = dao.findByCOD(vo);
 			while (rs.next()) {
 				EquipamentoVO equiVO = new EquipamentoVO();
+				LocalVO local = new LocalVO();
+				FuncionarioVO funVO = new FuncionarioVO();
 
+				funVO.setId(rs.getInt("responsavel_id"));
+				funVO.setNome(rs.getString("responsavel"));
+				
+				local.setId(rs.getInt("local_id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
 				equiVO.setId(rs.getInt("id"));
-				equiVO.setNome(rs.getString("nome"));
+				equiVO.setNome(rs.getString("equip_nome"));
 				equiVO.setCodigo(rs.getString("codigo"));
 				equiVO.setPeso(rs.getDouble("peso"));
 				equiVO.setQuantidade(rs.getInt("quantidade"));
 				equiVO.setDescricao(rs.getString("descricao"));
 				equiVO.setPreco(rs.getDouble("preco"));
-
+				
+				equiVO.setLocal(local);
+				equiVO.setResponsavel(funVO);
+				
 				equipamentos.add(equiVO);
 			}
 			rs.close();
@@ -159,7 +209,7 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 		ResultSet rs = null;
 		List<EquipamentoVO> equipamentos = new ArrayList<EquipamentoVO>();
 		try {
-			dao.listByResponsavel(vo);
+			rs = dao.listByResponsavel(vo);
 			while (rs.next()) {
 				EquipamentoVO equiVO = new EquipamentoVO();
 

@@ -59,13 +59,25 @@ public class FuncionarioBO
 
 	}
 
-	public void show(FuncionarioVO vo) {
+	public FuncionarioVO show(FuncionarioVO vo) {
+		ResultSet rs = null;
+		FuncionarioVO funVO = new FuncionarioVO();
 		try {
-			dao.show(vo);
+			rs = dao.index();
+			while (rs.next()) {
+
+				funVO.setId(rs.getInt("id"));
+				funVO.setNome(rs.getString("nome"));
+				funVO.setEndereco(rs.getString("endereco"));
+				funVO.setEmail(rs.getString("email"));
+				funVO.setTelefone(rs.getString("telefone"));
+				funVO.setCargo(rs.getInt("telefone"));
+
+			}
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return funVO;
 	}
 
 	public List<FuncionarioVO> index() {
@@ -152,8 +164,8 @@ public class FuncionarioBO
 					funvo.setCargo(rs.getInt("cargo"));
 					funvo.setNickName(rs.getString("nickname"));
 					funvo.setSenha(rs.getString("senha"));
-				}else {
-					//RETURN ERRO
+				} else {
+					// RETURN ERRO
 				}
 			}
 			rs.close();
@@ -168,7 +180,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		int quantidade = 0;
 		try {
-			rs =fundao.quantidadeFuncionarios();
+			rs = fundao.quantidadeFuncionarios();
 			while (rs.next()) {
 				quantidade = rs.getInt("count");
 			}

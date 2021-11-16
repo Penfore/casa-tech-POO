@@ -11,6 +11,6 @@ public interface BaseInterBO<VO> {
 	public void updateById(VO entity) throws SQLException;
 	public void removeById(VO entity) throws SQLException;
 	public List<VO> index() throws SQLException;
-	public void show(VO entity) throws SQLException;
+	public VO show(VO entity) throws SQLException;
 
 }

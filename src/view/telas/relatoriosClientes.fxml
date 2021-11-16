@@ -112,7 +112,7 @@
             </VBox>
          </children>
       </Pane>
-      <TableView fx:id="tableCliente" layoutX="267.0" layoutY="253.0" prefHeight="460.0" prefWidth="998.0" style="-fx-background-color: 0;">
+      <TableView fx:id="tableCliente" layoutX="251.0" layoutY="253.0" prefHeight="460.0" prefWidth="1029.0" style="-fx-background-color: 0;">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>

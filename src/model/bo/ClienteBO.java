@@ -57,13 +57,23 @@ public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<Cliente
 
 	}
 
-	public void show(ClienteVO vo) {
+	public ClienteVO show(ClienteVO vo) {
+		ResultSet rs = null;
+		ClienteVO comprador = new ClienteVO();
 		try {
-			dao.show(vo);
+			rs = dao.show(vo);
+			while (rs.next()) {
+				comprador.setId(rs.getInt("id"));
+				comprador.setNome(rs.getString("nome"));
+				comprador.setCpf(rs.getString("cpf"));
+				comprador.setEndereco(rs.getString("endereco"));
+			}
+			rs.close();
+			
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return comprador;
 	}
 
 	public List<ClienteVO> index() {

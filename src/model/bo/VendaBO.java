@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import src.model.dao.VendaDao;
+import src.model.vo.ClienteVO;
 import src.model.vo.VendaVO;
 
 public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
@@ -42,23 +43,38 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.removeById(vo);
-			} else {
-
 			}
-
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
 	}
 
-	public void show(VendaVO vo) {
+	public VendaVO show(VendaVO vo) {
+		ResultSet rs = null;
+		VendaVO venda = new VendaVO();
 		try {
-			dao.show(vo);
+			rs = dao.show(vo);
+			while (rs.next()) {
+
+				ClienteVO comprador = new ClienteVO();
+				comprador.setNome(rs.getString("comprador"));
+
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getDate("datadecompra"));
+
+				venda.setDataDeCompra(cal);
+				venda.setId(rs.getInt("id"));
+				venda.setPrecoTotal(rs.getFloat("precoTotal"));
+				venda.setStatus(rs.getString("status"));
+				venda.setFormaDePagamento(rs.getString("formaDePagamento"));
+				venda.setComprador(comprador);
+
+			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-
+		return venda;
 	}
 
 	public List<VendaVO> index() {
@@ -68,15 +84,18 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 			rs = dao.index();
 			while (rs.next()) {
 				VendaVO venda = new VendaVO();
+				ClienteVO comprador = new ClienteVO();
+				comprador.setNome(rs.getString("comprador"));
+
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(rs.getDate("datadecompra"));
-				
-				
+
 				venda.setDataDeCompra(cal);
 				venda.setId(rs.getInt("id"));
 				venda.setPrecoTotal(rs.getFloat("precoTotal"));
 				venda.setStatus(rs.getString("status"));
 				venda.setFormaDePagamento(rs.getString("formaDePagamento"));
+				venda.setComprador(comprador);
 
 				vendas.add(venda);
 
@@ -92,10 +111,14 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 		ResultSet rs = null;
 		List<VendaVO> vendas = new ArrayList<VendaVO>();
 		try {
+			
 			rs = dao.findByCliente(vo);
 			while (rs.next()) {
 				VendaVO venda = new VendaVO();
-				// ClienteVO comprador = new ClienteVO();
+				ClienteVO comprador = new ClienteVO();
+				
+				comprador.setNome(rs.getString("comprador"));
+				
 				venda.setId(rs.getInt("id"));
 				venda.setPrecoTotal(rs.getFloat("precoTotal"));
 
@@ -104,9 +127,9 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 				venda.setDataDeCompra(cal);
 
 				venda.setStatus(rs.getString("status"));
-
+				venda.setComprador(comprador);
 				vendas.add(venda);
-				// fazer a parte de cliente com o join se pa
+
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -122,18 +145,21 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 			rs = dao.findByDate(vo);
 			while (rs.next()) {
 				VendaVO venda = new VendaVO();
-				// ClienteVO comprador = new ClienteVO();
-				venda.setId(rs.getInt("id"));
-				venda.setPrecoTotal(rs.getFloat("precoTotal"));
+				ClienteVO comprador = new ClienteVO();
+				comprador.setNome(rs.getString("comprador"));
 
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(rs.getDate("datadecompra"));
-				venda.setDataDeCompra(cal);
 
+				venda.setDataDeCompra(cal);
+				venda.setId(rs.getInt("id"));
+				venda.setPrecoTotal(rs.getFloat("precoTotal"));
 				venda.setStatus(rs.getString("status"));
+				venda.setFormaDePagamento(rs.getString("formaDePagamento"));
+				venda.setComprador(comprador);
 
 				vendas.add(venda);
-				// fazer a parte de cliente com o join se pa
+
 			}
 			rs.close();
 		} catch (SQLException e) {

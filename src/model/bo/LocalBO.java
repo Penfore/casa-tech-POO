@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import src.model.dao.LocalDao;
-
 import src.model.vo.LocalVO;
 
 
@@ -58,12 +57,22 @@ public class LocalBO implements BaseInterBO<LocalVO>, LocalInterBO<LocalVO> {
 
 	}
 
-	public void show(LocalVO vo){
+	public LocalVO show(LocalVO vo){
+		ResultSet rs = null;
+		LocalVO local = new LocalVO();
 		try {
-			dao.show(vo);
+			rs = dao.show(vo);
+			while (rs.next()) {
+				local.setId(rs.getInt("id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+			}
+			rs.close();
+			
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+		return local;
 
 	}
 
