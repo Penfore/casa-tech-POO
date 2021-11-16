@@ -15,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import src.controller.TrocarTelas;
 import src.model.bo.FuncionarioBO;
-import src.model.vo.ClienteVO;
 import src.model.vo.FuncionarioVO;
 import src.model.vo.LocalVO;
 import src.view.TelasSecudaria;
