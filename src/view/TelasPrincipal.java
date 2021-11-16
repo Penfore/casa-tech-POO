@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import src.model.vo.EquipamentoVO;
 import src.model.vo.UsuarioVO;
 import src.view.telas.telasNome;
 
@@ -12,6 +13,7 @@ public class TelasPrincipal extends Application{
 
     private static Stage pricipal;
     private static UsuarioVO user;
+    private static EquipamentoVO equipamento;
 
     public static Stage getPricipal() {
         return pricipal;
@@ -25,6 +27,13 @@ public class TelasPrincipal extends Application{
     public static void setUser(UsuarioVO user) {
         TelasPrincipal.user = user;
     }
+    public static EquipamentoVO getEquipamento() {
+        return equipamento;
+    }
+    public static void setEquipamento(EquipamentoVO equipamento) {
+        TelasPrincipal.equipamento = equipamento;
+    }
+
 
     public static void main(String args[]) {
         launch();

@@ -177,13 +177,20 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet listByResponsavel(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Equipamento WHERE responssavel_id =?";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id "
+				+ "WHERE funcionario.nome = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
-			ptst.setInt(1, vo.getResponsavel().getId());
+			ptst.setString(1, vo.getResponsavel().getNome());
 
 			rs = ptst.executeQuery();
 
@@ -194,13 +201,21 @@ public class EquipamentoDao<VO extends EquipamentoVO> extends BaseDao<VO> implem
 	}
 	
 	public ResultSet listByLocal(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Equipamento WHERE id =?";
+		String sql = "SELECT "
+				+ "equipamento.id,equipamento.nome as equip_nome,peso,codigo,quantidade, "
+				+ "descricao,responsavel_id,local_id,preco,casa,compartimento, "
+				+ "funcionario.nome as responsavel "
+				+ "FROM Equipamento "
+				+ "Inner JOIN local ON local.id = Equipamento.local_id "
+				+ "Inner JOIN funcionario ON funcionario.id = Equipamento.responsavel_id "
+				+ "WHERE local.casa = ? OR local.compartimento = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
-			ptst.setInt(1, vo.getLocal().getId());
+			ptst.setString(1, vo.getLocal().getCasa());
+			ptst.setString(2, vo.getLocal().getCompartimento());
 
 			rs = ptst.executeQuery();
 

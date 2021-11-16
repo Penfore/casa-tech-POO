@@ -34,10 +34,7 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 			ResultSet rs = dao.show(vo);
 			if (rs.next()) {
 				dao.updateById(vo);
-			} else {
-
-			}
-
+			} 
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -212,15 +209,27 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 			rs = dao.listByResponsavel(vo);
 			while (rs.next()) {
 				EquipamentoVO equiVO = new EquipamentoVO();
+				LocalVO local = new LocalVO();
+				FuncionarioVO funVO = new FuncionarioVO();
 
+				funVO.setId(rs.getInt("responsavel_id"));
+				funVO.setNome(rs.getString("responsavel"));
+				
+				local.setId(rs.getInt("local_id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
 				equiVO.setId(rs.getInt("id"));
-				equiVO.setNome(rs.getString("nome"));
+				equiVO.setNome(rs.getString("equip_nome"));
 				equiVO.setCodigo(rs.getString("codigo"));
 				equiVO.setPeso(rs.getDouble("peso"));
 				equiVO.setQuantidade(rs.getInt("quantidade"));
 				equiVO.setDescricao(rs.getString("descricao"));
 				equiVO.setPreco(rs.getDouble("preco"));
-
+				
+				equiVO.setLocal(local);
+				equiVO.setResponsavel(funVO);
+				
 				equipamentos.add(equiVO);
 			}
 			rs.close();
@@ -237,15 +246,27 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 			rs = dao.listByLocal(vo);
 			while (rs.next()) {
 				EquipamentoVO equiVO = new EquipamentoVO();
+				LocalVO local = new LocalVO();
+				FuncionarioVO funVO = new FuncionarioVO();
 
+				funVO.setId(rs.getInt("responsavel_id"));
+				funVO.setNome(rs.getString("responsavel"));
+				
+				local.setId(rs.getInt("local_id"));
+				local.setCasa(rs.getString("casa"));
+				local.setCompartimento(rs.getString("compartimento"));
+				
 				equiVO.setId(rs.getInt("id"));
-				equiVO.setNome(rs.getString("nome"));
+				equiVO.setNome(rs.getString("equip_nome"));
 				equiVO.setCodigo(rs.getString("codigo"));
 				equiVO.setPeso(rs.getDouble("peso"));
 				equiVO.setQuantidade(rs.getInt("quantidade"));
 				equiVO.setDescricao(rs.getString("descricao"));
 				equiVO.setPreco(rs.getDouble("preco"));
-
+				
+				equiVO.setLocal(local);
+				equiVO.setResponsavel(funVO);
+				
 				equipamentos.add(equiVO);
 			}
 			rs.close();

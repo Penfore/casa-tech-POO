@@ -19,11 +19,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
 import src.model.bo.EquipamentoBO;
 import src.model.vo.ClienteVO;
 import src.model.vo.EquipamentoVO;
+import src.model.vo.FuncionarioVO;
+import src.model.vo.LocalVO;
 import src.model.vo.VendaVO;
+import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
@@ -50,16 +54,12 @@ public class EstoqueController extends TrocarTelas implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> pesquisa = FXCollections.observableArrayList();
         try {
-            pesquisa.addAll("ID","NOME", "CÓDIGO", "RESPONSÁVEL", "LOCAL");
+            pesquisa.addAll("FIND BY", "ID","NOME", "CÓDIGO", "RESPONSÁVEL", "LOCAL");
             estoqueComboBox.setItems(pesquisa);
             
             colID.setCellValueFactory(new PropertyValueFactory<>("id"));
         	colCOD.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         	colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        	colDesc.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        	colQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-        	colPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
-        	colValor.setCellValueFactory(new PropertyValueFactory<>("preco"));
         	colLocal.setCellValueFactory(local -> Bindings.createStringBinding(
         			()-> local.getValue().getLocal().getCasa() + " - " + 
         					local.getValue().getLocal().getCompartimento()
@@ -90,8 +90,15 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 			        );
 			    }
 			});
-        	
         	tableEquipamento.setItems(index);
+        	tableEquipamento.setEditable(true);
+        	tableEquipamento.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        	tableEquipamento.getSelectionModel().setCellSelectionEnabled(true);
+        	
+			tableEquipamento.setOnMouseClicked((MouseEvent event) -> { 
+				 EquipamentoVO equip = tableEquipamento.getSelectionModel().getSelectedItem();
+				 this.abrirProdutoEDIT(equip);
+			});
         } catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -118,8 +125,29 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 					ObservableList<EquipamentoVO> indexNOME = FXCollections.observableArrayList(bo.findByNome(vo));
 					tableEquipamento.setItems(indexNOME);
 					break;
+				
+				case "RESPONSÁVEL":
+					FuncionarioVO Fvo = new FuncionarioVO();
+					Fvo.setNome(pesquisa.getText());
+					vo.setResponsavel(Fvo);
+					ObservableList<EquipamentoVO> indexRES = FXCollections.observableArrayList(bo.listByResponsavel(vo));
+					tableEquipamento.setItems(indexRES);
+					break;
+					
+				case "LOCAL":
+					LocalVO Lvo = new LocalVO();
+					Lvo.setCasa(pesquisa.getText());
+					Lvo.setCompartimento(pesquisa.getText());
+					vo.setLocal(Lvo);
+					ObservableList<EquipamentoVO> indexLOCAL = FXCollections.observableArrayList(bo.listByLocal(vo));
+					tableEquipamento.setItems(indexLOCAL);
+					break;
 					
 				case "FIND BY":
+					tableEquipamento.setItems(index);
+					break;
+					
+				default:
 					tableEquipamento.setItems(index);
 					break;
 			}
@@ -127,5 +155,9 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 	}
     public void abrirProdutoADD() {
         TelasSecudaria.load(telasSecNome.ProdutoADD);
+    }
+    public void abrirProdutoEDIT(EquipamentoVO vo) {
+    	TelasPrincipal.setEquipamento(vo);
+        TelasSecudaria.load(telasSecNome.ProdutoEdit);
     }
 }

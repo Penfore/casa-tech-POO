@@ -10,11 +10,12 @@ public enum telasSecNome {
 
     ProdutoADD("ProdutoADD"),
     ProdutoExcluir("ProdutoExcluir"),
-
+    ProdutoEdit("ProdutoEdit"),
     VendaADD("VendaADD"),
     VendaExcluir("VendaExcluir"),
     VendaFinalizar("VendaFinalizar"),
     Recibo("Recibo");
+	
 
     private final String telasSecNome;
 

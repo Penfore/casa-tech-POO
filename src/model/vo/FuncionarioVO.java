@@ -9,7 +9,11 @@ public class FuncionarioVO extends UsuarioVO // Visto que todo funcionÃ¡rio de
 	private String telefone;
 	private int cargo;
 	private UsuarioVO usuario;
-
+	
+	@Override
+    public String toString() {
+        return id + " - " + nome.toUpperCase() ;
+    }
 	
 	//ID
 	public int getId() {

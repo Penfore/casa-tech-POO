@@ -6,7 +6,10 @@ public class LocalVO
 	private String casa;
 	private String compartimento;
 	
-
+	@Override
+    public String toString() {
+        return id + " - " + " " + casa.toUpperCase()  + " "+ compartimento.toUpperCase() ;
+    }
 	
 	public int getId() 
 	{

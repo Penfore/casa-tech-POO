@@ -72,6 +72,10 @@
 -fx-background-color: C5FCE9;
 -fx-text-fill:black;
 -fx-alignment:center;
--fx-font-size: 20px
+-fx-font-size: 15px
 
+}
+.inputText{
+-fx-font-size: 15px
+-fx-text-fill:black;
 }
