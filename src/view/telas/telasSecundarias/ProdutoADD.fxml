@@ -54,14 +54,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="635.0" layoutY="486.0" mnemonicParsing="false" style="-fx-background-color: 0;">
-               <graphic>
-                  <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/B-Aplicar.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
+            <Button layoutX="635.0" layoutY="486.0" mnemonicParsing="false" onAction="#Add" style="-fx-background-color: 0;" />
             <Label layoutX="634.0" layoutY="245.0" text="QUANTIDADE" textFill="#757575">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
@@ -82,5 +75,14 @@
             <ComboBox fx:id="ProdutoResponsavelCB" layoutX="622.0" layoutY="385.0" prefHeight="37.0" prefWidth="393.0" />
          </children>
       </Pane>
+      <Button layoutX="644.0" layoutY="485.0" mnemonicParsing="false" onAction="#Add" style="-fx-background-color: 0;">
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/B-Aplicar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </Pane>

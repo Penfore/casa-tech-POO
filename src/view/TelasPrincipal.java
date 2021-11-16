@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.model.vo.EquipamentoVO;
 import src.model.vo.UsuarioVO;
+import src.model.vo.VendaVO;
 import src.view.telas.telasNome;
 
 public class TelasPrincipal extends Application{
@@ -14,6 +15,7 @@ public class TelasPrincipal extends Application{
     private static Stage pricipal;
     private static UsuarioVO user;
     private static EquipamentoVO equipamento;
+    private static VendaVO venda;
 
     public static Stage getPricipal() {
         return pricipal;
@@ -32,6 +34,13 @@ public class TelasPrincipal extends Application{
     }
     public static void setEquipamento(EquipamentoVO equipamento) {
         TelasPrincipal.equipamento = equipamento;
+    }
+    
+    public static VendaVO getVenda() {
+        return venda;
+    }
+    public static void setVenda(VendaVO venda) {
+        TelasPrincipal.venda = venda;
     }
 
 

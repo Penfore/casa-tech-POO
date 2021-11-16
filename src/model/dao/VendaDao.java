@@ -20,10 +20,10 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
-			ptst.setFloat(1, vo.getPrecoTotal());
+			ptst.setFloat(1, 0);
 			ptst.setDate(2, new Date(vo.getDataDeCompra().getTimeInMillis()));
-			ptst.setString(3, vo.getFormaDePagamento());
-			ptst.setString(3, vo.getStatus());
+			ptst.setString(3, "DINHEIRO");
+			ptst.setString(3, "ABERTO");
 			ptst.setInt(4, vo.getComprador().getId());
 
 			int affectedRows = ptst.executeUpdate();

@@ -1,7 +1,23 @@
 package src.controller.TelasSecudariaController;
 
-import src.controller.FecharTelaSec;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class VendaADDController extends FecharTelaSec{
+import javafx.fxml.Initializable;
+import src.controller.FecharTelaSec;
+import src.model.vo.VendaVO;
+import src.view.TelasPrincipal;
+
+public class VendaADDController extends FecharTelaSec implements Initializable {
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		VendaVO novaVenda = new VendaVO();
+		novaVenda = TelasPrincipal.getVenda();
+		if(novaVenda!=null) {
+			
+		}
+		
+	}
     
 }

@@ -96,8 +96,11 @@ public class EstoqueController extends TrocarTelas implements Initializable{
         	tableEquipamento.getSelectionModel().setCellSelectionEnabled(true);
         	
 			tableEquipamento.setOnMouseClicked((MouseEvent event) -> { 
-				 EquipamentoVO equip = tableEquipamento.getSelectionModel().getSelectedItem();
-				 this.abrirProdutoEDIT(equip);
+				EquipamentoVO equip = tableEquipamento.getSelectionModel().getSelectedItem();
+				 if (event.getClickCount() == 2 && equip!=null ) {
+					 this.abrirProdutoEDIT(equip);
+				 }
+
 			});
         } catch (Exception e) {
 			System.out.println(e.getMessage());

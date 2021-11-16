@@ -15,6 +15,7 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 
 	public void store(VendaVO vo) {
 		try {
+			vo.setDataDeCompra(Calendar.getInstance());
 			dao.store(vo);
 
 		} catch (SQLException e) {
