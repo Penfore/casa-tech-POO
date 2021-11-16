@@ -20,7 +20,7 @@
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="funcionarioLogin" layoutX="179.0" layoutY="66.0" prefHeight="37.0" prefWidth="846.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <TextField fx:id="funcionarioNome" layoutX="179.0" layoutY="66.0" prefHeight="37.0" prefWidth="846.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
             <TextField fx:id="funcionarioUsuario" layoutX="23.0" layoutY="203.0" prefHeight="37.0" prefWidth="416.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
             <Label layoutX="30.0" layoutY="167.0" text="USUARIO" textFill="#757575">
                <font>
