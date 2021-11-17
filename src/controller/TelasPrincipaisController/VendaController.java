@@ -127,20 +127,4 @@ public class VendaController extends TrocarTelas implements Initializable{
 			}
 		}
 	}
-
-    public void abrirClienteVendaADD() {
-        TelasSecudaria.load(telasSecNome.ClienteVendaADD);
-    }
-
-    public void abrirVendaADD() {
-        TelasSecudaria.load(telasSecNome.VendaADD);
-    }
-    public void abrirVendaExcluir() {
-        TelasSecudaria.load(telasSecNome.VendaExcluir);
-    }
-    public void abrirVendaFinalizar() {
-        TelasSecudaria.load(telasSecNome.VendaFinalizar);
-    }
-
-
 }

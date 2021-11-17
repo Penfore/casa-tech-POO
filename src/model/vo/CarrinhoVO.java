@@ -5,6 +5,7 @@ public class CarrinhoVO{
     private VendaVO venda;
     private EquipamentoVO produto;
     private int quantidade;
+    private Double value;
     
     
 	public VendaVO getVenda() {
@@ -13,10 +14,10 @@ public class CarrinhoVO{
 	
 	
 	public void setVenda(VendaVO venda) {
-		if(venda.getStatus().equals("Aberto")) {
+		if(venda!= null) {
 			this.venda = venda;
 		}else {
-			System.out.println("essa compra está encerrada!");
+			System.out.println("venda null");
 		}
 		
 	}
@@ -25,10 +26,10 @@ public class CarrinhoVO{
 	}
 	
 	public void setProduto(EquipamentoVO produto) {
-		if(produto.getQuantidade()>0) {
+		if(produto !=null) {
 			this.produto = produto;
 		}else {
-			System.out.println("Produto Sem estoque");
+			System.out.println("Produto null");
 		}
 		this.produto = produto;
 	}
@@ -45,6 +46,16 @@ public class CarrinhoVO{
 			
 		}
 		
+	}
+
+
+	public Double getValue() {
+		return value;
+	}
+
+
+	public void setValue(Double value) {
+		this.value = value;
 	}
 
 }

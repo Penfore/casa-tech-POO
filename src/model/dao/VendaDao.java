@@ -6,30 +6,40 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Calendar;
 
 import src.model.vo.VendaVO;
+import src.view.TelasPrincipal;
 
 
 public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaInterDao<VO>{
 
 	public void store(VendaVO vo) throws SQLException {
-		String sql = "Insert into Venda (precoTotal,dataDeCompra,status,cliente_id) values (?,?,?,?)";
-		PreparedStatement ptst = getConnection().prepareStatement(sql);
+		String sql = "Insert into Venda (precoTotal,dataDeCompra,status,formadepagamento,cliente_id) values (?,?,?,?,?)";
+		PreparedStatement ptst = getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 		try {
-
+			
 			ptst.setFloat(1, 0);
 			ptst.setDate(2, new Date(vo.getDataDeCompra().getTimeInMillis()));
-			ptst.setString(3, "DINHEIRO");
 			ptst.setString(3, "ABERTO");
-			ptst.setInt(4, vo.getComprador().getId());
-
+			ptst.setString(4, "DINHEIRO");
+			ptst.setInt(5, vo.getComprador().getId());
+			
 			int affectedRows = ptst.executeUpdate();
+			
 			if (affectedRows == 0) {
 				throw new SQLException(" A inserção falhou :( ");
 			}
+				ResultSet generatedKeys = ptst.getGeneratedKeys();
+				if (generatedKeys.next()) {
+					vo.setId(generatedKeys.getInt(1));
+				}
+				TelasPrincipal.setVenda(vo);
+				System.out.println("deu certo :)");
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,16 +66,15 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 
 	public void updateById(VendaVO vo) throws SQLException {
-		String sql = "UPDATE Venda SET (precoTotal,dataDeCompra,status,cliente_id) = (?,?,?,?) WHERE id =?";
+		String sql = "UPDATE Venda SET precoTotal = ?,status = ?,formadepagamento = ? "
+				+ "WHERE id = ?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 			ptst.setFloat(1, vo.getPrecoTotal());
-			ptst.setDate(2, new Date(vo.getDataDeCompra().getTimeInMillis()));
-			ptst.setString(3, vo.getStatus());
-			ptst.setString(3, vo.getFormaDePagamento());
-			ptst.setInt(4, vo.getComprador().getId());
-			ptst.setInt(5, vo.getId());
-			
+			ptst.setString(2, vo.getStatus());
+			ptst.setString(3, "CANCELADO");
+			ptst.setInt(4, vo.getId());
+			System.out.println(ptst);
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {

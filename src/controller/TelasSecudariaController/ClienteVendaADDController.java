@@ -32,9 +32,11 @@ public class ClienteVendaADDController extends FecharTelaSec implements Initiali
 	@FXML private TableColumn<ClienteVO, String> colNome;
 	@FXML private TableColumn<ClienteVO, String> colCPF;
 	@FXML private TableColumn<ClienteVO, String> colEndereco;
+	
 	ClienteVO vo = new ClienteVO();
 	ClienteBO Cbo = new ClienteBO();
 	VendaBO Vbo = new VendaBO();
+	VendaBO bo = new VendaBO();
 	ObservableList<ClienteVO> index = FXCollections.observableArrayList(Cbo.index());
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -46,14 +48,13 @@ public class ClienteVendaADDController extends FecharTelaSec implements Initiali
 
 			tableCliente.setItems(index);
 			
-			tableCliente.setItems(index);
 			tableCliente.setEditable(true);
 			tableCliente.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 			tableCliente.getSelectionModel().setCellSelectionEnabled(true);
         	
 			tableCliente.setOnMouseClicked((MouseEvent event) -> { 
-				 if (event.getClickCount() == 2 ) {
-					 if(tableCliente.getSelectionModel().getSelectedItem() != null) {				           
+				 if (event.getClickCount() == 1 ) {
+					 if(tableCliente.getSelectionModel().getSelectedItem() != null) {
 						 this.vo = tableCliente.getSelectionModel().getSelectedItem();
 					 }
 				 }
@@ -64,11 +65,12 @@ public class ClienteVendaADDController extends FecharTelaSec implements Initiali
 		}
 	}
 	public void Add(ActionEvent event) throws Exception {
-		VendaVO venda = new VendaVO();
-		venda.setComprador(vo);
-		
-		Vbo.updateById(venda);
-		TelasSecudaria.fechar();
-		TelasPrincipal.load(telasNome.NovaVenda);
-	}
+
+			VendaVO venda = new VendaVO();
+			venda.setComprador(this.vo);
+			
+			Vbo.store(venda);
+			TelasSecudaria.fechar();
+			TelasPrincipal.load(telasNome.NovaVenda);
+		}
 }

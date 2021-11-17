@@ -9,6 +9,7 @@ import java.util.List;
 import src.model.dao.VendaDao;
 import src.model.vo.ClienteVO;
 import src.model.vo.VendaVO;
+import src.view.TelasPrincipal;
 
 public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 	VendaDao<VendaVO> dao = new VendaDao<VendaVO>();
@@ -17,7 +18,6 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 		try {
 			vo.setDataDeCompra(Calendar.getInstance());
 			dao.store(vo);
-
 		} catch (SQLException e) {
 			System.out.println(e);
 		}

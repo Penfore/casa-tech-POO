@@ -80,7 +80,7 @@ public class EquipamentoBO implements BaseInterBO<EquipamentoVO>, EquipamentoInt
 				equiVO.setQuantidade(rs.getInt("quantidade"));
 				equiVO.setDescricao(rs.getString("descricao"));
 				equiVO.setPreco(rs.getDouble("preco"));
-				
+
 				equiVO.setLocal(local);
 				equiVO.setResponsavel(funVO);
 			}

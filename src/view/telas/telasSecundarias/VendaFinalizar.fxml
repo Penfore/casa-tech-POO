@@ -17,7 +17,7 @@
                      <children>
                         <Pane prefHeight="60.0" prefWidth="265.0" styleClass="input">
                            <children>
-                              <Label layoutX="64.0" layoutY="17.0" prefHeight="27.0" prefWidth="199.0" text="CLIENTE COMPRADOR">
+                              <Label fx:id="NomeCliente" layoutX="64.0" layoutY="17.0" prefHeight="27.0" prefWidth="199.0">
                                  <font>
                                     <Font name="SansSerif Bold" size="17.0" />
                                  </font>
@@ -39,7 +39,7 @@
                               <ComboBox fx:id="formaPagamentoComboBox" layoutX="1.0" layoutY="24.0" prefHeight="35.0" prefWidth="253.0" />
                            </children>
                         </Pane>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="132.0" style="-fx-background-color: 0;">
+                        <Button mnemonicParsing="false" onAction="#finalizar" prefHeight="22.0" prefWidth="132.0" style="-fx-background-color: 0;">
                            <graphic>
                               <ImageView fitHeight="48.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -69,7 +69,7 @@
                               <Font name="SansSerif Bold" size="23.0" />
                            </font>
                         </Label>
-                        <Label layoutX="838.0" layoutY="6.0" text="00,00">
+                        <Label fx:id="Total" layoutX="838.0" layoutY="6.0">
                            <font>
                               <Font name="SansSerif Bold" size="28.0" />
                            </font>
@@ -78,14 +78,15 @@
                   </Pane>
                </children>
             </Pane>
-            <TableView layoutX="42.0" layoutY="18.0" prefHeight="348.0" prefWidth="980.0" styleClass="table">
+            <TableView fx:id="tableCarrinho" layoutX="42.0" layoutY="18.0" prefHeight="348.0" prefWidth="980.0" styleClass="table">
                <columns>
-                  <TableColumn prefWidth="75.0" styleClass="table" text="ID" />
-                  <TableColumn prefWidth="401.6666564941406" styleClass="table" text="PRODUTO" />
-                  <TableColumn prefWidth="204.33334350585938" styleClass="table" text="QUANTIDADE" />
-                  <TableColumn prefWidth="183.66668701171875" styleClass="table" text="VALOR(UNI)" />
-                  <TableColumn prefWidth="113.0" styleClass="table" text="TOTAL" />
+                  <TableColumn fx:id="colProduto" prefWidth="401.6666564941406" styleClass="table" text="PRODUTO" />
+                  <TableColumn fx:id="colQtd" prefWidth="204.33334350585938" styleClass="table" text="QUANTIDADE" />
+                  <TableColumn fx:id="colValor" prefWidth="113.0" styleClass="table" text="TOTAL" />
                </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
       </Pane>

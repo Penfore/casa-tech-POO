@@ -19,6 +19,8 @@ public class CarrinhoDao<VO extends CarrinhoVO> extends BaseDao<VO> implements C
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
 				throw new SQLException(" A inserção falhou :( ");
+			}else {
+				System.out.println(" item add :)");
 			}
 		} catch (SQLException e) {
 
@@ -29,12 +31,13 @@ public class CarrinhoDao<VO extends CarrinhoVO> extends BaseDao<VO> implements C
 		String sql = "DELETE FROM Carrinho WHERE venda_id = ? AND equipamento_id = ? ";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
-
+			
 			ptst.setInt(1, vo.getVenda().getId());
 			ptst.setInt(2, vo.getProduto().getId());
+			System.out.println(ptst);
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
-				throw new SQLException(" A inserção falhou :( ");
+				throw new SQLException("O Delete falhou :( ");
 			}
 
 		} catch (SQLException e) {
@@ -95,16 +98,16 @@ public class CarrinhoDao<VO extends CarrinhoVO> extends BaseDao<VO> implements C
 	}
 	
 	public ResultSet listByVenda(VO vo) throws SQLException {
-		String sql = "SELECT * FROM Carrinho WHERE venda_id =?";
+		String sql = "SELECT carrinho.*, equipamento.nome as produto,equipamento.preco as "
+				+ "preco, equipamento.id as equiId FROM Carrinho "
+				+ "INNER JOIN Equipamento ON Equipamento.id = Carrinho.equipamento_id "
+				+ "WHERE venda_id = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
-			
 			ptst = getConnection().prepareStatement(sql);
 			ptst.setInt(1, vo.getVenda().getId());
-
-
 			rs = ptst.executeQuery();
 
 		} catch (SQLException e) {

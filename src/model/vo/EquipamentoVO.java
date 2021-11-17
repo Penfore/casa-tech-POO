@@ -10,7 +10,12 @@ public class EquipamentoVO {
 	private LocalVO local;
 	private FuncionarioVO responsavel;
 	private String descricao;
-
+	private int qtd_Carrinho;
+	
+    public String toString() {
+        return id + " - " + " " + nome.toUpperCase();
+    }
+    
 	public String getNome() {
 		return nome;
 	}
@@ -111,6 +116,14 @@ public class EquipamentoVO {
 
 		}
 
+	}
+
+	public int getQtd_Carrinho() {
+		return qtd_Carrinho;
+	}
+
+	public void setQtd_Carrinho(int qtd_Carrinho) {
+		this.qtd_Carrinho = qtd_Carrinho;
 	}
 
 }
