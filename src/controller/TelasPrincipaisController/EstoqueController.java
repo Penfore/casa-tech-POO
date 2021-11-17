@@ -106,6 +106,7 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 			System.out.println(e.getMessage());
 		}
     }
+
 	public void listBy(ActionEvent event) throws Exception {
 		EquipamentoVO vo  = new EquipamentoVO();
 		if(!pesquisa.getText().equals("") && pesquisa.getText() !=null) {
@@ -156,9 +157,11 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 			}
 		}
 	}
+
     public void abrirProdutoADD() {
         TelasSecudaria.load(telasSecNome.ProdutoADD);
     }
+	
     public void abrirProdutoEDIT(EquipamentoVO vo) {
     	TelasPrincipal.setEquipamento(vo);
         TelasSecudaria.load(telasSecNome.ProdutoEdit);

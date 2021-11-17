@@ -87,6 +87,7 @@ public class ClienteBO implements BaseInterBO<ClienteVO>, ClienteInterBO<Cliente
 				comprador.setNome(rs.getString("nome"));
 				comprador.setCpf(rs.getString("cpf"));
 				comprador.setEndereco(rs.getString("endereco"));
+				comprador.setEmail(rs.getString("email"));
 				clientes.add(comprador);
 			}
 			rs.close();

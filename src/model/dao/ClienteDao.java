@@ -21,7 +21,7 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
-				throw new SQLException(" A inserção falhou :( ");
+				throw new SQLException(" A update falhou :( ");
 			}
 			
 		} catch (SQLException e) {
@@ -38,7 +38,7 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 			
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
-				throw new SQLException(" A inserção falhou :( ");
+				throw new SQLException(" A inserï¿½ï¿½o falhou :( ");
 			}
 
 		} catch (SQLException e) {
@@ -61,7 +61,7 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
-				throw new SQLException(" A inserção falhou :( ");
+				throw new SQLException(" A inserï¿½ï¿½o falhou :( ");
 			}
 
 		} catch (SQLException e) {
