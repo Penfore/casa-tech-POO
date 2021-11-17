@@ -17,29 +17,16 @@ import src.model.vo.ClienteVO;
 
 public class RelatoriosClientesController extends TrocarTelas implements Initializable{
 	@FXML private Label qtdCliente;
-	
-	@FXML private TableView<ClienteVO> tableCliente;
-
-	@FXML private TableColumn<ClienteVO, Integer> colID;
-	@FXML private TableColumn<ClienteVO, String> colNome;
-	@FXML private TableColumn<ClienteVO, String> colCPF;
-	@FXML private TableColumn<ClienteVO, String> colEndereco;
-	
+		
 	ClienteBO bo = new ClienteBO();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<ClienteVO> index = FXCollections.observableArrayList(bo.index());
 		
-		try {
-
-			colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-			colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-			colCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-			colEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-			
+		try {	
 			qtdCliente.setText(bo.quantidadeClientes().toString());
-			tableCliente.setItems(index);
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

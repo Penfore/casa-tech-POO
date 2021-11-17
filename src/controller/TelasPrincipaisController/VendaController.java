@@ -27,7 +27,9 @@ import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
 import src.model.bo.VendaBO;
 import src.model.vo.ClienteVO;
+import src.model.vo.LocalVO;
 import src.model.vo.VendaVO;
+import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
@@ -99,6 +101,13 @@ public class VendaController extends TrocarTelas implements Initializable{
 				});
 
 			tableVenda.setItems(index);
+			
+			tableVenda.setOnMouseClicked((MouseEvent event) -> { 
+				VendaVO venda = tableVenda.getSelectionModel().getSelectedItem();
+				 if (event.getClickCount() == 2 && venda!=null ) {
+					 this.Recibo(venda);
+				 }
+			});
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -135,4 +144,8 @@ public class VendaController extends TrocarTelas implements Initializable{
 			}
 		}
 	}
+	public void Recibo(VendaVO vo) {
+		TelasPrincipal.setRecibo(vo);
+        TelasSecudaria.load(telasSecNome.Recibo);
+    }
 }

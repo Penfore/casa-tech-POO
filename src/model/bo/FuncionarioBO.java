@@ -157,21 +157,26 @@ public class FuncionarioBO
 		FuncionarioVO funvo = new FuncionarioVO();
 		try {
 			rs = fundao.autenticar(vo);
-			while (rs.next()) {
-				if (vo.getNickName().equals(rs.getString("nickname")) && vo.getSenha().equals(rs.getString("senha"))) {
-					funvo.setId(rs.getInt("id"));
-					funvo.setNome(rs.getString("nome"));
-					funvo.setEndereco(rs.getString("endereco"));
-					funvo.setEmail(rs.getString("email"));
-					funvo.setTelefone(rs.getString("telefone"));
-					funvo.setCargo(rs.getInt("cargo"));
-					funvo.setNickName(rs.getString("nickname"));
-					funvo.setSenha(rs.getString("senha"));
-				} else {
-					// RETURN ERRO
+			if(rs!=null) {
+				while (rs.next()) {
+					if (vo.getNickName().equals(rs.getString("nickname")) && vo.getSenha().equals(rs.getString("senha"))) {
+						funvo.setId(rs.getInt("id"));
+						funvo.setNome(rs.getString("nome"));
+						funvo.setEndereco(rs.getString("endereco"));
+						funvo.setEmail(rs.getString("email"));
+						funvo.setTelefone(rs.getString("telefone"));
+						funvo.setCargo(rs.getInt("cargo"));
+						funvo.setNickName(rs.getString("nickname"));
+						funvo.setSenha(rs.getString("senha"));
+					} else {
+						funvo = null;
+					}
+					rs.close();
 				}
+			}else {
+				funvo = null;
 			}
-			rs.close();
+			
 		} catch (SQLException e) {
 			System.out.println(e);
 		}

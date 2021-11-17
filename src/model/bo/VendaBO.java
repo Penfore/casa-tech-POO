@@ -85,9 +85,14 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 			rs = dao.index();
 			while (rs.next()) {
 				VendaVO venda = new VendaVO();
+				
 				ClienteVO comprador = new ClienteVO();
 				comprador.setNome(rs.getString("comprador"));
-
+				comprador.setEmail(rs.getString("email"));
+				comprador.setTelefone(rs.getString("telefone"));
+				comprador.setCpf(rs.getString("cpf"));
+				comprador.setEndereco(rs.getString("endereco"));
+				
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(rs.getDate("datadecompra"));
 
@@ -99,7 +104,6 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 				venda.setComprador(comprador);
 
 				vendas.add(venda);
-
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -251,7 +255,7 @@ public class VendaBO implements BaseInterBO<VendaVO>, VendaInterBO<VendaVO> {
 		try {
 			rs = dao.PagamentoMaisUsado();
 			while (rs.next()) {
-				pagamento = rs.getString("max");
+				pagamento = rs.getString("pagamento");
 			}
 		} catch (SQLException e) {
 			System.out.println(e);

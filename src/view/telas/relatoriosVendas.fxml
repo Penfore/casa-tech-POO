@@ -158,7 +158,7 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Capital" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="55.0" prefHeight="52.0" prefWidth="103.0" textFill="#5b5b5b">
+                  <Label fx:id="Capital" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="55.0" prefHeight="52.0" prefWidth="235.0" textFill="#5b5b5b">
                      <font>
                         <Font name="SansSerif Bold" size="35.0" />
                      </font>
@@ -172,9 +172,9 @@
                         <Font name="SansSerif Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Pagamento" alignment="CENTER" layoutX="55.0" layoutY="58.0" prefHeight="65.0" prefWidth="154.0" textFill="#5b5b5b">
+                  <Label fx:id="Pagamento" alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="65.0" prefWidth="257.0" textFill="#5b5b5b">
                      <font>
-                        <Font name="SansSerif Bold" size="27.0" />
+                        <Font name="SansSerif Bold" size="24.0" />
                      </font>
                   </Label>
                </children>

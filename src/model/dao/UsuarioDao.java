@@ -113,7 +113,7 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 			rs = ptst.executeQuery();
 			
 			if (!rs.isBeforeFirst() ) {    
-				throw new SQLException("login ou senha incorretos :( ");
+				rs = null;
 			}
 
 		} catch (SQLException e) {

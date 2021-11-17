@@ -20,6 +20,7 @@ public class TelasPrincipal extends Application{
     private static UsuarioVO user;
     private static EquipamentoVO equipamento;
     private static VendaVO venda;
+    private static VendaVO recibo;
     private static ClienteVO cliente;
     private static LocalVO local;
     private static FuncionarioVO funcionario;
@@ -54,6 +55,12 @@ public class TelasPrincipal extends Application{
     public static void setVenda(VendaVO venda) {
         TelasPrincipal.venda = venda;
     }
+    public static VendaVO getRecibo() {
+        return recibo;
+    }
+    public static void setRecibo(VendaVO recibo) {
+        TelasPrincipal.recibo = recibo;
+    }
     public static LocalVO getLocal() {
         return local;
     }
@@ -87,7 +94,7 @@ public class TelasPrincipal extends Application{
         setPricipal(pricipal);
 
         pricipal.setTitle("Casa Tech");
-        load(telasNome.venda); //Tela que irá aparecer quano programa iniciar
+        load(telasNome.login); //Tela que irá aparecer quano programa iniciar
         pricipal.show();
     }
 

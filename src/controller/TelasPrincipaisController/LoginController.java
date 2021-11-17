@@ -15,35 +15,32 @@ import src.view.telas.telasNome;
 import src.controller.TrocarTelas;
 
 public class LoginController extends TrocarTelas {
-	@FXML private TextField login;
-	@FXML private PasswordField senha;
-	
+	@FXML
+	private PasswordField senha;
+	@FXML
+	private TextField usu;
 	FuncionarioVO authfunvo = new FuncionarioVO();
-	
+
 	public void auth(ActionEvent event) throws Exception {
-		//Venda venda = new Venda();
+
 		FuncionarioBO bo = new FuncionarioBO();
 		FuncionarioVO funvo = new FuncionarioVO();
-		
-		//stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		
-		funvo.setNickName(login.getText());
-		funvo.setSenha(senha.getText());
-		
-	
-		this.authfunvo = bo.autenticar(funvo);
-		
-		if(authfunvo == null) {
-            login.setStyle(login.getStyle() + "-fx-border-color: #F40779;");
-            senha.setStyle(senha.getStyle() + "-fx-border-color: #F40779;");
-        } else {
-            TelasPrincipal.load(telasNome.venda);
-        }
 
-		//venda.switchSceneVenda(stage);
+		funvo.setNickName(usu.getText());
+		funvo.setSenha(senha.getText());
+
+		this.authfunvo = bo.autenticar(funvo);
+
+		if (authfunvo == null) {
+			usu.setStyle(usu.getStyle() + "-fx-border-color: #F40779;");
+			senha.setStyle(senha.getStyle() + "-fx-border-color: #F40779;");
+		} else {
+			TelasPrincipal.load(telasNome.venda);
+		}
 
 	}
+
 	public FuncionarioVO returnFuncionario(FuncionarioVO vo) {
-		return(vo); 
+		return (vo);
 	}
 }

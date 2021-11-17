@@ -19,21 +19,13 @@ import src.model.vo.FuncionarioVO;
 public class RelatoriosFuncionariosController extends TrocarTelas implements Initializable{
 	
 	@FXML private Label qtdFun;
-	
-	@FXML private TableView<FuncionarioVO> tableFun;
-	@FXML private TableColumn<FuncionarioVO, String> colNome;
-	@FXML private TableColumn<FuncionarioVO, Integer> colID;
+
 	
 	FuncionarioBO bo = new FuncionarioBO();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
-			ObservableList<FuncionarioVO> index = FXCollections.observableArrayList(bo.index());
-			colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-			colID.setCellValueFactory(new PropertyValueFactory<>("id"));
-			
-			tableFun.setItems(index);
 			qtdFun.setText(bo.quantidadeFuncionarios().toString());
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

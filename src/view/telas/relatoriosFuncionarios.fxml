@@ -117,7 +117,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="635.0" layoutY="131.0" prefHeight="111.0" prefWidth="275.0" styleClass="PanelWhite">
+      <Pane layoutX="635.0" layoutY="159.0" prefHeight="111.0" prefWidth="275.0" styleClass="PanelWhite">
          <children>
             <Label layoutX="12.0" layoutY="8.0" prefHeight="25.0" prefWidth="257.0" text="QUANTIDADE FUNCIONARIOS" textFill="#5b5b5b">
                <font>
@@ -131,11 +131,5 @@
             </Label>
          </children>
       </Pane>
-      <TableView fx:id="tableFun" layoutX="263.0" layoutY="249.0" prefHeight="458.0" prefWidth="1010.0" style="-fx-background-color: 0;">
-         <columns>
-            <TableColumn fx:id="colID" prefWidth="184.0" styleClass="table" text="ID" />
-            <TableColumn fx:id="colNome" prefWidth="825.0" styleClass="table" text="NOME" />
-         </columns>
-      </TableView>
    </children>
 </Pane>
