@@ -47,7 +47,7 @@ public class LocalDao<VO extends LocalVO> extends BaseDao<VO> implements LocalIn
 	}
 
 	public void updateById(VO vo) throws SQLException {
-		String sql = "UPDATE Local SET (casa,compartimento) = (?,?) WHERE id =?";
+		String sql = "UPDATE Local SET casa = ?,compartimento = ? WHERE id = ?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 

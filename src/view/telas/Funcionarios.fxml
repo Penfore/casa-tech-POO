@@ -112,7 +112,7 @@
                   <TableColumn fx:id="colEmail" prefWidth="186.3333740234375" styleClass="table" text="EMAIL" />
                   <TableColumn fx:id="colEndereco" prefWidth="150.0" styleClass="table" text="ENDEREÇO" />
                   <TableColumn fx:id="colTelefone" prefWidth="268.6666259765625" styleClass="table" text="TELEFONE" />
-                  <TableColumn prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
+                  <TableColumn fx:id="colOptions" prefWidth="186.3333740234375" styleClass="table" text="OPÇÕES" />
                </columns>
             </TableView>
          </children>

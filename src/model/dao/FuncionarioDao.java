@@ -57,8 +57,8 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 	}
 
 	public void updateById(FuncionarioVO vo) throws SQLException {
-
-		String sql = "UPDATE  Funcionario SET (nome,endereco,email,telefone,cargo,usuario_id) = (?,?,?,?,?,?) WHERE id =?";
+		super.updateById(vo);
+		String sql = "UPDATE  Funcionario SET nome = ?,endereco = ? ,email = ?,telefone = ?,cargo = ?  WHERE id =?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 			super.updateById(vo);
@@ -67,8 +67,7 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 			ptst.setString(3, vo.getEmail());
 			ptst.setString(4, vo.getTelefone());
 			ptst.setInt(5, vo.getCargo());
-			ptst.setInt(6, vo.getUsuid());
-			ptst.setInt(7, vo.getId());
+			ptst.setInt(6, vo.getId());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -82,7 +81,8 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 
 	public ResultSet index() throws SQLException {
 
-		String sql = "SELECT * FROM Funcionario";
+		String sql = "SELECT * FROM Funcionario Inner Join Usuario ON Funcionario.usuario_id = "
+				+ "Usuario.id";
 		Statement st;
 		ResultSet rs = null;
 

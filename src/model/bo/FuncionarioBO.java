@@ -65,7 +65,8 @@ public class FuncionarioBO
 		try {
 			rs = dao.index();
 			while (rs.next()) {
-
+				funVO.setNickName(rs.getString("nickName"));
+				funVO.setSenha(rs.getString("senha"));
 				funVO.setId(rs.getInt("id"));
 				funVO.setNome(rs.getString("nome"));
 				funVO.setEndereco(rs.getString("endereco"));
@@ -87,13 +88,15 @@ public class FuncionarioBO
 			rs = dao.index();
 			while (rs.next()) {
 				FuncionarioVO funVO = new FuncionarioVO();
-
+				funVO.setNickName(rs.getString("nickName"));
+				funVO.setSenha(rs.getString("senha"));
+				funVO.setUsuid(rs.getInt("usuario_id"));
 				funVO.setId(rs.getInt("id"));
 				funVO.setNome(rs.getString("nome"));
 				funVO.setEndereco(rs.getString("endereco"));
 				funVO.setEmail(rs.getString("email"));
 				funVO.setTelefone(rs.getString("telefone"));
-				funVO.setCargo(rs.getInt("telefone"));
+				funVO.setCargo(rs.getInt("cargo"));
 
 				funcionarios.add(funVO);
 			}

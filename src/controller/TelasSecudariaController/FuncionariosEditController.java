@@ -32,11 +32,11 @@ public class FuncionariosEditController extends FecharTelaSec implements Initial
         funcionarioVO = TelasPrincipal.getFuncionario();
 
         funcionarioNome.setText(funcionarioVO.getNome());   
-        //funcionarioUsuario.setText(funcionarioVO.getUsuario()); 
+        funcionarioUsuario.setText(funcionarioVO.getNickName()); 
         funcionarioSenha.setText(funcionarioVO.getSenha()); 
         funcionarioEndereco.setText(funcionarioVO.getEndereco()); 
         funcionarioEmail.setText(funcionarioVO.getEmail()); 
-        //funcionarioCargo.setText(funcionarioVO.getCargo()); 
+        funcionarioCargo.setText(String.valueOf(funcionarioVO.getCargo())); 
         funcionarioTelefone.setText(funcionarioVO.getTelefone()); 
     }
 
@@ -51,7 +51,7 @@ public class FuncionariosEditController extends FecharTelaSec implements Initial
         funEditVO.setEmail(funcionarioEmail.getText());
         funEditVO.setTelefone(funcionarioTelefone.getText());
         funEditVO.setCargo(Integer.parseInt(funcionarioCargo.getText()));
-
+        funEditVO.setUsuid(funcionarioVO.getUsuid());
         funcionarioBO.updateById(funEditVO);
 		TelasSecudaria.fechar();
 		TelasPrincipal.load(telasNome.funcionarios);

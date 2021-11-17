@@ -72,9 +72,9 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		try {
 			ptst.setFloat(1, vo.getPrecoTotal());
 			ptst.setString(2, vo.getStatus());
-			ptst.setString(3, "CANCELADO");
+			ptst.setString(3, vo.getFormaDePagamento());
 			ptst.setInt(4, vo.getId());
-			System.out.println(ptst);
+			System.out.println(vo.getFormaDePagamento());
 
 			int affectedRows = ptst.executeUpdate();
 			if (affectedRows == 0) {
@@ -160,7 +160,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 	}
 	
 	public ResultSet vendasFinalizadas() throws SQLException {
-		String sql = "SELECT COUNT(*) FROM Venda Where status = 'Finalizado'";
+		String sql = "SELECT COUNT(*) FROM Venda Where status = 'FINALIZADO'";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -175,7 +175,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		return rs;
 	}
 	public ResultSet vendasCanceladas() throws SQLException {
-		String sql = "SELECT COUNT(*) FROM Venda Where status = 'Cancelado'";
+		String sql = "SELECT COUNT(*) FROM Venda Where status = 'CANCELADO'";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
@@ -205,7 +205,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		return rs;
 	}
 	public ResultSet vendasDoMes() throws SQLException {
-		String sql = "Select COUNT(*) from venda Where status = 'Finalizado' AND dataDeCompra "
+		String sql = "Select COUNT(*) from venda Where status = 'FINALIZADO' AND dataDeCompra "
 				+    "BETWEEN ? AND ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
@@ -231,7 +231,7 @@ public class VendaDao<VO extends VendaVO> extends BaseDao<VO> implements VendaIn
 		return rs;
 	}
 	public ResultSet TotalPrecoVendido() throws SQLException {
-		String sql = "Select SUM(precoTotal) As capital from venda Where status = 'Finalizado'";
+		String sql = "Select SUM(precoTotal) As capital from venda Where status = 'FINALIZADO'";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 

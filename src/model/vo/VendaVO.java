@@ -85,13 +85,9 @@ public class VendaVO {
 
 	public void setFormaDePagamento(String formaDePagamento) {
 		if(formaDePagamento!=null && !formaDePagamento.equals("")) {
-			if(formaDePagamento.equals("Dinheiro") || formaDePagamento.equals("Cartao")) {
-				this.formaDePagamento = formaDePagamento;
-			}else {
-				//forma de pagamento invalida
-			}
+			this.formaDePagamento = formaDePagamento;
 		}else {
-			//forma de pagamento deve conter algo
+			System.out.println("Forma de pagamento vazia");
 		}
 		
 	}	

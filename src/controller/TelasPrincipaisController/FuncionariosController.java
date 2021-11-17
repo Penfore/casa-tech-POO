@@ -13,10 +13,12 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
 import src.model.bo.FuncionarioBO;
 import src.model.vo.FuncionarioVO;
 import src.model.vo.LocalVO;
+import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
@@ -67,6 +69,13 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 			});
 
 			tableFun.setItems(index);
+			
+			tableFun.setOnMouseClicked((MouseEvent event) -> { 
+				FuncionarioVO fun = tableFun.getSelectionModel().getSelectedItem();
+				 if (event.getClickCount() == 2 && fun!=null ) {
+					 this.abrirFunEDIT(fun);
+				 }
+			});
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -75,6 +84,10 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 	
     public void abrirFuncionariosADD() {
         TelasSecudaria.load(telasSecNome.FuncionariosADD);
+    }
+	public void abrirFunEDIT(FuncionarioVO vo) {
+    	TelasPrincipal.setFuncionario(vo);
+        TelasSecudaria.load(telasSecNome.FuncionariosEdit);
     }
 
 

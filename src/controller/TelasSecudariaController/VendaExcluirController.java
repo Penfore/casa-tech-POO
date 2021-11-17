@@ -12,6 +12,7 @@ public class VendaExcluirController extends FecharTelaSec{
 	public void excluir(ActionEvent event) throws Exception {
 		VendaBO bo = new VendaBO();
 		TelasPrincipal.getVenda().setStatus("CANCELADO");
+		TelasPrincipal.getVenda().setFormaDePagamento("--");
 		bo.updateById(TelasPrincipal.getVenda());
 		TelasPrincipal.setVenda(null);
 		TelasSecudaria.fechar();

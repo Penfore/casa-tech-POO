@@ -84,7 +84,6 @@ public class LocalController extends TrocarTelas implements Initializable {
 				 if (event.getClickCount() == 2 && local!=null ) {
 					 this.abrirLocalEDIT(local);
 				 }
-	
 			});
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -127,6 +126,6 @@ public class LocalController extends TrocarTelas implements Initializable {
 
 	public void abrirLocalEDIT(LocalVO vo) {
     	TelasPrincipal.setLocal(vo);
-        TelasSecudaria.load(telasSecNome.ClientesEdit);
+        TelasSecudaria.load(telasSecNome.LocalEdit);
     }
 }

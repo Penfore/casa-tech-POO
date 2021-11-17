@@ -20,19 +20,6 @@ public class FuncionariosADDController extends FecharTelaSec {
     @FXML private TextField funcionarioTelefone;
 
     public void novoFuncionario(ActionEvent e) {
-    
-        /*funcionarioVO.setNome(funcionarioNome.getText());
-
-        //USUARIOVO
-        novoUsu.setNickName(funcionarioUsuario.getText());
-        novoUsu.setSenha(funcionarioSenha.getText());
-        funcionarioVO.setUsuario_id(novoUsu);
-
-        funcionarioVO.setEndereco(funcionarioEndereco.getText());
-        funcionarioVO.setEmail(funcionarioEmail.getText());
-        funcionarioVO.setCargo((Integer.parseInt(funcionarioCargo.getText())));
-        funcionarioVO.setTelefone(funcionarioTelefone.getText());*/
-
         FuncionarioBO funcionarioBO = new FuncionarioBO();
         FuncionarioVO funcionarioVO = new FuncionarioVO();
 

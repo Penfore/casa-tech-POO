@@ -69,8 +69,10 @@ public class VendaFinalizarController extends FecharTelaSec implements Initializ
 		
 	}
 	public void finalizar(ActionEvent event) throws Exception {
-		TelasPrincipal.getVenda().setFormaDePagamento(formaPagamentoComboBox.getValue());
+		
+		TelasPrincipal.getVenda().setFormaDePagamento(formaPagamentoComboBox.getValue().toString());
 		TelasPrincipal.getVenda().setStatus("FINALIZADO");
+		System.out.println(TelasPrincipal.getVenda().getFormaDePagamento());
 		bo.updateById(TelasPrincipal.getVenda());
 		TelasPrincipal.setVenda(null);
 		TelasSecudaria.fechar();

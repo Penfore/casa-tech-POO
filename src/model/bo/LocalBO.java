@@ -33,9 +33,8 @@ public class LocalBO implements BaseInterBO<LocalVO>, LocalInterBO<LocalVO> {
 			if (rs.next()) {
 				dao.updateById(vo);
 			} else {
-				
+				System.out.println("local não encontrado");
 			}
-
 		} catch (SQLException e) {
 			System.out.println(e);
 		}

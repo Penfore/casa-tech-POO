@@ -33,7 +33,7 @@ public class FuncionarioVO extends UsuarioVO // Visto que todo funcionÃ¡rio de
 	public UsuarioVO getUsuario() {
 		return usuario;
 	}
-	public void setUsuario_id(UsuarioVO usuario) {
+	public void setUsuario(UsuarioVO usuario) {
 		if(usuario != null) {
 			this.usuario = usuario;
 		}else{

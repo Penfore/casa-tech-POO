@@ -49,14 +49,14 @@ public class UsuarioDao<VO extends UsuarioVO> extends BaseDao<VO> implements Usu
 
 	public void updateById(VO vo) throws SQLException {
 
-		String sql = "UPDATE  Usuario SET (nickName,senha) = (?,?) WHERE id =?";
+		String sql = "UPDATE  Usuario SET nickName = ? ,senha = ? WHERE id = ? ";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 
 			ptst.setString(1, vo.getNickName());
 			ptst.setString(2, vo.getSenha());
 			ptst.setInt(3, vo.getUsuid());
-
+			System.out.println(ptst);
 			ptst.execute();
 
 		} catch (SQLException e) {

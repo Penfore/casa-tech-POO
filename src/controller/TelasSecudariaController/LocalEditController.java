@@ -15,7 +15,7 @@ import src.view.TelasSecudaria;
 import src.view.telas.telasNome;
 
 public class LocalEditController extends FecharTelaSec implements Initializable{
-    @FXML private TextField LocalNome;
+    @FXML private TextField LocalCasa;
     @FXML private TextField LocalComp;    
 
     LocalBO localBO = new LocalBO();
@@ -26,16 +26,16 @@ public class LocalEditController extends FecharTelaSec implements Initializable{
 
         localVO = TelasPrincipal.getLocal();
 
-        LocalNome.setText(localVO.getCasa());
+        LocalCasa.setText(localVO.getCasa());
         LocalComp.setText(localVO.getCompartimento());
     }
 
     public void Edit(ActionEvent event) throws Exception{
         LocalVO locEditVO = new LocalVO();
 
-        locEditVO.setCasa(LocalNome.getText());
+        locEditVO.setCasa(LocalCasa.getText());
         locEditVO.setCompartimento(LocalComp.getText());        
-		
+		locEditVO.setId(TelasPrincipal.getLocal().getId());
         localBO.updateById(locEditVO);
 		TelasSecudaria.fechar();
 		TelasPrincipal.load(telasNome.local);

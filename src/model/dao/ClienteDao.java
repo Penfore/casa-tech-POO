@@ -48,7 +48,7 @@ public class ClienteDao<VO extends ClienteVO> extends BaseDao<VO> implements Cli
 
 	public void updateById(ClienteVO vo) throws SQLException {
 
-		String sql = "UPDATE Cliente SET (nome,endereco,email,telefone,cpf) = (?,?,?,?,?,) WHERE id =?";
+		String sql = "UPDATE Cliente SET nome = ?,endereco= ?,email= ?,telefone= ?,cpf= ? WHERE id =?";
 		PreparedStatement ptst = getConnection().prepareStatement(sql);
 		try {
 

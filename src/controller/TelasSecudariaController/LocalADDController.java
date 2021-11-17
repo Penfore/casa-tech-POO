@@ -10,14 +10,14 @@ import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasNome;
 public class LocalADDController extends FecharTelaSec {
-    @FXML private TextField LocalNome;
+    @FXML private TextField LocalCasa;
     @FXML private TextField LocalComp;    
 
     public void novoLocal(ActionEvent event){
 		LocalVO localVO = new LocalVO();
         LocalBO localBO = new LocalBO();
 
-        localVO.setCasa(LocalNome.getText());
+        localVO.setCasa(LocalCasa.getText());
         localVO.setCompartimento(LocalComp.getText());        
 		
 		localBO.store(localVO);

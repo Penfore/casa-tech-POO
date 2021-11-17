@@ -34,8 +34,6 @@ public class RelatoriosVendasController extends TrocarTelas implements Initializ
 
 			e.printStackTrace();
 		}
-
-		
 	}
     
 }
