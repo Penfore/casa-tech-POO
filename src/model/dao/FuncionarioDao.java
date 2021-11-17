@@ -98,14 +98,15 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 	}
 
 	public ResultSet show(FuncionarioVO vo) throws SQLException {
-		String sql = "SELECT * FROM Funcionario WHERE id =?";
+		String sql = "SELECT * FROM Funcionario  Inner JOIN Usuario ON "
+				+ "Usuario.id = Funcionario.usuario_id WHERE funcionario.id = ?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
 			ptst.setInt(1, vo.getId());
-
+			System.out.println(ptst);
 			rs = ptst.executeQuery();
 
 		} catch (SQLException e) {
@@ -114,14 +115,14 @@ public class FuncionarioDao extends UsuarioDao<FuncionarioVO> implements Funcion
 		return rs;
 	}
 	
-	public ResultSet findByEmail(FuncionarioVO vo) throws SQLException {
-		String sql = "SELECT * FROM Funcionario WHERE email =?";
+	public ResultSet findByNome(FuncionarioVO vo) throws SQLException {
+		String sql = "SELECT * FROM Funcionario WHERE nome =?";
 		PreparedStatement ptst;
 		ResultSet rs = null;
 
 		try {
 			ptst = getConnection().prepareStatement(sql);
-			ptst.setString(1, vo.getEmail());
+			ptst.setString(1, vo.getNome());
 
 			rs = ptst.executeQuery();
 

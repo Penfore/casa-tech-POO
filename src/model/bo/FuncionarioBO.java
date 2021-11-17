@@ -63,7 +63,7 @@ public class FuncionarioBO
 		ResultSet rs = null;
 		FuncionarioVO funVO = new FuncionarioVO();
 		try {
-			rs = dao.index();
+			rs = dao.show(vo);
 			while (rs.next()) {
 				funVO.setNickName(rs.getString("nickName"));
 				funVO.setSenha(rs.getString("senha"));
@@ -75,6 +75,7 @@ public class FuncionarioBO
 				funVO.setCargo(rs.getInt("telefone"));
 
 			}
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -106,11 +107,11 @@ public class FuncionarioBO
 		return funcionarios;
 	}
 
-	public List<FuncionarioVO> findByEmail(FuncionarioVO vo) {
+	public List<FuncionarioVO> findByNome(FuncionarioVO vo) {
 		ResultSet rs = null;
 		List<FuncionarioVO> funcionarios = new ArrayList<FuncionarioVO>();
 		try {
-			rs = fundao.findByEmail(vo);
+			rs = fundao.findByNome(vo);
 			while (rs.next()) {
 				FuncionarioVO funVO = new FuncionarioVO();
 

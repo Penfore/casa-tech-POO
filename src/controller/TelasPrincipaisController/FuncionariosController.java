@@ -6,13 +6,16 @@ import java.util.ResourceBundle;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
@@ -25,10 +28,12 @@ import src.view.telas.telasSecundarias.telasSecNome;
 
 public class FuncionariosController extends TrocarTelas implements Initializable{
 	@FXML private Label nomeUsu;
-	
+	@FXML private ComboBox<String> FunComboBox;	
+	@FXML private TextField pesquisa;
 	@FXML private TableView<FuncionarioVO> tableFun;
 
 	@FXML private TableColumn<FuncionarioVO, String> colNome;
+	@FXML private TableColumn<FuncionarioVO, Integer> colID;
 	@FXML private TableColumn<FuncionarioVO, String> colEmail;
 	@FXML private TableColumn<FuncionarioVO, String> colEndereco;
 	@FXML private TableColumn<FuncionarioVO, String> colTelefone;
@@ -39,8 +44,12 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		ObservableList<String> pesquisa = FXCollections.observableArrayList();
 		try {
+			pesquisa.addAll("FIND BY","ID","NOME");
+
+			FunComboBox.setItems(pesquisa);
+			colID.setCellValueFactory(new PropertyValueFactory<>("id"));
 			colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 			colEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
@@ -86,7 +95,29 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 		}
 
 	}
-	
+	public void listBy(ActionEvent event) throws Exception {
+		FuncionarioVO vo  = new FuncionarioVO();
+	if(!pesquisa.getText().equals("") && pesquisa.getText() !=null) {
+		
+		switch(FunComboBox.getValue()) {
+			case "ID":			
+				vo.setId(Integer.parseInt(pesquisa.getText()));
+				ObservableList<FuncionarioVO> indexID = FXCollections.observableArrayList(bo.show(vo));
+				tableFun.setItems(indexID);
+				break;
+			
+			case "NOME":
+				vo.setNome(pesquisa.getText());
+				ObservableList<FuncionarioVO> indexCPF = FXCollections.observableArrayList(bo.findByNome(vo));
+				tableFun.setItems(indexCPF);
+				break;
+				
+			case "FIND BY":
+				tableFun.setItems(index);
+				break;
+		}
+	}
+}
     public void abrirFuncionariosADD() {
         TelasSecudaria.load(telasSecNome.FuncionariosADD);
     }

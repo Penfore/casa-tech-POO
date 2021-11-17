@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface FuncionarioInterBO<VO> {
-	public List<VO> findByEmail(VO entity) throws SQLException;
+	public List<VO> findByNome(VO entity) throws SQLException;
 	public List<VO> listByCargo(VO entity) throws SQLException;
 	public Integer quantidadeFuncionarios() throws SQLException;
 }
