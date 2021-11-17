@@ -11,7 +11,7 @@
    <children>
       <Pane layoutX="1.0" prefHeight="721.0" prefWidth="250.0" style="-fx-background-color: fff;" styleClass="MenuLateral" stylesheets="@ButtonFade.css">
          <children>
-            <Label layoutX="32.0" layoutY="296.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+            <Label fx:id="nomeUsu" layoutX="32.0" layoutY="296.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
@@ -30,6 +30,11 @@
                   <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
+            <Button fx:id="deslogar" layoutX="87.0" layoutY="664.0" mnemonicParsing="false" onAction="#deslogar" style="-fx-background-color: 0;" text="SAIR" textFill="#403c3c">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane prefHeight="126.0" prefWidth="1282.0">
@@ -104,14 +109,14 @@
       </Pane>
       <Pane layoutX="251.0" layoutY="119.0" prefHeight="602.0" prefWidth="1030.0">
          <children>
-            <TableView fx:id="tableCliente" layoutX="4.0" layoutY="66.0" prefHeight="517.0" prefWidth="1020.0" style="-fx-background-color: 0;" styleClass="table">
+            <TableView fx:id="tableCliente" layoutX="4.0" layoutY="66.0" prefHeight="517.0" prefWidth="1010.0" style="-fx-background-color: 0;" styleClass="table">
               <columns>
                 <TableColumn fx:id="colID" prefWidth="69.33331298828125" styleClass="table" text="ID" />
                 <TableColumn fx:id="colCPF" prefWidth="143.0" styleClass="table" text="CPF" />
                   <TableColumn fx:id="colNome" prefWidth="214.33331298828125" styleClass="table" text="NOME" />
                   <TableColumn fx:id="colEndereco" prefWidth="231.66668701171875" styleClass="table" text="ENDEREÇO" />
                   <TableColumn fx:id="colEmail" prefWidth="216.0" styleClass="table" text="EMAIL" />
-                  <TableColumn fx:id="colOptions" prefWidth="143.0" styleClass="table" text="OPÇÕES" />
+                  <TableColumn fx:id="colOptions" prefWidth="133.0" styleClass="table" text="OPÇÕES" />
               </columns>
             </TableView>
             <TextField fx:id="pesquisa" layoutX="147.0" layoutY="21.0" prefHeight="30.0" prefWidth="869.0" styleClass="input" />

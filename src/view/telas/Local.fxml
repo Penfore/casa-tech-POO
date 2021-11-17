@@ -86,7 +86,7 @@
                   <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
-            <Label layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+            <Label fx:id="nomeUsu" layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
@@ -99,6 +99,11 @@
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="deslogar" layoutX="81.0" layoutY="658.0" mnemonicParsing="false" onAction="#deslogar" style="-fx-background-color: 0;" text="SAIR" textFill="#403c3c">
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
          </children>
       </Pane>

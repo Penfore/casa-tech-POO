@@ -33,6 +33,8 @@ public class VendaProdutosController extends TrocarTelas implements Initializabl
 	@FXML
 	private Label Total;
 
+	@FXML private Label nomeUsu;
+
 	@FXML
 	private TableView<CarrinhoVO> tableCarrinho;
 	@FXML
@@ -69,10 +71,12 @@ public class VendaProdutosController extends TrocarTelas implements Initializabl
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 				);
 			colOptions.setCellFactory(param -> new TableCell<CarrinhoVO, CarrinhoVO>() {
-			    private final Button deleteButton = new Button("excluir");
+			    private final Button deleteButton = new Button("Excluir");
 
 			    @Override
 			    protected void updateItem(CarrinhoVO vo, boolean empty) {
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-background-color: #F40779;");
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-text-fill: #FFFFFF;");
 			        super.updateItem(vo, empty);
 			        if (vo == null) {
 			            setGraphic(null);

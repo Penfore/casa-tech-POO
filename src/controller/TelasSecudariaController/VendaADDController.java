@@ -65,17 +65,20 @@ public class VendaADDController extends FecharTelaSec implements Initializable{
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 			);
 			colOptions.setCellFactory(param -> new TableCell<EquipamentoVO, EquipamentoVO>() {
-			    private final Button deleteButton = new Button("adicionar");
+			    private final Button adicionarButton = new Button("Adicionar");
 			    
 			    @Override
 			    protected void updateItem(EquipamentoVO vo, boolean empty) {
+
+					adicionarButton.setStyle(adicionarButton.getStyle() + "-fx-background-color: #07F49E;");
+					adicionarButton.setStyle(adicionarButton.getStyle() + "-fx-text-fill: #FFFFFF;");
 			        super.updateItem(vo, empty);
 			        if (vo == null) {
 			            setGraphic(null);
 			            return;
 			        }
-			        setGraphic(deleteButton);
-			        deleteButton.setOnAction(
+			        setGraphic(adicionarButton);
+			        adicionarButton.setOnAction(
 			            event -> {
 			            	System.out.println(vo.getQtd_Carrinho());
 			            	addProdutoOnCarrinho(vo,TelasPrincipal.getVenda());

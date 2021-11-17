@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -33,6 +34,8 @@ import src.view.telas.telasSecundarias.telasSecNome;
 public class VendaController extends TrocarTelas implements Initializable{ 
 	@FXML private ComboBox<String> vendasComboBox;
 	@FXML private TextField pesquisa;
+
+	@FXML private Label nomeUsu;
 	
 	@FXML private TableView<VendaVO> tableVenda;
 	
@@ -42,6 +45,8 @@ public class VendaController extends TrocarTelas implements Initializable{
 	@FXML private TableColumn<VendaVO, Float> colTotal;
 	@FXML private TableColumn<VendaVO, String> colCliente;
 	@FXML TableColumn<VendaVO, VendaVO> colOptions;
+
+
 	
 	VendaBO bo = new VendaBO();
 	ObservableList<VendaVO> index = FXCollections.observableArrayList(bo.index());
@@ -70,10 +75,13 @@ public class VendaController extends TrocarTelas implements Initializable{
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 				);
 			colOptions.setCellFactory(param -> new TableCell<VendaVO, VendaVO>() {
-				    private final Button deleteButton = new Button("excluir");
+				    private final Button deleteButton = new Button("Excluir");
 
 				    @Override
 				    protected void updateItem(VendaVO vo, boolean empty) {
+											
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-background-color: #F40779;");
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-text-fill: #FFFFFF;");
 				        super.updateItem(vo, empty);
 				        if (vo == null) {
 				            setGraphic(null);

@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -21,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
 import src.model.bo.ClienteBO;
+import src.model.bo.FuncionarioBO;
 import src.model.vo.ClienteVO;
 import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
@@ -29,6 +31,8 @@ import src.view.telas.telasSecundarias.telasSecNome;
 public class ClientesController extends TrocarTelas implements Initializable {
 	@FXML private ComboBox<String> clientesComboBox;
 	@FXML private TextField pesquisa;
+	
+	@FXML private Label nomeUsu;
 
 	@FXML private TableView<ClienteVO> tableCliente;
 
@@ -51,10 +55,8 @@ public class ClientesController extends TrocarTelas implements Initializable {
 		ObservableList<String> pesquisa = FXCollections.observableArrayList();
 
 		try {
-			pesquisa.addAll("FIND BY", "ID", "CPF", "NOME");
-			
-			clientesComboBox.setItems(pesquisa);
-			
+			pesquisa.addAll("FIND BY", "ID", "CPF", "NOME");			
+			clientesComboBox.setItems(pesquisa);			
 
 			colID.setCellValueFactory(new PropertyValueFactory<>("id"));
 			colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -66,10 +68,13 @@ public class ClientesController extends TrocarTelas implements Initializable {
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 				);
 			colOptions.setCellFactory(param -> new TableCell<ClienteVO, ClienteVO>() {
-			    private final Button deleteButton = new Button("excluir");
+			    private final Button deleteButton = new Button("Excluir");
 
 			    @Override
-			    protected void updateItem(ClienteVO vo, boolean empty) {
+			    protected void updateItem(ClienteVO vo, boolean empty) {					
+					
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-background-color: #F40779;");
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-text-fill: #FFFFFF;");
 			        super.updateItem(vo, empty);
 			        if (vo == null) {
 			            setGraphic(null);

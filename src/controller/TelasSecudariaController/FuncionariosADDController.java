@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import src.controller.FecharTelaSec;
 import src.model.bo.FuncionarioBO;
 import src.model.vo.FuncionarioVO;
+import src.model.vo.UsuarioVO;
 import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasNome;
@@ -22,9 +23,13 @@ public class FuncionariosADDController extends FecharTelaSec {
     public void novoFuncionario(ActionEvent e) {
         FuncionarioBO funcionarioBO = new FuncionarioBO();
         FuncionarioVO funcionarioVO = new FuncionarioVO();
+        UsuarioVO novoUsu = new UsuarioVO(){         
 
-        funcionarioVO.setNickName(funcionarioUsuario.getText());
-        funcionarioVO.setSenha(funcionarioSenha.getText());
+        };
+        novoUsu.setNickName(funcionarioUsuario.getText());
+        novoUsu.setSenha(funcionarioSenha.getText());
+
+        funcionarioVO.setUsuario(novoUsu);
         funcionarioVO.setNome(funcionarioNome.getText());
         funcionarioVO.setEndereco(funcionarioEndereco.getText());
         funcionarioVO.setEmail(funcionarioEmail.getText());

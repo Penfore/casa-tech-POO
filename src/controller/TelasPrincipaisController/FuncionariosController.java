@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,6 +24,7 @@ import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
 public class FuncionariosController extends TrocarTelas implements Initializable{
+	@FXML private Label nomeUsu;
 	
 	@FXML private TableView<FuncionarioVO> tableFun;
 
@@ -48,10 +50,13 @@ public class FuncionariosController extends TrocarTelas implements Initializable
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 				);
 			colOptions.setCellFactory(param -> new TableCell<FuncionarioVO, FuncionarioVO>() {
-			    private final Button deleteButton = new Button("excluir");
+			    private final Button deleteButton = new Button("Excluir");
 
 			    @Override
 			    protected void updateItem(FuncionarioVO vo, boolean empty) {
+					
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-background-color: #F40779;");
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-text-fill: #FFFFFF;");
 			        super.updateItem(vo, empty);
 			        if (vo == null) {
 			            setGraphic(null);

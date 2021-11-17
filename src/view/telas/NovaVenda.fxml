@@ -109,7 +109,7 @@
                   <Image url="@images/IconResponsavel.png" />
                </image>
             </ImageView>
-            <Label layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+            <Label fx:id="nomeUsu" layoutX="24.0" layoutY="303.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>

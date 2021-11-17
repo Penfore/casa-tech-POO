@@ -110,6 +110,11 @@
                   </Button>
                </children>
             </VBox>
+            <Button fx:id="deslogar" layoutX="91.0" layoutY="662.0" mnemonicParsing="false" onAction="#deslogar" style="-fx-background-color: 0;" text="SAIR" textFill="#403c3c">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <Pane layoutX="635.0" layoutY="131.0" prefHeight="111.0" prefWidth="275.0" styleClass="PanelWhite">

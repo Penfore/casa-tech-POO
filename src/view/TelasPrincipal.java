@@ -87,7 +87,7 @@ public class TelasPrincipal extends Application{
         setPricipal(pricipal);
 
         pricipal.setTitle("Casa Tech");
-        load(telasNome.login); //Tela que irá aparecer quano programa iniciar
+        load(telasNome.venda); //Tela que irá aparecer quano programa iniciar
         pricipal.show();
     }
 

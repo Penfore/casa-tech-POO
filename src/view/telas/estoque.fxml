@@ -90,11 +90,16 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label layoutX="34.0" layoutY="318.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
+            <Label fx:id="nomeUsu" layoutX="34.0" layoutY="318.0" prefHeight="27.0" prefWidth="202.0" text="NOME USUARIO" textFill="#4d4d4d">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
+            <Button fx:id="deslogar" layoutX="88.0" layoutY="651.0" mnemonicParsing="false" onAction="#deslogar" style="-fx-background-color: 0;" text="SAIR" textFill="#403c3c">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="56.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">

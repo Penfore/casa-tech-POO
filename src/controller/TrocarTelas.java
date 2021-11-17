@@ -49,6 +49,6 @@ public class TrocarTelas {
     }
 
     public void deslogar() {
-        TelasPrincipal.load(telasNome.relatorios);
+        TelasPrincipal.load(telasNome.login);
     }
 }

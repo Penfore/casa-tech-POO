@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -35,6 +36,8 @@ public class EstoqueController extends TrocarTelas implements Initializable{
     @FXML private ComboBox<String> estoqueComboBox;
 	@FXML private TextField pesquisa;
 	@FXML private TableView<EquipamentoVO> tableEquipamento;	
+
+	@FXML private Label nomeUsu;
 
 	@FXML private TableColumn<EquipamentoVO, String> colNome;	
 	@FXML private TableColumn<EquipamentoVO, String> colDesc;	
@@ -71,16 +74,20 @@ public class EstoqueController extends TrocarTelas implements Initializable{
 				    param -> new ReadOnlyObjectWrapper<>(param.getValue())
 				);
 			colOptions.setCellFactory(param -> new TableCell<EquipamentoVO, EquipamentoVO>() {
-			    private final Button deleteButton = new Button("excluir");
+			    private final Button deleteButton = new Button("Excluir");
 
 			    @Override
 			    protected void updateItem(EquipamentoVO vo, boolean empty) {
+					
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-background-color: #F40779;");
+					deleteButton.setStyle(deleteButton.getStyle() + "-fx-text-fill: #FFFFFF;");
+
 			        super.updateItem(vo, empty);
 			        if (vo == null) {
 			            setGraphic(null);
 			            return;
 			        }
-			        setGraphic(deleteButton);
+			        setGraphic(deleteButton);					
 			        deleteButton.setOnAction(
 			            event -> {
 			            	bo.removeById(vo);
