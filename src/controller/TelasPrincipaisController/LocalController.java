@@ -16,10 +16,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import src.controller.TrocarTelas;
 import src.model.bo.LocalBO;
 import src.model.vo.EquipamentoVO;
 import src.model.vo.LocalVO;
+import src.view.TelasPrincipal;
 import src.view.TelasSecudaria;
 import src.view.telas.telasSecundarias.telasSecNome;
 
@@ -76,6 +78,14 @@ public class LocalController extends TrocarTelas implements Initializable {
 			});
 
 			tableLocal.setItems(index);
+
+			tableLocal.setOnMouseClicked((MouseEvent event) -> { 
+				LocalVO local = tableLocal.getSelectionModel().getSelectedItem();
+				 if (event.getClickCount() == 2 && local!=null ) {
+					 this.abrirLocalEDIT(local);
+				 }
+	
+			});
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -114,4 +124,9 @@ public class LocalController extends TrocarTelas implements Initializable {
 	public void abrirLocalADD() {
 		TelasSecudaria.load(telasSecNome.LocalADD);
 	}
+
+	public void abrirLocalEDIT(LocalVO vo) {
+    	TelasPrincipal.setLocal(vo);
+        TelasSecudaria.load(telasSecNome.ClientesEdit);
+    }
 }

@@ -27,6 +27,15 @@
                </font>
             </Label>
             <TextField fx:id="login" layoutX="305.0" layoutY="54.0" prefHeight="36.0" prefWidth="568.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10;" />
+            <Button fx:id="pesquisarBut" layoutX="814.0" layoutY="56.0" mnemonicParsing="false" onAction="#listBy" prefHeight="33.0" prefWidth="59.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/B-Pesquisa.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Button layoutX="93.0" layoutY="469.0" mnemonicParsing="false" onAction="#Add" prefHeight="55.0" prefWidth="170.0" style="-fx-background-color: 0;">

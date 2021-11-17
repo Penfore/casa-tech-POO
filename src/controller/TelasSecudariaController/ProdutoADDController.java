@@ -45,6 +45,7 @@ public class ProdutoADDController extends FecharTelaSec {
    
 	public void Add(ActionEvent event) throws Exception {
 		EquipamentoVO voEdit = new EquipamentoVO();
+        
 		voEdit.setNome(ProdutoNome.getText());
 		voEdit.setCodigo(ProdutoCod.getText());
 		voEdit.setDescricao(ProdutoDescricao.getText());

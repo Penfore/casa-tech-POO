@@ -161,16 +161,16 @@
             <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
          </padding>
       </HBox>
-      <TableView layoutX="264.0" layoutY="271.0" prefHeight="447.0" prefWidth="1004.0" style="-fx-background-color: 0;">
+      <TableView fx:id="tableEquipamento" layoutX="264.0" layoutY="271.0" prefHeight="447.0" prefWidth="1004.0" style="-fx-background-color: 0;">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn prefWidth="120.0" styleClass="table" text="ID" />
-            <TableColumn prefWidth="300.0" styleClass="table" text="NOME" />
-            <TableColumn prefWidth="150.0" styleClass="table" text="QUANT." />
-            <TableColumn prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
-            <TableColumn prefWidth="186.3333740234375" styleClass="table" text="QUANTIDADE DE VENDAS" />
+            <TableColumn fx:id="colID" prefWidth="120.0" styleClass="table" text="ID" />
+            <TableColumn fx:id="colNome" prefWidth="300.0" styleClass="table" text="NOME" />
+            <TableColumn fx:id="colQtd" prefWidth="150.0" styleClass="table" text="QUANT." />
+            <TableColumn fx:id="colValor" prefWidth="268.6666259765625" styleClass="table" text="VALOR(uni)" />
+            <TableColumn fx:id="colQtdVendida" prefWidth="186.3333740234375" styleClass="table" text="QUANTIDADE DE VENDAS" />
          </columns>
       </TableView>
    </children>

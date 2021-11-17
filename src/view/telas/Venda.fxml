@@ -130,7 +130,14 @@
             </TableView>
             <TextField fx:id="pesquisa" layoutX="147.0" layoutY="21.0" prefHeight="30.0" prefWidth="869.0" styleClass="input" />
             <ComboBox fx:id="vendasComboBox" layoutX="23.0" layoutY="19.0" prefHeight="33.0" prefWidth="118.0" promptText="FIND BY" style="-fx-background-color: 0;" />
-            <Button fx:id="pesquisarBut" layoutX="924.0" layoutY="20.0" mnemonicParsing="false" onAction="#listBy" prefHeight="33.0" prefWidth="93.0" style="-fx-background-color: 0;" text="PESQUISAR" />
+            <Button fx:id="pesquisarBut" layoutX="958.0" layoutY="20.0" mnemonicParsing="false" onAction="#listBy" prefHeight="33.0" prefWidth="59.0" style="-fx-background-color: 0;">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/B-Pesquisa.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </Pane>
    </children>
